@@ -124,7 +124,6 @@
                 }, 100)
             }
             const deleteText = () => {
-                console.log('我在这里')
                 textSpan = state.description;
                 console.log(textSpan)
                 let i = textSpan.length - 1;
