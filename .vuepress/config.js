@@ -137,9 +137,16 @@ module.exports = {
         ["@vuepress-reco/vuepress-plugin-bgm-player", {
             audios: audioList,
             autoplay: false,
-            position:{ left: '20px', bottom: '30px', 'z-index': '999999'}
+            position: {left: '20px', bottom: '30px', 'z-index': '999999'}
         }],
-        ['ribbon'],
+        // ['ribbon'],
+        [
+            "sakura", {
+            num: 20,
+            show: true,
+            zIndex: 99
+        }
+        ],
         [
             'dynamic-title',
             {
