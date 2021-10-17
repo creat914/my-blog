@@ -18,9 +18,9 @@
             class="popup-window"
             :style="popupWindowStyle"
             ref="popupWindow">
-            <div class="logo">
-              <img :src="getImgUrl(item)" />
-            </div>
+<!--            <div class="logo">-->
+<!--              <img :src="getImgUrl(item)" />-->
+<!--            </div>-->
             <div class="info">
               <div class="title">
                 <h4>{{ item.title }}</h4>

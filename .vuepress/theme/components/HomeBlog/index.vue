@@ -99,7 +99,6 @@
             const recoShowModule = computed(() => instance && instance.$parent.recoShowModule)
             let textList = [
                 "喜欢二次元",
-                "喜欢小萝莉",
                 "拥抱今天，期待明天"
             ];
             let timer = null
@@ -125,9 +124,7 @@
             }
             const deleteText = () => {
                 textSpan = state.description;
-                console.log(textSpan)
                 let i = textSpan.length - 1;
-                console.log(textSpan,i)
                 timer = setInterval(() => {
                     if (i === 0) {
                         clearInterval(timer)

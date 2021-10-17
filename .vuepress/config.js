@@ -2,14 +2,14 @@ const audioList = require("./config/audio");
 module.exports = {
     "title": "林深见鹿",
     "description": "",
-    "dest": "dist",
+    "dest": "docs",
     "base": '/my-blog/',
     "head": [
         [
             "link",
             {
                 "rel": "icon",
-                "href": "/favicon.ico"
+                "href": "/my-blog/favicon.ico"
             }
         ],
         [
@@ -79,14 +79,26 @@ module.exports = {
             //   ]
             // }
         ],
-        // "sidebar": {
-        //     "/docs/theme-reco/": [
-        //         "",
-        //         "theme",
-        //         "plugin",
-        //         "api"
-        //     ]
-        // },
+        "sidebar": {
+            "/blogs/javascript/": [
+                "utils",
+                "DataStructure",
+                "knowledge",
+                "es6",
+                "package.json",
+                "VueRouter",
+                "window",
+                "arrayOption"
+            ],
+            "/blogs/typescript/":[
+                "",
+                "heightUse",
+                "tsMore"
+            ],
+            "/blogs/utils/":[
+                "npmPage"
+            ]
+        },
         "type": "blog",
         "blogConfig": {
             "category": {
@@ -116,7 +128,7 @@ module.exports = {
         "logo": "/avatar.jpeg",
         "search": true,
         "searchMaxSuggestions": 10,
-        "lastUpdated": "Last Updated",
+        "lastUpdated": "上次更新时间",
         "author": "司",
         "authorAvatar": "/avatar.jpg",
         "startYear": "2021",
