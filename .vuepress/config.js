@@ -2,8 +2,8 @@ const audioList = require("./config/audio");
 module.exports = {
     "title": "林深见鹿",
     "description": "",
-    "dest": "public",
-    "base": '/my-blog',
+    "dest": "dist",
+    "base": '/my-blog/',
     "head": [
         [
             "link",
