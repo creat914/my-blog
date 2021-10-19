@@ -57,6 +57,11 @@ module.exports = {
                 "link": "/timeline/",
                 "icon": "reco-date"
             },
+            {
+                "text": "在线编辑",
+                "link": "/Units/",
+                "icon": "reco-date"
+            },
             // {
             //   "text": "Docs",
             //   "icon": "reco-message",
@@ -90,12 +95,12 @@ module.exports = {
                 "window",
                 "arrayOption"
             ],
-            "/blogs/typescript/":[
+            "/blogs/typescript/": [
                 "",
                 "heightUse",
                 "tsMore"
             ],
-            "/blogs/utils/":[
+            "/blogs/utils/": [
                 "npmPage"
             ]
         },
@@ -134,6 +139,10 @@ module.exports = {
         "startYear": "2021",
     },
     plugins: [
+        ["run", {
+            jsLabs: ['https://unpkg.com/element-ui/lib/index.js'],
+            cssLabs: ['https://unpkg.com/element-ui/lib/theme-chalk/index.css'],
+        }],
         ["@vuepress-reco/vuepress-plugin-kan-ban-niang", {
             theme: ['z16'],
             messages: {
@@ -149,15 +158,15 @@ module.exports = {
         ["@vuepress-reco/vuepress-plugin-bgm-player", {
             audios: audioList,
             autoplay: false,
-            position: {left: '20px', bottom: '30px', 'z-index': '999999'}
+            position: { left: '20px', bottom: '30px', 'z-index': '999999' }
         }],
         // ['ribbon'],
         [
             "sakura", {
-            num: 20,
-            show: true,
-            zIndex: 99
-        }
+                num: 20,
+                show: true,
+                zIndex: 99
+            }
         ],
         [
             'dynamic-title',
