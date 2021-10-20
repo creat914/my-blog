@@ -1,8 +1,13 @@
+---
+title: TypeScript面试题汇总
+sidebar: 'auto'
+tags:
+ - 面试题
+categories: 
+ - work
+---
 # 「面试题」TypeScript
 
-## ts基础知识复习
-
-[juejin.cn/post/684490…](https://juejin.cn/post/6844903981227966471#heading-79)
 
 ## 😊 ts中的访问修饰符
 
@@ -32,7 +37,7 @@ function getGeraltMessage(arg: {[key: string]: string}): string {
   return arg.Geralt
 }
 getGeraltMessage(Witcher) // Geralt of Rivia
-复制代码
+
 // const枚举
 const enum Witcher {
   Ciri = 'Queen',
@@ -41,7 +46,7 @@ const enum Witcher {
 const witchers: Witcher[] = [Witcher.Ciri, Witcher.Geralt]
 // 编译后
 // const witchers = ['Queen', 'Geralt of Rivia'
-复制代码
+
 ```
 
 ## 😊 ts中interface可以给Function/Array/Class做声明吗？
@@ -56,7 +61,7 @@ mySearch = function(source: string, subString: string) {
   let result = source.search(subString);
   return result > -1;
 }
-复制代码
+
 // Array
 interface StringArray {
   [index: number]: string;
@@ -64,7 +69,7 @@ interface StringArray {
 
 let myArray: StringArray;
 myArray = ["Bob", "Fred"];
-复制代码
+
 // Class, constructor存在于类的静态部分，所以不会检查
 interface ClockInterface {
     currentTime: Date;
@@ -78,7 +83,7 @@ class Clock implements ClockInterface {
     }
     constructor(h: number, m: number) { }
 }
-复制代码
+
 ```
 
 ## ts中的this和js中的this有什么差异？
@@ -95,7 +100,7 @@ type Union = Name | Age
 type UnionKey<P> = P extends infer P ? keyof P : never
 
 type T = UnionKey<Union>
-复制代码
+
 ```
 
 ## 😊 ts中 ?.、??、!.、_、** 等符号的含义？
@@ -117,7 +122,7 @@ let x = foo !== null && foo !== undefined ? foo : bar();
 let a: string | null | undefined
 a.length // error
 a!.length // ok
-复制代码
+
 ```
 
 ## 😊 什么是抗变、双变、协变和逆变？
@@ -172,7 +177,7 @@ type D = {
 type E = {
     -readonly [K in keyof A]: A[K]
 }
-复制代码
+
 ```
 
 ## 😊 TS是基于结构类型兼容
@@ -187,7 +192,7 @@ class Person {
 let p: Named
 // ok
 p = new Person()
-复制代码
+
 ```
 
 ## 😊 const断言
@@ -205,7 +210,7 @@ let x = "hello" as const
 let y = [10, 20] as const
 // type '{ readonly text: "hello" }'
 let z = { text: "hello" } as const
-复制代码
+
 ```
 
 ## 😊 type 和 interface 的区别
@@ -245,7 +250,7 @@ declare global {
     myCustomFn: () => void;
   }
 }
-复制代码
+
 ```
 
 ## 复杂的类型推导题目
@@ -253,229 +258,229 @@ declare global {
 ### 🤔 implement UnionToIntersection
 
 ```ts
-type A = UnionToIntersection<{a: string} | {b: string} | {c: string}> // {a: string} & {b: string} & {c: string}// 实现UnionToIntersection<T>type UnionToIntersection<U> =   (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never// https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type// https://jkchao.github.io/typescript-book-chinese/tips/infer.html#%E4%B8%80%E4%BA%9B%E7%94%A8%E4%BE%8B复制代码
+type A = UnionToIntersection<{a: string} | {b: string} | {c: string}> // {a: string} & {b: string} & {c: string}// 实现UnionToIntersection<T>type UnionToIntersection<U> =   (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never// https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type// https://jkchao.github.io/typescript-book-chinese/tips/infer.html#%E4%B8%80%E4%BA%9B%E7%94%A8%E4%BE%8B
 ```
 
 ### 😊 implement ToNumber
 
 ```ts
-type A = ToNumber<'1'> // 1type B = ToNumber<'40'> // 40type C = ToNumber<'0'> // 0// 实现ToNumbertype ToNumber<T extends string, R extends any[] = []> =    T extends `${R['length']}` ? R['length'] : ToNumber<T, [1, ...R]>;复制代码
+type A = ToNumber<'1'> // 1type B = ToNumber<'40'> // 40type C = ToNumber<'0'> // 0// 实现ToNumbertype ToNumber<T extends string, R extends any[] = []> =    T extends `${R['length']}` ? R['length'] : ToNumber<T, [1, ...R]>;
 ```
 
 ### 😊 implement Add<A, B>
 
 ```ts
-type A = Add<1, 2> // 3type B = Add<0, 0> // 0// 实现ADDtype NumberToArray<T, R extends any[]> = T extends R['length'] ? R : NumberToArray<T, [1, ...R]>type Add<T, R> = [...NumberToArray<T, []>, ...NumberToArray<R, []>]['length']复制代码
+type A = Add<1, 2> // 3type B = Add<0, 0> // 0// 实现ADDtype NumberToArray<T, R extends any[]> = T extends R['length'] ? R : NumberToArray<T, [1, ...R]>type Add<T, R> = [...NumberToArray<T, []>, ...NumberToArray<R, []>]['length']
 ```
 
 ### 😊 implement SmallerThan<A, B>
 
 ```ts
-type A = SmallerThan<0, 1> // truetype B = SmallerThan<1, 0> // falsetype C = SmallerThan<10, 9> // false// 实现SmallerThantype SmallerThan<N extends number, M extends number, L extends any[] = [], R extends any[] = []> =     N extends L['length'] ?         M extends R['length'] ? false : true        :        M extends R['length'] ? false : SmallerThan<N, M, [1, ...L], [1, ...R]>;复制代码
+type A = SmallerThan<0, 1> // truetype B = SmallerThan<1, 0> // falsetype C = SmallerThan<10, 9> // false// 实现SmallerThantype SmallerThan<N extends number, M extends number, L extends any[] = [], R extends any[] = []> =     N extends L['length'] ?         M extends R['length'] ? false : true        :        M extends R['length'] ? false : SmallerThan<N, M, [1, ...L], [1, ...R]>;
 ```
 
 ### 😊 implement LargerThan<A, B>
 
 ```ts
-type A = LargerThan<0, 1> // falsetype B = LargerThan<1, 0> // truetype C = LargerThan<10, 9> // true// 实现LargerThantype LargerThan<N extends number, M extends number, L extends any[] = [], R extends any[] = []> =    N extends L['length'] ?        false : M extends R['length'] ?            true : LargerThan<N, M, [1, ...L], [1, ...R]>;复制代码
+type A = LargerThan<0, 1> // falsetype B = LargerThan<1, 0> // truetype C = LargerThan<10, 9> // true// 实现LargerThantype LargerThan<N extends number, M extends number, L extends any[] = [], R extends any[] = []> =    N extends L['length'] ?        false : M extends R['length'] ?            true : LargerThan<N, M, [1, ...L], [1, ...R]>;
 ```
 
 ### 😊 implement IsAny
 
 ```ts
-type A = IsAny<string> // falsetype B = IsAny<any> // truetype C = IsAny<unknown> // falsetype D = IsAny<never> // false// 实现IsAnytype IsAny<T> = true extends (T extends never ? true : false) ?                  false extends (T extends never ? true : false) ?                    true                    :                    false                  :                  false;// 更简单的实现type IsAny<T> = 0 extends (T & 1) ? true : false;复制代码
+type A = IsAny<string> // falsetype B = IsAny<any> // truetype C = IsAny<unknown> // falsetype D = IsAny<never> // false// 实现IsAnytype IsAny<T> = true extends (T extends never ? true : false) ?                  false extends (T extends never ? true : false) ?                    true                    :                    false                  :                  false;// 更简单的实现type IsAny<T> = 0 extends (T & 1) ? true : false;
 ```
 
 ### 😊 implement Filter<T, A>
 
 ```ts
-type A = Filter<[1,'BFE', 2, true, 'dev'], number> // [1, 2]type B = Filter<[1,'BFE', 2, true, 'dev'], string> // ['BFE', 'dev']type C = Filter<[1,'BFE', 2, any, 'dev'], string> // ['BFE', any, 'dev']// 实现Filtertype Filter<T extends any[], A, N extends any[] = []> =    T extends [infer P, ...infer Q] ?        0 extends (P & 1) ? Filter<Q, A, [...N, P]> :         P extends A ? Filter<Q, A, [...N, P]> : Filter<Q, A, N>        : N;复制代码
+type A = Filter<[1,'BFE', 2, true, 'dev'], number> // [1, 2]type B = Filter<[1,'BFE', 2, true, 'dev'], string> // ['BFE', 'dev']type C = Filter<[1,'BFE', 2, any, 'dev'], string> // ['BFE', any, 'dev']// 实现Filtertype Filter<T extends any[], A, N extends any[] = []> =    T extends [infer P, ...infer Q] ?        0 extends (P & 1) ? Filter<Q, A, [...N, P]> :         P extends A ? Filter<Q, A, [...N, P]> : Filter<Q, A, N>        : N;
 ```
 
 ### 😊 implement TupleToString
 
 ```ts
-type A = TupleToString<['a']> // 'a'type B = TupleToString<['B', 'F', 'E']> // 'BFE'type C = TupleToString<[]> // ''// 实现TupleToStringtype TupleToString<T extends any[], S extends string = '', A extends any[] = []> =    A['length'] extends T['length'] ? S : TupleToString<T, `${S}${T[A['length']]}`, [1, ...A]>复制代码
+type A = TupleToString<['a']> // 'a'type B = TupleToString<['B', 'F', 'E']> // 'BFE'type C = TupleToString<[]> // ''// 实现TupleToStringtype TupleToString<T extends any[], S extends string = '', A extends any[] = []> =    A['length'] extends T['length'] ? S : TupleToString<T, `${S}${T[A['length']]}`, [1, ...A]>
 ```
 
 ### 😊 implement RepeatString<T, C>
 
 ```ts
-type A = RepeatString<'a', 3> // 'aaa'type B = RepeatString<'a', 0> // ''// 实现RepeatStringtype RepeatString<T extends string, C extends number, S extends string = '', A extends any[] = []> =    A['length'] extends C ? S : RepeatString<T, C, `${T}${S}`, [1, ...A]>复制代码
+type A = RepeatString<'a', 3> // 'aaa'type B = RepeatString<'a', 0> // ''// 实现RepeatStringtype RepeatString<T extends string, C extends number, S extends string = '', A extends any[] = []> =    A['length'] extends C ? S : RepeatString<T, C, `${T}${S}`, [1, ...A]>
 ```
 
 ### 😊 implement Push<T, I>
 
 ```ts
-type A = Push<[1,2,3], 4> // [1,2,3,4]type B = Push<[1], 2> // [1, 2]type C = Push<[], string> // [string]// 实现Pushtype Push<T extends any[], I> = T extends [...infer P] ? [...P, I] : [I]复制代码
+type A = Push<[1,2,3], 4> // [1,2,3,4]type B = Push<[1], 2> // [1, 2]type C = Push<[], string> // [string]// 实现Pushtype Push<T extends any[], I> = T extends [...infer P] ? [...P, I] : [I]
 ```
 
 ### 😊 implement Flat
 
 ```ts
-type A = Flat<[1,2,3]> // [1,2,3]type B = Flat<[1,[2,3], [4,[5,[6]]]]> // [1,2,3,4,5,6]type C = Flat<[]> // []// 实现Flattype Flat<T extends any[]> =    T extends [infer P, ...infer Q] ?        P extends any[] ? [...Flat<P>, ...Flat<Q>] : [P, ...Flat<Q>]        : [];复制代码
+type A = Flat<[1,2,3]> // [1,2,3]type B = Flat<[1,[2,3], [4,[5,[6]]]]> // [1,2,3,4,5,6]type C = Flat<[]> // []// 实现Flattype Flat<T extends any[]> =    T extends [infer P, ...infer Q] ?        P extends any[] ? [...Flat<P>, ...Flat<Q>] : [P, ...Flat<Q>]        : [];
 ```
 
 ### 😊 implement Shift
 
 ```ts
-type A = Shift<[1,2,3]> // [2,3]type B = Shift<[1]> // []type C = Shift<[]> // []// 实现Shifttype Shift<T extends any[]> = T extends [infer P, ...infer Q] ? [...Q] : [];复制代码
+type A = Shift<[1,2,3]> // [2,3]type B = Shift<[1]> // []type C = Shift<[]> // []// 实现Shifttype Shift<T extends any[]> = T extends [infer P, ...infer Q] ? [...Q] : [];
 ```
 
 ### 😊 implement Repeat<T, C>
 
 ```ts
-type A = Repeat<number, 3> // [number, number, number]type B = Repeat<string, 2> // [string, string]type C = Repeat<1, 1> // [1, 1]type D = Repeat<0, 0> // []// 实现Repeattype Repeat<T, C, R extends any[] = []> =     R['length'] extends C ? R : Repeat<T, C, [...R, T]>复制代码
+type A = Repeat<number, 3> // [number, number, number]type B = Repeat<string, 2> // [string, string]type C = Repeat<1, 1> // [1, 1]type D = Repeat<0, 0> // []// 实现Repeattype Repeat<T, C, R extends any[] = []> =     R['length'] extends C ? R : Repeat<T, C, [...R, T]>
 ```
 
 ### 😊 implement ReverseTuple
 
 ```ts
-type A = ReverseTuple<[string, number, boolean]> // [boolean, number, string]type B = ReverseTuple<[1,2,3]> // [3,2,1]type C = ReverseTuple<[]> // []// 实现ReverseTupletype ReverseTuple<T extends any[], A extends any[] = []> =    T extends [...infer Q, infer P] ?         A['length'] extends T['length'] ? A : ReverseTuple<Q, [...A, P]>        : A;复制代码
+type A = ReverseTuple<[string, number, boolean]> // [boolean, number, string]type B = ReverseTuple<[1,2,3]> // [3,2,1]type C = ReverseTuple<[]> // []// 实现ReverseTupletype ReverseTuple<T extends any[], A extends any[] = []> =    T extends [...infer Q, infer P] ?         A['length'] extends T['length'] ? A : ReverseTuple<Q, [...A, P]>        : A;
 ```
 
 ### 😊 implement UnwrapPromise
 
 ```ts
-type A = UnwrapPromise<Promise<string>> // stringtype B = UnwrapPromise<Promise<null>> // nulltype C = UnwrapPromise<null> // Error// 实现UnwrapPromisetype UnwrapPromise<T> = T extends Promise<infer P> ? P : Error;复制代码
+type A = UnwrapPromise<Promise<string>> // stringtype B = UnwrapPromise<Promise<null>> // nulltype C = UnwrapPromise<null> // Error// 实现UnwrapPromisetype UnwrapPromise<T> = T extends Promise<infer P> ? P : Error;
 ```
 
 ### 😊 implement LengthOfString
 
 ```ts
-type A = LengthOfString<'BFE.dev'> // 7type B = LengthOfString<''> // 0// 实现LengthOfStringtype LengthOfString<T extends string, A extends any[] = []> =    T extends `${infer P}${infer Q}` ? LengthOfString<Q, [1, ...A]> : A['length']复制代码
+type A = LengthOfString<'BFE.dev'> // 7type B = LengthOfString<''> // 0// 实现LengthOfStringtype LengthOfString<T extends string, A extends any[] = []> =    T extends `${infer P}${infer Q}` ? LengthOfString<Q, [1, ...A]> : A['length']
 ```
 
 ### 😊 implement StringToTuple
 
 ```ts
-type A = StringToTuple<'BFE.dev'> // ['B', 'F', 'E', '.', 'd', 'e','v']type B = StringToTuple<''> // []// 实现type StringToTuple<T extends string, A extends any[] = []> =    T extends `${infer K}${infer P}` ? StringToTuple<P, [...A, K]> : A;复制代码
+type A = StringToTuple<'BFE.dev'> // ['B', 'F', 'E', '.', 'd', 'e','v']type B = StringToTuple<''> // []// 实现type StringToTuple<T extends string, A extends any[] = []> =    T extends `${infer K}${infer P}` ? StringToTuple<P, [...A, K]> : A;
 ```
 
 ### 😊 implement LengthOfTuple
 
 ```ts
-type A = LengthOfTuple<['B', 'F', 'E']> // 3type B = LengthOfTuple<[]> // 0// 实现type LengthOfTuple<T extends any[], R extends any[] = []> =    R['length'] extends T['length'] ? R['length'] : LengthOfTuple<T, [...R, 1]>复制代码
+type A = LengthOfTuple<['B', 'F', 'E']> // 3type B = LengthOfTuple<[]> // 0// 实现type LengthOfTuple<T extends any[], R extends any[] = []> =    R['length'] extends T['length'] ? R['length'] : LengthOfTuple<T, [...R, 1]>
 ```
 
 ### 😊 implement LastItem
 
 ```ts
-type A = LastItem<[string, number, boolean]> // booleantype B = LastItem<['B', 'F', 'E']> // 'E'type C = LastItem<[]> // never// 实现LastItemtype LastItem<T> = T extends [...infer P, infer Q] ? Q : never;复制代码
+type A = LastItem<[string, number, boolean]> // booleantype B = LastItem<['B', 'F', 'E']> // 'E'type C = LastItem<[]> // never// 实现LastItemtype LastItem<T> = T extends [...infer P, infer Q] ? Q : never;
 ```
 
 ### 😊 implement FirstItem
 
 ```ts
-type A = FirstItem<[string, number, boolean]> // stringtype B = FirstItem<['B', 'F', 'E']> // 'B'// 实现FirstItemtype FirstItem<T> = T extends [infer P, ...infer Q] ? P : never;复制代码
+type A = FirstItem<[string, number, boolean]> // stringtype B = FirstItem<['B', 'F', 'E']> // 'B'// 实现FirstItemtype FirstItem<T> = T extends [infer P, ...infer Q] ? P : never;
 ```
 
 ### 😊 implement FirstChar
 
 ```ts
-type A = FirstChar<'BFE'> // 'B'type B = FirstChar<'dev'> // 'd'type C = FirstChar<''> // never// 实现FirstChartype FirstChar<T> = T extends `${infer P}${infer Q}` ? P : never;复制代码
+type A = FirstChar<'BFE'> // 'B'type B = FirstChar<'dev'> // 'd'type C = FirstChar<''> // never// 实现FirstChartype FirstChar<T> = T extends `${infer P}${infer Q}` ? P : never;
 ```
 
 ### 😊 implement Pick<T, K>
 
 ```ts
-type Foo = {  a: string  b: number  c: boolean}type A = MyPick<Foo, 'a' | 'b'> // {a: string, b: number}type B = MyPick<Foo, 'c'> // {c: boolean}type C = MyPick<Foo, 'd'> // Error// 实现MyPick<T, K>type MyPick<T, K extends keyof T> = {    [Key in K]: T[Key]}复制代码
+type Foo = {  a: string  b: number  c: boolean}type A = MyPick<Foo, 'a' | 'b'> // {a: string, b: number}type B = MyPick<Foo, 'c'> // {c: boolean}type C = MyPick<Foo, 'd'> // Error// 实现MyPick<T, K>type MyPick<T, K extends keyof T> = {    [Key in K]: T[Key]}
 ```
 
 ### 😊 implement Readonly
 
 ```ts
-type Foo = {  a: string}const a:Foo = {  a: 'BFE.dev',}a.a = 'bigfrontend.dev'// OKconst b:MyReadonly<Foo> = {  a: 'BFE.dev'}b.a = 'bigfrontend.dev'// Error// 实现MyReadonlytype MyReadonly<T> = {    readonly [K in keyof T]: T[K]}复制代码
+type Foo = {  a: string}const a:Foo = {  a: 'BFE.dev',}a.a = 'bigfrontend.dev'// OKconst b:MyReadonly<Foo> = {  a: 'BFE.dev'}b.a = 'bigfrontend.dev'// Error// 实现MyReadonlytype MyReadonly<T> = {    readonly [K in keyof T]: T[K]}
 ```
 
 ### 😊 implement Record<K, V>
 
 ```ts
-type Key = 'a' | 'b' | 'c'const a: Record<Key, string> = {  a: 'BFE.dev',  b: 'BFE.dev',  c: 'BFE.dev'}a.a = 'bigfrontend.dev' // OKa.b = 123 // Errora.d = 'BFE.dev' // Errortype Foo = MyRecord<{a: string}, string> // Error// 实现MyRecordtype MyRecord<K extends number | string | symbol, V> = {    [Key in K]: V}复制代码
+type Key = 'a' | 'b' | 'c'const a: Record<Key, string> = {  a: 'BFE.dev',  b: 'BFE.dev',  c: 'BFE.dev'}a.a = 'bigfrontend.dev' // OKa.b = 123 // Errora.d = 'BFE.dev' // Errortype Foo = MyRecord<{a: string}, string> // Error// 实现MyRecordtype MyRecord<K extends number | string | symbol, V> = {    [Key in K]: V}
 ```
 
 ### 😊 implement Exclude
 
 ```ts
-type Foo = 'a' | 'b' | 'c'type A = MyExclude<Foo, 'a'> // 'b' | 'c'type B = MyExclude<Foo, 'c'> // 'a' | 'btype C = MyExclude<Foo, 'c' | 'd'>  // 'a' | 'b'type D = MyExclude<Foo, 'a' | 'b' | 'c'>  // never// 实现 MyExclude<T, K>type MyExclude<T, K> = T extends K ? never : T;复制代码
+type Foo = 'a' | 'b' | 'c'type A = MyExclude<Foo, 'a'> // 'b' | 'c'type B = MyExclude<Foo, 'c'> // 'a' | 'btype C = MyExclude<Foo, 'c' | 'd'>  // 'a' | 'b'type D = MyExclude<Foo, 'a' | 'b' | 'c'>  // never// 实现 MyExclude<T, K>type MyExclude<T, K> = T extends K ? never : T;
 ```
 
 ### 😊 implement Extract<T, U>
 
 ```ts
-type Foo = 'a' | 'b' | 'c'type A = MyExtract<Foo, 'a'> // 'a'type B = MyExtract<Foo, 'a' | 'b'> // 'a' | 'b'type C = MyExtract<Foo, 'b' | 'c' | 'd' | 'e'>  // 'b' | 'c'type D = MyExtract<Foo, never>  // never// 实现MyExtract<T, U>type MyExtract<T, U> = T extends U ? T : never复制代码
+type Foo = 'a' | 'b' | 'c'type A = MyExtract<Foo, 'a'> // 'a'type B = MyExtract<Foo, 'a' | 'b'> // 'a' | 'b'type C = MyExtract<Foo, 'b' | 'c' | 'd' | 'e'>  // 'b' | 'c'type D = MyExtract<Foo, never>  // never// 实现MyExtract<T, U>type MyExtract<T, U> = T extends U ? T : never
 ```
 
 ### 😊 implement Omit<T, K>
 
 ```ts
-type Foo = {  a: string  b: number  c: boolean}type A = MyOmit<Foo, 'a' | 'b'> // {c: boolean}type B = MyOmit<Foo, 'c'> // {a: string, b: number}type C = MyOmit<Foo, 'c' | 'd'> // {a: string, b: number}// 实现MyOmittype MyOmit<T, K extends number | string | symbol> = {    [Key in Exclude<keyof T, K>]: T[Key]}type MyOmit<T, K extends number | string | symbol> = Pick<T, Exclude<keyof T, K>>复制代码
+type Foo = {  a: string  b: number  c: boolean}type A = MyOmit<Foo, 'a' | 'b'> // {c: boolean}type B = MyOmit<Foo, 'c'> // {a: string, b: number}type C = MyOmit<Foo, 'c' | 'd'> // {a: string, b: number}// 实现MyOmittype MyOmit<T, K extends number | string | symbol> = {    [Key in Exclude<keyof T, K>]: T[Key]}type MyOmit<T, K extends number | string | symbol> = Pick<T, Exclude<keyof T, K>>
 ```
 
 ### 😊 implement NonNullable
 
 ```ts
-type Foo = 'a' | 'b' | null | undefinedtype A = MyNonNullable<Foo> // 'a' | 'b'// 实现NonNullabletype MyNonNullable<T> = T extends null | undefined ? never : T;复制代码
+type Foo = 'a' | 'b' | null | undefinedtype A = MyNonNullable<Foo> // 'a' | 'b'// 实现NonNullabletype MyNonNullable<T> = T extends null | undefined ? never : T;
 ```
 
 ### 😊 implement Parameters
 
 ```ts
-type Foo = (a: string, b: number, c: boolean) => stringtype A = MyParameters<Foo> // [a:string, b: number, c:boolean]type B = A[0] // stringtype C = MyParameters<{a: string}> // Error// 实现MyParameters<T>type MyParameters<T extends (...params: any[]) => any> =    T extends (...params: [...infer P]) => any ? P : never复制代码
+type Foo = (a: string, b: number, c: boolean) => stringtype A = MyParameters<Foo> // [a:string, b: number, c:boolean]type B = A[0] // stringtype C = MyParameters<{a: string}> // Error// 实现MyParameters<T>type MyParameters<T extends (...params: any[]) => any> =    T extends (...params: [...infer P]) => any ? P : never
 ```
 
 ### 😊 implement ConstructorParameters
 
 ```ts
-class Foo {  constructor (a: string, b: number, c: boolean) {}}type C = MyConstructorParameters<typeof Foo> // [a: string, b: number, c: boolean]// 实现MyConstructorParameters<T>type MyConstructorParameters<T extends new (...params: any[]) => any> =    T extends new (...params: [...infer P]) => any ? P : never复制代码
+class Foo {  constructor (a: string, b: number, c: boolean) {}}type C = MyConstructorParameters<typeof Foo> // [a: string, b: number, c: boolean]// 实现MyConstructorParameters<T>type MyConstructorParameters<T extends new (...params: any[]) => any> =    T extends new (...params: [...infer P]) => any ? P : never
 ```
 
 ### 😊 implement ReturnType
 
 ```ts
-type Foo = () => {a: string}type A = MyReturnType<Foo> // {a: string}// 实现MyReturnType<T>type MyReturnType<T extends (...params: any[]) => any> =    T extends (...params: any[]) => infer P ? P : never;复制代码
+type Foo = () => {a: string}type A = MyReturnType<Foo> // {a: string}// 实现MyReturnType<T>type MyReturnType<T extends (...params: any[]) => any> =    T extends (...params: any[]) => infer P ? P : never;
 ```
 
 ### 😊 implement InstanceType
 
 ```ts
-class Foo {}type A = MyInstanceType<typeof Foo> // Footype B = MyInstanceType<() => string> // Error// 实现MyInstanceType<T>type MyInstanceType<T extends new (...params: any[]) => any> =    T extends new (...params: any[]) => infer P ? P : never;复制代码
+class Foo {}type A = MyInstanceType<typeof Foo> // Footype B = MyInstanceType<() => string> // Error// 实现MyInstanceType<T>type MyInstanceType<T extends new (...params: any[]) => any> =    T extends new (...params: any[]) => infer P ? P : never;
 ```
 
 ### 😊 implement ThisParameterType
 
 ```ts
-function Foo(this: {a: string}) {}function Bar() {}type A = MyThisParameterType<typeof Foo> // {a: string}type B = MyThisParameterType<typeof Bar> // unknown// 实现MyThisParameterType<T>type MyThisParameterType<T extends (this: any, ...params: any[]) => any> =    T extends (this: infer P, ...params: any[]) => any ? P : unknown;复制代码
+function Foo(this: {a: string}) {}function Bar() {}type A = MyThisParameterType<typeof Foo> // {a: string}type B = MyThisParameterType<typeof Bar> // unknown// 实现MyThisParameterType<T>type MyThisParameterType<T extends (this: any, ...params: any[]) => any> =    T extends (this: infer P, ...params: any[]) => any ? P : unknown;
 ```
 
 ### 😊 implement TupleToUnion
 
 ```ts
-type Foo = [string, number, boolean]type Bar = TupleToUnion<Foo> // string | number | boolean// 实现TupleToUnion<T>type TupleToUnion<T extends any[], R = T[0]> =    T extends [infer P, ...infer Q] ? TupleToUnion<Q, R | P> : R;// 其他回答type TupleToUnion<T extends any[]> = T[number]复制代码
+type Foo = [string, number, boolean]type Bar = TupleToUnion<Foo> // string | number | boolean// 实现TupleToUnion<T>type TupleToUnion<T extends any[], R = T[0]> =    T extends [infer P, ...infer Q] ? TupleToUnion<Q, R | P> : R;// 其他回答type TupleToUnion<T extends any[]> = T[number]
 ```
 
 ### 😊 implement Partial
 
 ```ts
-type Foo = {  a: string  b: number  c: boolean}// below are all validconst a: MyPartial<Foo> = {}const b: MyPartial<Foo> = {  a: 'BFE.dev'}const c: MyPartial<Foo> = {  b: 123}const d: MyPartial<Foo> = {  b: 123,  c: true}const e: MyPartial<Foo> = {  a: 'BFE.dev',  b: 123,  c: true}// 实现MyPartial<T>type MyPartial<T> = {    [K in keyof T]?: T[K]}复制代码
+type Foo = {  a: string  b: number  c: boolean}// below are all validconst a: MyPartial<Foo> = {}const b: MyPartial<Foo> = {  a: 'BFE.dev'}const c: MyPartial<Foo> = {  b: 123}const d: MyPartial<Foo> = {  b: 123,  c: true}const e: MyPartial<Foo> = {  a: 'BFE.dev',  b: 123,  c: true}// 实现MyPartial<T>type MyPartial<T> = {    [K in keyof T]?: T[K]}
 ```
 
 ### 😊 Required
 
 ```ts
-// all properties are optionaltype Foo = {  a?: string  b?: number  c?: boolean}const a: MyRequired<Foo> = {}// Errorconst b: MyRequired<Foo> = {  a: 'BFE.dev'}// Errorconst c: MyRequired<Foo> = {  b: 123}// Errorconst d: MyRequired<Foo> = {  b: 123,  c: true}// Errorconst e: MyRequired<Foo> = {  a: 'BFE.dev',  b: 123,  c: true}// valid// 实现MyRequired<T>type MyRequired<T> = {    [K in keyof T]-?: T[K]}复制代码
+// all properties are optionaltype Foo = {  a?: string  b?: number  c?: boolean}const a: MyRequired<Foo> = {}// Errorconst b: MyRequired<Foo> = {  a: 'BFE.dev'}// Errorconst c: MyRequired<Foo> = {  b: 123}// Errorconst d: MyRequired<Foo> = {  b: 123,  c: true}// Errorconst e: MyRequired<Foo> = {  a: 'BFE.dev',  b: 123,  c: true}// valid// 实现MyRequired<T>type MyRequired<T> = {    [K in keyof T]-?: T[K]}
 ```
 
 ### 😊 implement LastChar
 
 ```ts
-type A = LastChar<'BFE'> // 'E'type B = LastChar<'dev'> // 'v'type C = LastChar<''> // never// 实现FirstChar<T>type LastChar<T extends string, A extends string[] = []> =    T extends `${infer P}${infer Q}` ?  LastChar<Q, [...A, P]> :        A extends [...infer L, infer R] ? R : never;复制代码
+type A = LastChar<'BFE'> // 'E'type B = LastChar<'dev'> // 'v'type C = LastChar<''> // never// 实现FirstChar<T>type LastChar<T extends string, A extends string[] = []> =    T extends `${infer P}${infer Q}` ?  LastChar<Q, [...A, P]> :        A extends [...infer L, infer R] ? R : never;
 ```
 
 ### 😊 implement IsNever
 
 ```ts
-// https://stackoverflow.com/questions/53984650/typescript-never-type-inconsistently-matched-in-conditional-type// https://www.typescriptlang.org/docs/handbook/advanced-types.html#vtype A = IsNever<never> // truetype B = IsNever<string> // falsetype C = IsNever<undefined> // false// 实现IsNever<T>type IsNever<T> = [T] extends [never] ? true : false;复制代码
+// https://stackoverflow.com/questions/53984650/typescript-never-type-inconsistently-matched-in-conditional-type// https://www.typescriptlang.org/docs/handbook/advanced-types.html#vtype A = IsNever<never> // truetype B = IsNever<string> // falsetype C = IsNever<undefined> // false// 实现IsNever<T>type IsNever<T> = [T] extends [never] ? true : false;
 ```
 
 ### 😊 implement KeysToUnion
@@ -492,7 +497,7 @@ type A = KeyToUnion<{
 type KeyToUnion<T> = {
   [K in keyof T]: K;
 }[keyof T]
-复制代码
+
 ```
 
 ### 😊 implement ValuesToUnion
@@ -507,7 +512,7 @@ type A = ValuesToUnion<{
 
 // ValuesToUnion
 type ValuesToUnion<T> = T[keyof T]
-复制代码
+
 ```
 
 ### FindIndex<T, E>
@@ -542,7 +547,7 @@ type FindIndex<T extends any[], E, A extends any[] = []> =
                         P extends E ? A['length'] : FindIndex<Q, E, [1, ...A]>
         : 
         never
-复制代码
+
 ```
 
 ### implement Trim
@@ -572,6 +577,6 @@ type Trim<T extends string, A extends any[] = StringToTuple<T>> =
                 ''
         :
         '';
-复制代码
+
 ```
 

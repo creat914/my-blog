@@ -57,11 +57,11 @@ module.exports = {
                 "link": "/timeline/",
                 "icon": "reco-date"
             },
-            {
-                "text": "在线编辑",
-                "link": "/Units/",
-                "icon": "reco-date"
-            },
+            // {
+            //     "text": "在线编辑",
+            //     "link": "/Units/",
+            //     "icon": "reco-date"
+            // },
             // {
             //   "text": "Docs",
             //   "icon": "reco-message",
@@ -160,7 +160,7 @@ module.exports = {
             autoplay: false,
             position: { left: '20px', bottom: '30px', 'z-index': '999999' }
         }],
-        // ['ribbon'],
+        ['ribbon'],
         [
             "sakura", {
                 num: 20,

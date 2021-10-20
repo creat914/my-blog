@@ -99,7 +99,8 @@
             const recoShowModule = computed(() => instance && instance.$parent.recoShowModule)
             let textList = [
                 "喜欢二次元",
-                "拥抱今天，期待明天"
+                "拥抱今天，期待明天",
+                "机会是留给有准备的人的"
             ];
             let timer = null
             let loopTimer = null
@@ -115,12 +116,12 @@
                         clearInterval(timer)
                         loopTimer =   setTimeout(() => {
                             deleteText()
-                        },3000)
+                        },5000)
                         return
                     }
                     state.description = textSpan.slice(0, i);
                     i++;
-                }, 100)
+                }, 200)
             }
             const deleteText = () => {
                 textSpan = state.description;
@@ -132,7 +133,7 @@
                     }
                     state.description = textSpan.slice(0, i);
                     i--;
-                }, 60)
+                }, 80)
             }
             watch(recoShowModule, (newVal, oldVal) => {
                 if (newVal && !state.isWriteing) {
