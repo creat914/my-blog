@@ -274,7 +274,7 @@ export default FixedDimensionsBasics;
 
 
 ## 核心组件
-
+```
 React Native 具有许多核心组件，从表单控件到活动指示器，应有尽有。
 
 | REACT NATIVE UI 组件 | 安卓视图           | IOS 视图           | WEB                   | 说明                                    |
@@ -284,7 +284,7 @@ React Native 具有许多核心组件，从表单控件到活动指示器，应�
 | `<Image>`          | `<ImageView>`  | `<UIImageView>`  | `<img>`               | 显示不同类型的图像                             |
 | `<ScrollView>`     | `<ScrollView>` | `<UIScrollView>` | `<div>`               | 可以包含多个组件和视图的通用滚动容器                    |
 | `<TextInput>`      | `<EditText>`   | `<UITextField>`  | `<input type="text">` | 允许用户输入文本                              |
-
+```
 ### 基本使用，处理文本输入
 
 ```js
