@@ -101,7 +101,8 @@ module.exports = {
                 "tsMore"
             ],
             "/blogs/utils/": [
-                "npmPage"
+                "npmPage",
+                "githubAddSSh"
             ]
         },
         "type": "blog",
