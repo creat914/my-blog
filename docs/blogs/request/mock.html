@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mock的基本使用 | Lemon的博客小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/my-blog/my-blog/favicon.ico">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/my-blog/assets/css/0.styles.9988f25d.css" as="style"><link rel="preload" href="/my-blog/assets/js/app.fa83d095.js" as="script"><link rel="preload" href="/my-blog/assets/js/5.9a20b25e.js" as="script"><link rel="preload" href="/my-blog/assets/js/1.cdfdbdee.js" as="script"><link rel="preload" href="/my-blog/assets/js/31.c303faaf.js" as="script"><link rel="prefetch" href="/my-blog/assets/js/10.f5591def.js"><link rel="prefetch" href="/my-blog/assets/js/11.8f2bfc55.js"><link rel="prefetch" href="/my-blog/assets/js/12.99cc0493.js"><link rel="prefetch" href="/my-blog/assets/js/13.4d4c5ebe.js"><link rel="prefetch" href="/my-blog/assets/js/14.6976a4be.js"><link rel="prefetch" href="/my-blog/assets/js/15.602bb76d.js"><link rel="prefetch" href="/my-blog/assets/js/16.d5fa5d5d.js"><link rel="prefetch" href="/my-blog/assets/js/17.77772850.js"><link rel="prefetch" href="/my-blog/assets/js/18.998933ff.js"><link rel="prefetch" href="/my-blog/assets/js/19.d2586e33.js"><link rel="prefetch" href="/my-blog/assets/js/2.1ba21063.js"><link rel="prefetch" href="/my-blog/assets/js/20.c697a2cb.js"><link rel="prefetch" href="/my-blog/assets/js/21.5a1ef131.js"><link rel="prefetch" href="/my-blog/assets/js/22.2afb7492.js"><link rel="prefetch" href="/my-blog/assets/js/23.0192bd27.js"><link rel="prefetch" href="/my-blog/assets/js/24.caa9928d.js"><link rel="prefetch" href="/my-blog/assets/js/25.2115dfcf.js"><link rel="prefetch" href="/my-blog/assets/js/26.2cbd03b8.js"><link rel="prefetch" href="/my-blog/assets/js/27.e94a8c35.js"><link rel="prefetch" href="/my-blog/assets/js/28.12e3f2c4.js"><link rel="prefetch" href="/my-blog/assets/js/29.f83ae788.js"><link rel="prefetch" href="/my-blog/assets/js/30.312561ef.js"><link rel="prefetch" href="/my-blog/assets/js/32.82a27941.js"><link rel="prefetch" href="/my-blog/assets/js/33.6d0b4a18.js"><link rel="prefetch" href="/my-blog/assets/js/34.e27047f0.js"><link rel="prefetch" href="/my-blog/assets/js/35.915cb928.js"><link rel="prefetch" href="/my-blog/assets/js/4.32b23776.js"><link rel="prefetch" href="/my-blog/assets/js/6.19a65f50.js"><link rel="prefetch" href="/my-blog/assets/js/7.b8146736.js"><link rel="prefetch" href="/my-blog/assets/js/8.bb0b586d.js"><link rel="prefetch" href="/my-blog/assets/js/9.0467dc5a.js">
+    <link rel="stylesheet" href="/my-blog/assets/css/0.styles.9988f25d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-272a5bff><div data-v-272a5bff><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-272a5bff data-v-272a5bff><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-7c2f76d1 data-v-272a5bff data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>Lemon的博客小站</h3> <p class="description" data-v-7c2f76d1 data-v-7c2f76d1></p> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Lemon</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-272a5bff><header class="navbar" data-v-272a5bff><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my-blog/" class="home-link router-link-active"><img src="/my-blog/avatar.jpg" alt="Lemon的博客小站" class="logo"> <span class="site-name">Lemon的博客小站</span></a> <div class="links"><div class="color-picker" style="display:none;"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      文章
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-blog/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/dart/" class="nav-link"><i class="undefined"></i>
+  dart
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/flutter/" class="nav-link"><i class="undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/reactNative/" class="nav-link"><i class="undefined"></i>
+  reactNative
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/mock数据/" class="nav-link"><i class="undefined"></i>
+  mock数据
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/typescript/" class="nav-link"><i class="undefined"></i>
+  typescript
+</a></li></ul></div></div><div class="nav-item"><a href="/my-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  文章发表历程
+</a></div><div class="nav-item"><a href="/my-blog/Units/" class="nav-link"><i class="iconfont reco-date"></i>
+  在线编辑
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-272a5bff></div> <aside class="sidebar" data-v-272a5bff><div class="personal-info-wrapper" data-v-25b2bb28 data-v-272a5bff><img src="/my-blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-25b2bb28> <h3 class="name" data-v-25b2bb28>
+    Lemon
+  </h3> <div class="num" data-v-25b2bb28><div data-v-25b2bb28><h3 data-v-25b2bb28>20</h3> <h6 data-v-25b2bb28>文章</h6></div> <div data-v-25b2bb28><h3 data-v-25b2bb28>18</h3> <h6 data-v-25b2bb28>标签</h6></div></div> <ul class="social-links" data-v-25b2bb28></ul> <hr data-v-25b2bb28></div> <nav class="nav-links"><div class="nav-item"><a href="/my-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      文章
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-blog/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/dart/" class="nav-link"><i class="undefined"></i>
+  dart
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/flutter/" class="nav-link"><i class="undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/reactNative/" class="nav-link"><i class="undefined"></i>
+  reactNative
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/mock数据/" class="nav-link"><i class="undefined"></i>
+  mock数据
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/typescript/" class="nav-link"><i class="undefined"></i>
+  typescript
+</a></li></ul></div></div><div class="nav-item"><a href="/my-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  文章发表历程
+</a></div><div class="nav-item"><a href="/my-blog/Units/" class="nav-link"><i class="iconfont reco-date"></i>
+  在线编辑
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-7c2f76d1 data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>Mock的基本使用</h3> <!----> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Lemon</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-272a5bff><main class="page"><section><div class="page-title"><h1 class="title">Mock的基本使用</h1> <div data-v-cf73456e><i class="iconfont reco-account" data-v-cf73456e><span data-v-cf73456e>Lemon</span></i> <i class="iconfont reco-date" data-v-cf73456e><span data-v-cf73456e>2021/10/17</span></i> <!----> <i class="tags iconfont reco-tag" data-v-cf73456e><span class="tag-item" data-v-cf73456e>mock</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="mockjs介绍"><a href="#mockjs介绍" class="header-anchor">#</a> mockjs介绍</h1> <p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fnuysoft%2FMock%2Fwiki%2FGetting-Started" target="_blank" rel="noopener noreferrer">https://github.com/nuysoft/Mock/wiki/Getting-Started<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="一、为什么使用mockjs"><a href="#一、为什么使用mockjs" class="header-anchor">#</a> 一、为什么使用mockjs</h2> <p>在做开发时，当后端的接口还未完成，前端为了不影响工作效率，手动模拟后端接口，</p> <blockquote><p>1.我们可以使用json文件来模拟后台数据，但比较局限，无法模拟数据的增删改查
+2.使用json-server模拟，但不能随机生成所需数据
+3.使用mockjs模拟后端接口，可随机生成所需数据，可模拟对数据的增删改查</p></blockquote> <h2 id="二、mock优点"><a href="#二、mock优点" class="header-anchor">#</a> 二、mock优点</h2> <blockquote><p>1.前后端分离，
+2.可随机生成大量的数据
+3.用法简单
+4.数据类型丰富
+5.可扩展数据类型
+6.在已有接口文档的情况下，我们可以直接按照接口文档来开发，将相应的字段写好，在接口完成 之后，只需要改变url地址即可。</p></blockquote> <h2 id="三、mock使用"><a href="#三、mock使用" class="header-anchor">#</a> 三、mock使用</h2> <div class="language-jsx line-numbers-mode"><pre class="language-jsx"><code>npm install mockjs <span class="token operator">--</span>save<span class="token operator">-</span>dev
+<span class="token comment">// 引入 Mock</span>
+<span class="token keyword">var</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 定义数据类型</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 20条数据</span>
+  <span class="token string">&quot;data|20&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    <span class="token comment">// 商品种类</span>
+    <span class="token string">&quot;goodsClass&quot;</span><span class="token operator">:</span> <span class="token string">&quot;女装&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 商品Id</span>
+    <span class="token string">&quot;goodsId|+1&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品名称</span>
+    <span class="token string">&quot;goodsName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@ctitle(10)&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品地址</span>
+    <span class="token string">&quot;goodsAddress&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@county(true)&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品等级评价★</span>
+    <span class="token string">&quot;goodsStar|1-5&quot;</span><span class="token operator">:</span> <span class="token string">&quot;★&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品图片</span>
+    <span class="token string">&quot;goodsImg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@Image('100x100','@color','小甜甜')&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品售价</span>
+    <span class="token string">&quot;goodsSale|30-500&quot;</span><span class="token operator">:</span> <span class="token number">30</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 输出结果随机生成的数据（node index.js）</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h2 id="四、mockjs的数据类型-及-语法规范"><a href="#四、mockjs的数据类型-及-语法规范" class="header-anchor">#</a> 四、mockjs的数据类型 及 语法规范</h2> <p><strong>1、Mock.Random</strong></p> <blockquote><p>Mock.Random是一个工具类，用于生成各种随机数据。
+Mock.Random 的方法在数据模板中称为『占位符』，书写格式为 @占位符(参数 [, 参数])</p></blockquote> <p><strong>2Mock.Random 提供的完整方法（占位符）如下</strong></p> <table><thead><tr><th>类型</th> <th>方法</th></tr></thead> <tbody><tr><td>Basic</td> <td>boolean, natural, integer, float, character, string, range, date, time, datetime, now</td></tr> <tr><td>Image</td> <td>image, dataImage</td></tr> <tr><td>Color</td> <td>color</td></tr> <tr><td>Text</td> <td>paragraph, sentence, word, title, cparagraph, csentence, cword, ctitle</td></tr> <tr><td>Name</td> <td>first, last, name, cfirst, clast, cname</td></tr> <tr><td>Web</td> <td>url, domain, email, ip, tld</td></tr> <tr><td>Address</td> <td>area, region</td></tr> <tr><td>Helper</td> <td>capitalize, upper, lower, pick, shuffle</td></tr> <tr><td>Miscellaneous</td> <td>guid, id</td></tr></tbody></table> <p><strong>3.定义数据类型，详情见官方文档</strong></p> <div class="language-jsx line-numbers-mode"><pre class="language-jsx"><code><span class="token comment">// 引入 Mock</span>
+<span class="token keyword">var</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 定义数据类型</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 20条数据</span>
+  <span class="token string">&quot;data|3&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    <span class="token comment">// 商品种类</span>
+    <span class="token string">&quot;goodsClass&quot;</span><span class="token operator">:</span> <span class="token string">&quot;女装&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 商品Id</span>
+    <span class="token string">&quot;goodsId|+1&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品名称</span>
+    <span class="token string">&quot;goodsName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@ctitle(10)&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品地址</span>
+    <span class="token string">&quot;goodsAddress&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@county(true)&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品等级评价★</span>
+    <span class="token string">&quot;goodsStar|1-5&quot;</span><span class="token operator">:</span> <span class="token string">&quot;★&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品图片</span>
+    <span class="token string">&quot;goodsImg&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@Image('100x100','@color','小甜甜')&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//商品售价</span>
+    <span class="token string">&quot;goodsSale|30-500&quot;</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 邮箱：</span>
+    <span class="token string">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@email&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 颜色</span>
+    <span class="token string">&quot;color&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@color&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// name</span>
+    <span class="token string">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@name&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token comment">//img,参数1：背景色，参2：前景色，参3：图片的格式，默认png，参4：图片上的文字</span>
+
+    <span class="token string">&quot;img&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@image('100*100','@color')&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//英文文本(句子)参1：句子的个数，参2：句子的最小个数  参3：句子的最大个数，没有参1时，参2参3才会生效</span>
+    <span class="token string">&quot;Etext&quot;</span><span class="token operator">:</span><span class="token string">&quot;@paragraph(1,1,3)&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token comment">//中文文本(句子)参1：句子的个数，参2：句子的最小个数  参3：句子的最大个数，没有参1时，参2参3才会生效</span>
+    <span class="token string">&quot;Ctext&quot;</span><span class="token operator">:</span><span class="token string">&quot;@cparagraph(1,1,3)&quot;</span><span class="token punctuation">,</span>
+
+    <span class="token comment">//中国大区</span>
+    <span class="token string">&quot;cregion&quot;</span><span class="token operator">:</span><span class="token string">&quot;@region&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">// 省</span>
+    <span class="token string">&quot;cprovince&quot;</span><span class="token operator">:</span><span class="token string">&quot;@province&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//市</span>
+    <span class="token string">&quot;ccity&quot;</span><span class="token operator">:</span><span class="token string">&quot;@city&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//省 + 市</span>
+    <span class="token string">&quot;ss&quot;</span><span class="token operator">:</span><span class="token string">&quot;@city(true)&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//县</span>
+    <span class="token string">&quot;country&quot;</span><span class="token operator">:</span><span class="token string">&quot;@county&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//省市县</span>
+    <span class="token string">&quot;countrysx&quot;</span><span class="token operator">:</span><span class="token string">&quot;@county(true)&quot;</span><span class="token punctuation">,</span>
+    <span class="token comment">//邮政编码</span>
+    <span class="token string">&quot;code&quot;</span><span class="token operator">:</span><span class="token string">&quot;@zip&quot;</span>
+
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 输出结果</span>
+<span class="token comment">// console.log(data);</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br></div></div><p><strong>4.mockjs语法规范</strong></p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code>数据模板中的每个属性由 <span class="token number">3</span> 部分构成：属性名、生成规则、属性值：
+<span class="token comment">// 属性名   name</span>
+<span class="token comment">// 生成规则 rule</span>
+<span class="token comment">// 属性值   value</span>
+'name<span class="token operator">|</span>rule'<span class="token punctuation">:</span> <span class="token keyword">value</span>
+
+注意：
+属性名 和 生成规则 之间用竖线 <span class="token operator">|</span> 分隔。 
+生成规则 是可选的。 
+生成规则 有 <span class="token number">7</span> 种格式： 'name<span class="token operator">|</span>min<span class="token operator">-</span>max'<span class="token punctuation">:</span> <span class="token keyword">value</span> 'name<span class="token operator">|</span>count'<span class="token punctuation">:</span> <span class="token keyword">value</span> 'name<span class="token operator">|</span>min<span class="token operator">-</span>max<span class="token punctuation">.</span>dmin<span class="token operator">-</span>dmax'<span class="token punctuation">:</span> <span class="token keyword">value</span> 'name<span class="token operator">|</span>min<span class="token operator">-</span>max<span class="token punctuation">.</span>dcount'<span class="token punctuation">:</span> <span class="token keyword">value</span> 'name<span class="token operator">|</span>count<span class="token punctuation">.</span>dmin<span class="token operator">-</span>dmax'<span class="token punctuation">:</span> <span class="token keyword">value</span> 'name<span class="token operator">|</span>count<span class="token punctuation">.</span>dcount'<span class="token punctuation">:</span> <span class="token keyword">value</span>
+<span class="token comment">//属性值自动加 1，初始值为 `number` 'name|+step': value    </span>
+
+生成规则 的 含义 需要依赖 属性值的类型 才能确定。
+属性值 中可以含有 @占位符。
+属性值 还指定了最终值的初始值和类型。
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span> 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="_1-属性值是字符串-string"><a href="#_1-属性值是字符串-string" class="header-anchor">#</a> 1. 属性值是字符串 String</h3> <ol><li><p><code>'name|min-max': string</code></p> <p>通过重复 <code>string</code> 生成一个字符串，重复次数大于等于 <code>min</code>，小于等于 <code>max</code>。</p></li> <li><p><code>'name|count': string</code></p> <p>通过重复 <code>string</code> 生成一个字符串，重复次数等于 <code>count</code>。</p></li></ol> <h3 id="_2-属性值是数字-number"><a href="#_2-属性值是数字-number" class="header-anchor">#</a> 2. 属性值是数字 Number</h3> <ol><li><p><code>'name|+1': number</code></p> <p>属性值自动加 1，初始值为 <code>number</code>。</p></li> <li><p><code>'name|min-max': number</code></p> <p>生成一个大于等于 <code>min</code>、小于等于 <code>max</code> 的整数，属性值 <code>number</code> 只是用来确定类型。</p></li> <li><p><code>'name|min-max.dmin-dmax': number</code></p> <p>生成一个浮点数，整数部分大于等于 <code>min</code>、小于等于 <code>max</code>，小数部分保留 <code>dmin</code> 到 <code>dmax</code> 位。</p></li></ol> <h3 id="_3-属性值是布尔型-boolean"><a href="#_3-属性值是布尔型-boolean" class="header-anchor">#</a> 3. 属性值是布尔型 Boolean</h3> <ol><li><p><code>'name|1': boolean</code></p> <p>随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。</p></li> <li><p><code>'name|min-max': value</code></p> <p>随机生成一个布尔值，值为 <code>value</code> 的概率是 <code>min / (min + max)</code>，值为 <code>!value</code> 的概率是 <code>max / (min + max)</code>。</p></li></ol> <h3 id="_4-属性值是对象-object"><a href="#_4-属性值是对象-object" class="header-anchor">#</a> 4. 属性值是对象 Object</h3> <ol><li><p><code>'name|count': object</code></p> <p>从属性值 <code>object</code> 中随机选取 <code>count</code> 个属性。</p></li> <li><p><code>'name|min-max': object</code></p> <p>从属性值 <code>object</code> 中随机选取 <code>min</code> 到 <code>max</code> 个属性。</p></li></ol> <h3 id="_5-属性值是数组-array"><a href="#_5-属性值是数组-array" class="header-anchor">#</a> 5. 属性值是数组 Array</h3> <ol><li><p><code>'name|1': array</code></p> <p>从属性值 <code>array</code> 中随机选取 1 个元素，作为最终值。</p></li> <li><p><code>'name|+1': array</code></p> <p>从属性值 <code>array</code> 中顺序选取 1 个元素，作为最终值。</p></li> <li><p><code>'name|min-max': array</code></p> <p>通过重复属性值 <code>array</code> 生成一个新数组，重复次数大于等于 <code>min</code>，小于等于 <code>max</code>。</p></li> <li><p><code>'name|count': array</code></p> <p>通过重复属性值 <code>array</code> 生成一个新数组，重复次数为 <code>count</code>。</p></li></ol> <h3 id="_6-属性值是函数-function"><a href="#_6-属性值是函数-function" class="header-anchor">#</a> 6. 属性值是函数 Function</h3> <ol><li><p><code>'name': function</code></p> <p>执行函数 <code>function</code>，取其返回值作为最终的属性值，函数的上下文为属性 <code>'name'</code> 所在的对象。</p></li></ol> <h3 id="_7-属性值是正则表达式-regexp"><a href="#_7-属性值是正则表达式-regexp" class="header-anchor">#</a> 7. 属性值是正则表达式 RegExp</h3> <ol><li><p><code>'name': regexp</code></p> <p>根据正则表达式 <code>regexp</code> 反向生成可以匹配它的字符串。用于生成自定义格式的字符串。</p> <div class="language-source-js line-numbers-mode"><pre class="language-text"><code>Mock.mock({
+    'regexp1': /[a-z][A-Z][0-9]/,
+    'regexp2': /\w\W\s\S\d\D/,
+    'regexp3': /\d{5,10}/
+})
+// =&gt;
+{
+    &quot;regexp1&quot;: &quot;pJ7&quot;,
+    &quot;regexp2&quot;: &quot;F)\fp1G&quot;,
+    &quot;regexp3&quot;: &quot;561659409&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div></li></ol> <h2 id="四、-mock-setup"><a href="#四、-mock-setup" class="header-anchor">#</a> 四、 Mock.setup()</h2> <p>Mock.setup( settings )</p> <p>配置拦截 Ajax 请求时的行为。支持的配置项有：timeout
+指定被拦截的 Ajax 请求的响应时间，单位是毫秒。
+值可以是正整数，例如 400，表示 400 毫秒 后才会返回响应内容；
+也可以是横杠 '-' 风格的字符串，例如 '200-600'，表示响应时间介于 200 和 600 毫秒之间。默认值是'10-100'。</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code>  <span class="token selector">Mock.setup(</span><span class="token punctuation">{</span>
+    <span class="token property">timeout</span><span class="token punctuation">:</span> 400
+<span class="token punctuation">}</span><span class="token selector">)
+Mock.setup(</span><span class="token punctuation">{</span>
+    <span class="token property">timeout</span><span class="token punctuation">:</span> <span class="token string">'200-600'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+目前，接口 Mock.<span class="token function">setup</span><span class="token punctuation">(</span> settings <span class="token punctuation">)</span> 仅用于配置 Ajax 请求，将来可能用于配置 Mock 的其他行为。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h2 id="五、mock-random-扩展方法"><a href="#五、mock-random-扩展方法" class="header-anchor">#</a> 五、Mock.Random 扩展方法</h2> <div class="language-tsx line-numbers-mode"><pre class="language-tsx"><code><span class="token comment">// 引入 Mock</span>
+<span class="token keyword">var</span> Mock <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> random <span class="token operator">=</span> Mock<span class="token punctuation">.</span>Random<span class="token punctuation">;</span>
+
+<span class="token comment">//扩展数据模板</span>
+random<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function-variable function">type</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">index<span class="token operator">:</span>number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> types <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'products'</span><span class="token punctuation">,</span> <span class="token string">'industryApp'</span><span class="token punctuation">,</span> <span class="token string">'solution'</span><span class="token punctuation">,</span> <span class="token string">'experts'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">pick</span><span class="token punctuation">(</span>types<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 定义数据类型</span>
+<span class="token keyword">const</span>  menuSource<span class="token operator">:</span><span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ menuSource<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token string">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@type(0)&quot;</span><span class="token punctuation">,</span>
+   <span class="token string">'data|3-4'</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
+     <span class="token string">'id|+1'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+     name<span class="token operator">:</span> <span class="token string">&quot;@ctitle( 4,6)&quot;</span><span class="token punctuation">,</span>
+     <span class="token string">&quot;childs|5-10&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+       <span class="token string">'id|+1'</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+       name<span class="token operator">:</span> <span class="token string">&quot;@ctitle(4,6)&quot;</span><span class="token punctuation">,</span>
+     <span class="token punctuation">}</span><span class="token punctuation">]</span>
+   <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 输出结果</span>
+ <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h2 id="六、mockjs获取前端传递的数据"><a href="#六、mockjs获取前端传递的数据" class="header-anchor">#</a> 六、mockjs获取前端传递的数据</h2> <div class="language-kotlin line-numbers-mode"><pre class="language-kotlin"><code><span class="token comment">// mock.js</span>
+
+<span class="token comment">// 引入mockjs</span>
+<span class="token keyword">const</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+<span class="token comment">// 获取 mock.Random 对象</span>
+<span class="token keyword">const</span> Random <span class="token operator">=</span> Mock<span class="token punctuation">.</span>Random
+<span class="token comment">// mock新闻数据，包括新闻标题title、内容content、创建时间createdTime</span>
+<span class="token keyword">const</span> produceNewsData <span class="token operator">=</span> <span class="token function">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  let newsList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>let i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    let newNewsObject <span class="token operator">=</span> <span class="token punctuation">{</span>
+      title<span class="token operator">:</span> Random<span class="token punctuation">.</span><span class="token function">ctitle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//  Random.ctitle( min, max ) 随机产生一个中文标题，长度默认在3-7之间</span>
+      content<span class="token operator">:</span> Random<span class="token punctuation">.</span><span class="token function">cparagraph</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// Random.cparagraph(min, max) 随机生成一个中文段落，段落里的句子个数默认3-7个</span>
+      createdTime<span class="token operator">:</span> Random<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd；</span>
+    <span class="token punctuation">}</span>
+    newsList<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newNewsObject<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> newList
+<span class="token punctuation">}</span>
+<span class="token comment">// 请求该url，就可以返回newsList</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/mock/news'</span><span class="token punctuation">,</span> produceNewsData<span class="token punctuation">)</span> <span class="token comment">// 后面讲这个api的使用细节</span>
+
+<span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      method<span class="token operator">:</span> <span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span>
+      url<span class="token operator">:</span> <span class="token string">&quot;/mock/news&quot;</span><span class="token punctuation">,</span>
+      <span class="token keyword">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        id<span class="token operator">:</span><span class="token number">2</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">data</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">//成功的回调函数，返回的是增加的数据</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>url <span class="token operator">=</span> <span class="token keyword">data</span><span class="token punctuation">.</span>data<span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>goodsImg
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">&quot;/getGoods&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>config<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">data</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+###mockjs可以通过option<span class="token punctuation">.</span>body获取前端传递的数据
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br></div></div><p>Mock.mock()</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Mock.mock( rurl, rtype, template|function( options ) )
+rurl
+可选。
+表示需要拦截的 URL，可以是 URL 字符串或 URL 正则。例如 '/domian/list.json'。
+
+rtype
+可选。
+表示需要拦截的 Ajax 请求类型。例如 GET、POST、PUT、DELETE 等。
+
+template
+可选。
+表示数据模板，可以是对象或字符串。
+数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：
+// 属性名   name
+// 生成规则 rule
+// 属性值   value
+'name|rule': value
+例如：'name|1-10':1 会产生一个1-10之间的整数，详细规则参见官方文档
+
+function(options)
+可选。
+表示用于生成响应数据的函数。
+options
+指向本次请求的 Ajax 选项集，含有 url、type 和 body 三个属性
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h1 id="数组29个方法"><a href="#数组29个方法" class="header-anchor">#</a> 数组29个方法</h1></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间: </span> <span class="time">2022/3/27 下午10:18:14</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-106c08ae><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#一、为什么使用mockjs" class="sidebar-link reco-side-一、为什么使用mockjs" data-v-106c08ae>一、为什么使用mockjs</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#二、mock优点" class="sidebar-link reco-side-二、mock优点" data-v-106c08ae>二、mock优点</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#三、mock使用" class="sidebar-link reco-side-三、mock使用" data-v-106c08ae>三、mock使用</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#四、mockjs的数据类型-及-语法规范" class="sidebar-link reco-side-四、mockjs的数据类型-及-语法规范" data-v-106c08ae>四、mockjs的数据类型 及 语法规范</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_1-属性值是字符串-string" class="sidebar-link reco-side-_1-属性值是字符串-string" data-v-106c08ae>1. 属性值是字符串 String</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_2-属性值是数字-number" class="sidebar-link reco-side-_2-属性值是数字-number" data-v-106c08ae>2. 属性值是数字 Number</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_3-属性值是布尔型-boolean" class="sidebar-link reco-side-_3-属性值是布尔型-boolean" data-v-106c08ae>3. 属性值是布尔型 Boolean</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_4-属性值是对象-object" class="sidebar-link reco-side-_4-属性值是对象-object" data-v-106c08ae>4. 属性值是对象 Object</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_5-属性值是数组-array" class="sidebar-link reco-side-_5-属性值是数组-array" data-v-106c08ae>5. 属性值是数组 Array</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_6-属性值是函数-function" class="sidebar-link reco-side-_6-属性值是函数-function" data-v-106c08ae>6. 属性值是函数 Function</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#_7-属性值是正则表达式-regexp" class="sidebar-link reco-side-_7-属性值是正则表达式-regexp" data-v-106c08ae>7. 属性值是正则表达式 RegExp</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#四、-mock-setup" class="sidebar-link reco-side-四、-mock-setup" data-v-106c08ae>四、 Mock.setup()</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#五、mock-random-扩展方法" class="sidebar-link reco-side-五、mock-random-扩展方法" data-v-106c08ae>五、Mock.Random 扩展方法</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/request/mock.html#六、mockjs获取前端传递的数据" class="sidebar-link reco-side-六、mockjs获取前端传递的数据" data-v-106c08ae>六、mockjs获取前端传递的数据</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      随便看看吧
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="150" height="220" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="/my-blog/audio/Door.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="/my-blog/audio/door.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:20px;bottom:30px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(/my-blog/audio/door.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>Door</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>高桥李依</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:99;" data-v-017cf06a></canvas></div><div></div></div></div>
+    <script src="/my-blog/assets/js/app.fa83d095.js" defer></script><script src="/my-blog/assets/js/5.9a20b25e.js" defer></script><script src="/my-blog/assets/js/1.cdfdbdee.js" defer></script><script src="/my-blog/assets/js/31.c303faaf.js" defer></script>
+  </body>
+</html>
