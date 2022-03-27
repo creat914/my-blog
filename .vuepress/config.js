@@ -1,6 +1,6 @@
 const audioList = require("./config/audio");
 module.exports = {
-    "title": "林深见鹿",
+    "title": "Lemon的博客小站",
     "description": "",
     "dest": "docs",
     "base": '/my-blog/',
@@ -57,11 +57,11 @@ module.exports = {
                 "link": "/timeline/",
                 "icon": "reco-date"
             },
-            // {
-            //     "text": "在线编辑",
-            //     "link": "/Units/",
-            //     "icon": "reco-date"
-            // },
+             {
+                "text": "在线编辑",
+                "link": "/Units/",
+                "icon": "reco-date"
+            },
             // {
             //   "text": "Docs",
             //   "icon": "reco-message",
@@ -95,14 +95,13 @@ module.exports = {
                 "window",
                 "arrayOption"
             ],
-            "/blogs/typescript/": [
+            "/blogs/typescript/":[
                 "",
                 "heightUse",
                 "tsMore"
             ],
-            "/blogs/utils/": [
-                "npmPage",
-                "githubAddSSh"
+            "/blogs/utils/":[
+                "npmPage"
             ]
         },
         "type": "blog",
@@ -131,11 +130,11 @@ module.exports = {
         //     "link": "https://vuepress-theme-reco.recoluan.com"
         //   }
         // ],
-        "logo": "/avatar.jpeg",
+        "logo": "/avatar.jpg",
         "search": true,
         "searchMaxSuggestions": 10,
         "lastUpdated": "上次更新时间",
-        "author": "司",
+        "author": "Lemon",
         "authorAvatar": "/avatar.jpg",
         "startYear": "2021",
     },
@@ -159,15 +158,15 @@ module.exports = {
         ["@vuepress-reco/vuepress-plugin-bgm-player", {
             audios: audioList,
             autoplay: false,
-            position: { left: '20px', bottom: '30px', 'z-index': '999999' }
+            position: {left: '20px', bottom: '30px', 'z-index': '999999'}
         }],
-        ['ribbon'],
+        // ['ribbon'],
         [
             "sakura", {
-                num: 20,
-                show: true,
-                zIndex: 99
-            }
+            num: 20,
+            show: true,
+            zIndex: 99
+        }
         ],
         [
             'dynamic-title',

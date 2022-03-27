@@ -3,5 +3,3 @@ yarn.lock
 yarn.error
 dist/
 public/
-.idea/*
-.history

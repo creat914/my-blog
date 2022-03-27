@@ -1,8 +1,9 @@
 <template>
   <div class="abstract-wrapper">
     <NoteAbstractItem
-      v-for="(item) in currentPageData"
+      v-for="(item,index) in currentPageData"
       :key="item.path"
+      :index="index"
       :item="item"
       :currentPage="currentPage"
       :currentTag="currentTag"

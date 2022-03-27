@@ -5,7 +5,7 @@ sidebar: 'auto'
 tags:
  - mock
 categories: 
- - request
+-  mock数据
 ---
 
 # mockjs介绍

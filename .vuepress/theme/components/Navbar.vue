@@ -22,7 +22,7 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}">
 
-      <Mode />
+      <Mode v-show="false"/>
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"/>
