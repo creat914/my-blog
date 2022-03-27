@@ -30,7 +30,7 @@ export default defineComponent({
   computed: {
     listImg() {
       return (
-        "/listitem-img/" +
+        "/my-blog/listitem-img/" +
         Math.ceil(Math.random() * this.listImgLength) +
         ".jpg"
       );
