@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>react-router-dom6 使用 | Lemon的博客小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/my-blog/my-blog/favicon.ico">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/my-blog/assets/css/0.styles.e2d0b3ff.css" as="style"><link rel="preload" href="/my-blog/assets/js/app.287948d5.js" as="script"><link rel="preload" href="/my-blog/assets/js/5.a5a64981.js" as="script"><link rel="preload" href="/my-blog/assets/js/1.84d33670.js" as="script"><link rel="preload" href="/my-blog/assets/js/27.452e613f.js" as="script"><link rel="prefetch" href="/my-blog/assets/js/10.022e2f9f.js"><link rel="prefetch" href="/my-blog/assets/js/11.8f2bfc55.js"><link rel="prefetch" href="/my-blog/assets/js/12.99cc0493.js"><link rel="prefetch" href="/my-blog/assets/js/13.4d4c5ebe.js"><link rel="prefetch" href="/my-blog/assets/js/14.376c61e1.js"><link rel="prefetch" href="/my-blog/assets/js/15.64560b9c.js"><link rel="prefetch" href="/my-blog/assets/js/16.9ad42470.js"><link rel="prefetch" href="/my-blog/assets/js/17.9ef3af97.js"><link rel="prefetch" href="/my-blog/assets/js/18.48862320.js"><link rel="prefetch" href="/my-blog/assets/js/19.d2586e33.js"><link rel="prefetch" href="/my-blog/assets/js/2.ea8a1c39.js"><link rel="prefetch" href="/my-blog/assets/js/20.fed8865a.js"><link rel="prefetch" href="/my-blog/assets/js/21.618d73dd.js"><link rel="prefetch" href="/my-blog/assets/js/22.2afb7492.js"><link rel="prefetch" href="/my-blog/assets/js/23.0192bd27.js"><link rel="prefetch" href="/my-blog/assets/js/24.27ae6eef.js"><link rel="prefetch" href="/my-blog/assets/js/25.6c50c0c8.js"><link rel="prefetch" href="/my-blog/assets/js/26.389463d7.js"><link rel="prefetch" href="/my-blog/assets/js/28.c39deab6.js"><link rel="prefetch" href="/my-blog/assets/js/29.b5b506a1.js"><link rel="prefetch" href="/my-blog/assets/js/30.2803da04.js"><link rel="prefetch" href="/my-blog/assets/js/31.a39112cc.js"><link rel="prefetch" href="/my-blog/assets/js/32.cd77b458.js"><link rel="prefetch" href="/my-blog/assets/js/33.04e7201b.js"><link rel="prefetch" href="/my-blog/assets/js/34.8cd23e8f.js"><link rel="prefetch" href="/my-blog/assets/js/35.ed733aaf.js"><link rel="prefetch" href="/my-blog/assets/js/36.385bc328.js"><link rel="prefetch" href="/my-blog/assets/js/4.4c1ab47a.js"><link rel="prefetch" href="/my-blog/assets/js/6.479eec31.js"><link rel="prefetch" href="/my-blog/assets/js/7.6b65cdd6.js"><link rel="prefetch" href="/my-blog/assets/js/8.914b4926.js"><link rel="prefetch" href="/my-blog/assets/js/9.0467dc5a.js">
+    <link rel="stylesheet" href="/my-blog/assets/css/0.styles.e2d0b3ff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-272a5bff><div data-v-272a5bff><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-272a5bff data-v-272a5bff><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-7c2f76d1 data-v-272a5bff data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>Lemon的博客小站</h3> <p class="description" data-v-7c2f76d1 data-v-7c2f76d1></p> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Lemon</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-272a5bff><header class="navbar" data-v-272a5bff><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my-blog/" class="home-link router-link-active"><img src="/my-blog/avatar.jpg" alt="Lemon的博客小站" class="logo"> <span class="site-name">Lemon的博客小站</span></a> <div class="links"><div class="color-picker" style="display:none;"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      文章
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-blog/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/dart/" class="nav-link"><i class="undefined"></i>
+  dart
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/flutter/" class="nav-link"><i class="undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/typescript/" class="nav-link"><i class="undefined"></i>
+  typescript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/mock数据/" class="nav-link"><i class="undefined"></i>
+  mock数据
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/reactNative/" class="nav-link"><i class="undefined"></i>
+  reactNative
+</a></li></ul></div></div><div class="nav-item"><a href="/my-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  文章发表历程
+</a></div><div class="nav-item"><a href="/my-blog/Units/" class="nav-link"><i class="iconfont reco-date"></i>
+  在线编辑
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-272a5bff></div> <aside class="sidebar" data-v-272a5bff><div class="personal-info-wrapper" data-v-25b2bb28 data-v-272a5bff><img src="/my-blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-25b2bb28> <h3 class="name" data-v-25b2bb28>
+    Lemon
+  </h3> <div class="num" data-v-25b2bb28><div data-v-25b2bb28><h3 data-v-25b2bb28>21</h3> <h6 data-v-25b2bb28>文章</h6></div> <div data-v-25b2bb28><h3 data-v-25b2bb28>19</h3> <h6 data-v-25b2bb28>标签</h6></div></div> <ul class="social-links" data-v-25b2bb28></ul> <hr data-v-25b2bb28></div> <nav class="nav-links"><div class="nav-item"><a href="/my-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      文章
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-blog/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/dart/" class="nav-link"><i class="undefined"></i>
+  dart
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/flutter/" class="nav-link"><i class="undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/typescript/" class="nav-link"><i class="undefined"></i>
+  typescript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/mock数据/" class="nav-link"><i class="undefined"></i>
+  mock数据
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/reactNative/" class="nav-link"><i class="undefined"></i>
+  reactNative
+</a></li></ul></div></div><div class="nav-item"><a href="/my-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  文章发表历程
+</a></div><div class="nav-item"><a href="/my-blog/Units/" class="nav-link"><i class="iconfont reco-date"></i>
+  在线编辑
+</a></div> <!----></nav> <ul class="sidebar-links"><li><a href="/my-blog/blogs/javascript/utils.html" class="sidebar-link">js的一些基本工具类操作</a></li><li><a href="/my-blog/blogs/javascript/DataStructure.html" class="sidebar-link">JavaScript数据结构与算法</a></li><li><a href="/my-blog/blogs/javascript/knowledge.html" class="sidebar-link">javascript知识点</a></li><li><a href="/my-blog/blogs/javascript/es6.html" class="sidebar-link">ES6新特性</a></li><li><a href="/my-blog/blogs/javascript/package.json.html" class="sidebar-link">package文件说明</a></li><li><a href="/my-blog/blogs/javascript/VueRouter.html" class="sidebar-link">Vue-Router属性解析</a></li><li><a href="/my-blog/blogs/javascript/window.html" class="sidebar-link">window 对象</a></li><li><a href="/my-blog/blogs/javascript/arrayOption.html" class="sidebar-link">数组方法</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-7c2f76d1 data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>react-router-dom6 使用</h3> <!----> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Lemon</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-272a5bff><main class="page"><section><div class="page-title"><h1 class="title">react-router-dom6 使用</h1> <div data-v-cf73456e><i class="iconfont reco-account" data-v-cf73456e><span data-v-cf73456e>Lemon</span></i> <i class="iconfont reco-date" data-v-cf73456e><span data-v-cf73456e>2022/3/28</span></i> <!----> <i class="tags iconfont reco-tag" data-v-cf73456e><span class="tag-item" data-v-cf73456e>react</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="react-router-dom6-使用"><a href="#react-router-dom6-使用" class="header-anchor">#</a> react-router-dom6 使用</h1> <p>菜单的json如下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[
+  {
+    id: '1',     // 唯一的id
+    name: &quot;模块一&quot;,  // 菜单名称 
+    path: &quot;/model1/dashboard&quot;,    // 菜单路径
+    children: [                   // 子菜单
+      {
+        id: '2',
+        name: &quot;首页&quot;,
+        path: &quot;/model1/dashboard&quot;,
+        icon: &quot;&quot;,
+      },
+      {
+        id: '3',
+        name: &quot;二级菜单&quot;,
+        path: &quot;/model1&quot;,
+        icon: &quot;&quot;,
+        children: [
+          {
+            id: '6',
+            name: &quot;2-1-home&quot;,
+            path: &quot;/model1/home&quot;,
+            icon: &quot;&quot;,
+          }
+        ]
+      },
+    ],
+  },
+  {
+    id: '4',
+    name: &quot;模块二&quot;,
+    path: &quot;/model2&quot;,
+  },
+  {
+    id: '5',
+    name: &quot;模块三&quot;,
+    path: &quot;/model3&quot;,
+  },
+]
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><p>根据这个 json 动态生成路由和菜单信息</p> <h2 id="安装方法"><a href="#安装方法" class="header-anchor">#</a> 安装方法</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ yarn add react-router-dom
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="使用方法"><a href="#使用方法" class="header-anchor">#</a> 使用方法</h3> <p>这个deme采用的 <code>vite</code>搭建的本地环境。并添加 路由库。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ yarn create vite react-router6-dom-study --template react
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>哦，对了本来不想使用组件库的，只想简单的使用一下，后面想着能不能做一个动态生成路由和菜单的功能，简单实现一下呢。于是就添加了 <code>antd</code>这个组件库</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ yarn add antd
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>启用全局模式 HashRouter和BrowserRouter 两种模式，</p> <p>区分</p> <ul><li>HashRouter:URL中采用的是hash(#)部分去创建路由，类似<a href="https://link.juejin.cn/?target=http%3A%2F%2Fwww.example.com%2F%23%2F" target="_blank" rel="noopener noreferrer">www.example.com/#/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li>BrowserRouter：URL采用真实的URL资源 后续有文章会详细讲HashRouter的原理和实现，这里我们采用BrowserRouter来创建路由</li></ul> <p>main.jsx如下</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import React from &quot;react&quot;;
+import ReactDOM from &quot;react-dom&quot;;
+import {BrowserRouter} from &quot;react-router-dom&quot;;
+import zhCN from &quot;antd/lib/locale/zh_CN&quot;;
+import &quot;antd/dist/antd.css&quot;;
+
+import &quot;./index.css&quot;;
+import App from &quot;./App&quot;;
+
+ReactDOM.render(
+  &lt;BrowserRouter&gt;
+    &lt;App/&gt;
+  &lt;/BrowserRouter&gt;,
+  document.getElementById(&quot;root&quot;)
+);
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>这样运行 <code>yarn dev</code>的时候在访问/的时候就可以看见这个组件了。</p> <h2 id="路由组件"><a href="#路由组件" class="header-anchor">#</a> 路由组件</h2> <table><thead><tr><th>组件名</th> <th>作用</th> <th>说明</th></tr></thead> <tbody><tr><td><code>&lt;Routers&gt;</code></td> <td>一组路由</td> <td>代替原有<code>&lt;Switch&gt;</code>，所有子路由都用基础的Router children来表示</td></tr> <tr><td><code>&lt;Router&gt;</code></td> <td>基础路由</td> <td>Router是可以嵌套的，解决原有V5中严格模式，后面与V5区别会详细介绍</td></tr> <tr><td><code>&lt;Link&gt;</code></td> <td>导航组件</td> <td>在实际页面中跳转使用</td></tr> <tr><td><code>&lt;Outlet/&gt;</code></td> <td>自适应渲染组件</td> <td>根据实际路由url自动选择组件, 一般用来实现嵌套路由。</td></tr></tbody></table> <h2 id="hooks"><a href="#hooks" class="header-anchor">#</a> hooks</h2> <table><thead><tr><th>hooks名</th> <th>作用</th> <th>说明</th></tr></thead> <tbody><tr><td><code>useParams</code></td> <td>返回当前参数</td> <td>根据路径读取参数</td></tr> <tr><td><code>useNavigate</code></td> <td>返回当前路由</td> <td>代替原有V5中的 useHistor, 一般用来跳转页面和</td></tr> <tr><td><code>useOutlet</code></td> <td>返回根据路由生成的element</td> <td>还没使用，有机会试试</td></tr> <tr><td><code>useLocation</code></td> <td>返回当前的location 对象</td> <td>可以获取 useNavigate('', {state: {id}})  里面的id参数</td></tr> <tr><td><code>useRoutes</code></td> <td>同Routers组件一样，只不过是在js中使用</td> <td>可用作配置路由</td></tr> <tr><td><code>useSearchParams</code></td> <td>用来匹配URL中?后面的搜索参数</td> <td>用来获取  ?x=1&amp;y=100 这样的参数</td></tr></tbody></table> <h3 id="routes-route-link-使用"><a href="#routes-route-link-使用" class="header-anchor">#</a> Routes Route Link 使用</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import './App.css';
+import { Routes, Route, Link } from &quot;react-router-dom&quot;
+function App() {
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;header className=&quot;App-header&quot;&gt;
+        &lt;Routes&gt;
+          &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;}&gt;&lt;/Route&gt;
+          &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;}&gt;&lt;/Route&gt;
+        &lt;/Routes&gt;
+      &lt;/header&gt;
+    &lt;/div&gt;
+  );
+}
+function Home() {
+  return &lt;div&gt;
+    &lt;main&gt;
+      &lt;h2&gt;Welcome to the homepage&lt;/h2&gt;
+    &lt;/main&gt;
+    &lt;nav&gt;
+      &lt;Link to=&quot;/about&quot;&gt;about&lt;/Link&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+}
+function About() {
+  return &lt;div&gt;
+    &lt;main&gt;
+      &lt;h2&gt;Welcome to the about page&lt;/h2&gt;
+    &lt;/main&gt;
+    &lt;nav&gt;
+      &lt;ol&gt;
+        &lt;Link to=&quot;/&quot;&gt;home&lt;/Link&gt;
+        &lt;Link to=&quot;/about&quot;&gt;about&lt;/Link&gt;
+      &lt;/ol&gt;
+
+    &lt;/nav&gt;
+  &lt;/div&gt;
+}
+export default App;
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h3 id="嵌套路由"><a href="#嵌套路由" class="header-anchor">#</a> 嵌套路由</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>function App() {
+  return (
+    &lt;Routes&gt;
+      &lt;Route path=&quot;user&quot; element={&lt;Users /&gt;}&gt;
+        &lt;Route path=&quot;:id&quot; element={&lt;UserDetail /&gt;} /&gt;
+        &lt;Route path=&quot;create&quot; element={&lt;NewUser /&gt;} /&gt;
+      &lt;/Route&gt;
+    &lt;/Routes&gt;
+  );
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>当访问 /user/123 的时候，组件树将会变成这样</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;App&gt;
+    &lt;Users&gt;
+        &lt;UserDetail/&gt;
+    &lt;/Users&gt;
+&lt;/App&gt;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>如果只是内部组件修改，也可以采用<code>&lt;Outlet/&gt;</code>来直接实现，如下所示</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function App() {
+  return (
+    &lt;Routes&gt;
+      &lt;Route path=&quot;user&quot; element={&lt;Users /&gt;}&gt;
+        &lt;Route path=&quot;:id&quot; element={&lt;UserDetail /&gt;} /&gt;
+        &lt;Route path=&quot;create&quot; element={&lt;NewUser /&gt;} /&gt;
+      &lt;/Route&gt;
+    &lt;/Routes&gt;
+  );
+}
+function Users() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Users&lt;/h1&gt;
+      &lt;Outlet /&gt;
+    &lt;/div&gt;
+  );
+}
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h3 id="index路由"><a href="#index路由" class="header-anchor">#</a> index路由</h3> <p>index属性解决当嵌套路由有多个子路由但本身无法确认默认渲染哪个子路由的时候，可以增加index属性来指定默认路由</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function App() {
+  return (
+    &lt;Routes&gt;
+      &lt;Route path=&quot;/&quot; element={&lt;Layout /&gt;}&gt;
+        &lt;Route index element={&lt;About /&gt;} /&gt;
+        &lt;Route path=&quot;user&quot; element={&lt;User /&gt;} /&gt;
+        &lt;Route path=&quot;about&quot; element={&lt;About /&gt;} /&gt;
+      &lt;/Route&gt;
+    &lt;/Routes&gt;
+  );
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>这样当访问/的时候<code>&lt;Outlet/&gt;</code>会默认渲染About组件</p> <h3 id="路由通配符"><a href="#路由通配符" class="header-anchor">#</a> 路由通配符</h3> <p>整个react-router支持以下几种通配符</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>/groups
+/groups/admin
+/users/:id
+/users/:id/messages
+/files/*
+/files/:id/*
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>这里的<code>*</code>只能用在/后面，不能用在实际路径中间</p> <p>关于NotFound类路由，可以用<code>*</code>来代替</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function App() {
+  return (
+    &lt;Routes&gt;
+      &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+      &lt;Route path=&quot;dashboard&quot; element={&lt;Dashboard /&gt;} /&gt;
+      &lt;Route path=&quot;*&quot; element={&lt;NotFound /&gt;} /&gt;
+    &lt;/Routes&gt;
+  );
+}
+
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="获取参数-useparams-和usesearchparams"><a href="#获取参数-useparams-和usesearchparams" class="header-anchor">#</a> 获取参数 useParams 和useSearchParams</h3> <p>假设现有App路由</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function App() {
+ return (
+   &lt;Routes&gt;
+     &lt;Route path=&quot;user&quot; element={&lt;Users /&gt;}&gt;
+       &lt;Route path=&quot;:id&quot; element={&lt;UserDetail /&gt;} /&gt;
+       &lt;Route path=&quot;create&quot; element={&lt;NewUser /&gt;} /&gt;
+     &lt;/Route&gt;
+   &lt;/Routes&gt;
+ );
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>那么在UserDetail内部需要用useParams来获取对应的参数</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>import { useParams } from &quot;react-router-dom&quot;;
+
+export default function UserDetail() {
+  let params = useParams();
+  return &lt;h2&gt;User: {params.id}&lt;/h2&gt;;
+}
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>useSearchParams相对复杂，他返回的是一个当前值和set方法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> let [searchParams, setSearchParams] = useSearchParams();
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>使用时可以用<code>searchParams.get(&quot;id&quot;)</code>来获取参数，同时页面内也可以setSearchParams({&quot;id&quot;:2})来改变路由，这样当访问 <a href="https://link.juejin.cn?target=http%3A%2F%2FURL%2Fuser%3Fid%3D111" target="_blank" rel="noopener noreferrer">http://URL/user?id=111<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 时就可以获取和设置路径</p> <h3 id="usenavigate"><a href="#usenavigate" class="header-anchor">#</a> useNavigate</h3> <p>useNavigate是替代原有V5中的useHistory的新hooks，其用法和useHistory类似，整体使用起来更轻量，他的声明方式如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>declare function useNavigate(): NavigateFunction;
+
+interface NavigateFunction {
+  (
+    to: To,
+    options?: { replace?: boolean; state?: State }
+  ): void;
+  (delta: number): void;
+}
+复制代码
+  //js写法
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate(&quot;/home&quot;);
+  }
+  //组件写法
+  function App() {
+     return &lt;Navigate to=&quot;/home&quot; replace state={state} /&gt;;
+  }
+  //替代原有的go goBack和goForward
+ &lt;button onClick={() =&gt; navigate(-2)}&gt;
+    Go 2 pages back
+  &lt;/button&gt;
+  &lt;button onClick={() =&gt; navigate(-1)}&gt;Go back&lt;/button&gt;
+  &lt;button onClick={() =&gt; navigate(1)}&gt;
+    Go forward
+  &lt;/button&gt;
+  &lt;button onClick={() =&gt; navigate(2)}&gt;
+    Go 2 pages forward
+  &lt;/button&gt;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p>嗨，中途床图 gitee还坏了，不得不换阿里的 oss 了。</p> <h2 id="闪屏问题"><a href="#闪屏问题" class="header-anchor">#</a> 闪屏问题</h2> <p>中途采用了 lazy 加载页面，所以就会造成闪屏，在代码中也有体现，最后决定采用局部加载的方式，来渲染二级路由，具体可以参见代码仓库，简单来说就是 <code>LayoutPage</code>（公共布局组件不使用懒加载的方式）。</p> <h2 id="权限思路"><a href="#权限思路" class="header-anchor">#</a> 权限思路</h2> <h3 id="动态菜单"><a href="#动态菜单" class="header-anchor">#</a> 动态菜单</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>function genMenu(menuConfig) {
+  return menuConfig.map(menuItem =&gt; {
+    if (menuItem.children) {
+      return &lt;SubMenu
+        key={menuItem.id}
+        icon={&lt;NotificationOutlined/&gt;}
+        title={menuItem.name}
+      &gt;
+        {genMenu(menuItem.children)}
+      &lt;/SubMenu&gt;
+    } else {
+      return &lt;Menu.Item key={menuItem.id} path={menuItem.path}&gt;{menuItem.name}&lt;/Menu.Item&gt;
+    }
+  })
+}
+            &lt;Menu
+              mode=&quot;inline&quot;
+              defaultSelectedKeys={[&quot;1&quot;]}
+              defaultOpenKeys={[&quot;sub1&quot;]}
+              onSelect={handleSelect}
+              style={{height: &quot;100%&quot;, borderRight: 0}}
+            &gt;
+              {genMenu(menu[0].children)}
+            &lt;/Menu&gt;
+复制代码
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h3 id="动态路由"><a href="#动态路由" class="header-anchor">#</a> 动态路由</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 经过分析发现  菜单是有父子关系的 ， 而路由没有子路由都属于 LayoutPage 的子路由
+
+// path 命名采用 驼峰命名法 helloWorld
+// 组件的目录命名采用 HelloWorld 命名方式
+// 所以就需要编写一个函数  将 path /helloWorld 转换成 /HelloWorld ，也就是/后面的第一个字符准换成大写的
+
+function convertPath (path) {
+  let arr = path.split('/')
+  //  forEach 调用的时候 item 如果普通类型如果给 item 重新赋值 则不会修改原始值
+  //  如果是引用类型  直接改变指针的指向则原始值不会被修改
+  //  如果是引用类型  在原来引用的基础上修改会修改原始值
+  return arr.map(item =&gt; {
+    if (item) {
+      return item[0].toUpperCase() + item.substring(1)
+    }else {
+      return item
+    }
+  }).join('/')
+}
+
+let router = [
+  {
+    path: &quot;/login&quot;,
+    element: LazyWrapper('Login'),
+  },
+  {
+    path: &quot;/&quot;,
+    element: &lt;LayoutPage/&gt;,
+    children: [],
+  },
+];
+
+// 包装 React.lazy函数
+function LazyWrapper(path) {
+  const Component = lazy(() =&gt; import(`../pages${path}`))
+  return (
+    &lt;Suspense fallback={&lt;div&gt;loading&lt;/div&gt;}&gt;
+      &lt;Component/&gt;
+    &lt;/Suspense&gt;
+  );
+}
+
+// 收集所有的叶子节点，生成路由信息
+function genRouter(menuConfig, router) {
+  menuConfig.forEach(menuItem =&gt; {
+    if(!menuItem.children) {
+      router.push({
+        path: menuItem.path,
+        element: LazyWrapper(convertPath(menuItem.path))
+      })
+    }else {
+      genRouter(menuItem.children, router)
+    }
+  })
+}
+genRouter(menu[0].children, router[1].children)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br></div></div></div></section> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间: </span> <span class="time">2022/3/28 19:18:21</span></div></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-106c08ae><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#安装方法" class="sidebar-link reco-side-安装方法" data-v-106c08ae>安装方法</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#使用方法" class="sidebar-link reco-side-使用方法" data-v-106c08ae>使用方法</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#路由组件" class="sidebar-link reco-side-路由组件" data-v-106c08ae>路由组件</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#hooks" class="sidebar-link reco-side-hooks" data-v-106c08ae>hooks</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#routes-route-link-使用" class="sidebar-link reco-side-routes-route-link-使用" data-v-106c08ae>Routes Route Link 使用</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#嵌套路由" class="sidebar-link reco-side-嵌套路由" data-v-106c08ae>嵌套路由</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#index路由" class="sidebar-link reco-side-index路由" data-v-106c08ae>index路由</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#路由通配符" class="sidebar-link reco-side-路由通配符" data-v-106c08ae>路由通配符</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#获取参数-useparams-和usesearchparams" class="sidebar-link reco-side-获取参数-useparams-和usesearchparams" data-v-106c08ae>获取参数 useParams 和useSearchParams</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#usenavigate" class="sidebar-link reco-side-usenavigate" data-v-106c08ae>useNavigate</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#闪屏问题" class="sidebar-link reco-side-闪屏问题" data-v-106c08ae>闪屏问题</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#权限思路" class="sidebar-link reco-side-权限思路" data-v-106c08ae>权限思路</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#动态菜单" class="sidebar-link reco-side-动态菜单" data-v-106c08ae>动态菜单</a></li><li class="level-3" data-v-106c08ae><a href="/my-blog/blogs/javascript/react-route-dom6.html#动态路由" class="sidebar-link reco-side-动态路由" data-v-106c08ae>动态路由</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      随便看看吧
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="150" height="220" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="/my-blog/audio/Door.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="/my-blog/audio/door.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:20px;bottom:30px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(/my-blog/audio/door.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>Door</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>高桥李依</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:99;" data-v-017cf06a></canvas></div><div></div></div></div>
+    <script src="/my-blog/assets/js/app.287948d5.js" defer></script><script src="/my-blog/assets/js/5.a5a64981.js" defer></script><script src="/my-blog/assets/js/1.84d33670.js" defer></script><script src="/my-blog/assets/js/27.452e613f.js" defer></script>
+  </body>
+</html>
