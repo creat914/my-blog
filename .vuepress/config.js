@@ -101,7 +101,8 @@ module.exports = {
                 "tsMore"
             ],
             "/blogs/utils/":[
-                "npmPage"
+                "npmPage",
+                "developmentOfNotes"
             ]
         },
         "type": "blog",
