@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>js常用api | Lemon的博客小站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/my-blog/my-blog/favicon.ico">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/my-blog/assets/css/0.styles.e2d0b3ff.css" as="style"><link rel="preload" href="/my-blog/assets/js/app.88887a0f.js" as="script"><link rel="preload" href="/my-blog/assets/js/5.654bc4c0.js" as="script"><link rel="preload" href="/my-blog/assets/js/1.cdfdbdee.js" as="script"><link rel="preload" href="/my-blog/assets/js/24.1162a347.js" as="script"><link rel="prefetch" href="/my-blog/assets/js/10.6e3daa18.js"><link rel="prefetch" href="/my-blog/assets/js/11.8f2bfc55.js"><link rel="prefetch" href="/my-blog/assets/js/12.99cc0493.js"><link rel="prefetch" href="/my-blog/assets/js/13.4d4c5ebe.js"><link rel="prefetch" href="/my-blog/assets/js/14.6976a4be.js"><link rel="prefetch" href="/my-blog/assets/js/15.602bb76d.js"><link rel="prefetch" href="/my-blog/assets/js/16.9ad42470.js"><link rel="prefetch" href="/my-blog/assets/js/17.9ef3af97.js"><link rel="prefetch" href="/my-blog/assets/js/18.998933ff.js"><link rel="prefetch" href="/my-blog/assets/js/19.d2586e33.js"><link rel="prefetch" href="/my-blog/assets/js/2.1ba21063.js"><link rel="prefetch" href="/my-blog/assets/js/20.c697a2cb.js"><link rel="prefetch" href="/my-blog/assets/js/21.5a1ef131.js"><link rel="prefetch" href="/my-blog/assets/js/22.2afb7492.js"><link rel="prefetch" href="/my-blog/assets/js/23.0192bd27.js"><link rel="prefetch" href="/my-blog/assets/js/25.caaefe2a.js"><link rel="prefetch" href="/my-blog/assets/js/26.98f86159.js"><link rel="prefetch" href="/my-blog/assets/js/27.752314e7.js"><link rel="prefetch" href="/my-blog/assets/js/28.0b6cd1f4.js"><link rel="prefetch" href="/my-blog/assets/js/29.99d1f4ef.js"><link rel="prefetch" href="/my-blog/assets/js/30.4dc5ab8c.js"><link rel="prefetch" href="/my-blog/assets/js/31.cf221679.js"><link rel="prefetch" href="/my-blog/assets/js/32.ef35fdd2.js"><link rel="prefetch" href="/my-blog/assets/js/33.6ac9c894.js"><link rel="prefetch" href="/my-blog/assets/js/34.484bd664.js"><link rel="prefetch" href="/my-blog/assets/js/35.84facb10.js"><link rel="prefetch" href="/my-blog/assets/js/36.d215d861.js"><link rel="prefetch" href="/my-blog/assets/js/37.85f367a1.js"><link rel="prefetch" href="/my-blog/assets/js/38.940bdf32.js"><link rel="prefetch" href="/my-blog/assets/js/39.55a38a6c.js"><link rel="prefetch" href="/my-blog/assets/js/4.32b23776.js"><link rel="prefetch" href="/my-blog/assets/js/40.5f085572.js"><link rel="prefetch" href="/my-blog/assets/js/41.408801de.js"><link rel="prefetch" href="/my-blog/assets/js/42.d33db34c.js"><link rel="prefetch" href="/my-blog/assets/js/6.f9f114a3.js"><link rel="prefetch" href="/my-blog/assets/js/7.95849f3f.js"><link rel="prefetch" href="/my-blog/assets/js/8.914b4926.js"><link rel="prefetch" href="/my-blog/assets/js/9.0467dc5a.js">
+    <link rel="stylesheet" href="/my-blog/assets/css/0.styles.e2d0b3ff.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-272a5bff><div data-v-272a5bff><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-272a5bff data-v-272a5bff><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-7c2f76d1 data-v-272a5bff data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>Lemon的博客小站</h3> <p class="description" data-v-7c2f76d1 data-v-7c2f76d1></p> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Lemon</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div class="hide" data-v-272a5bff><header class="navbar" data-v-272a5bff><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/my-blog/" class="home-link router-link-active"><img src="/my-blog/avatar.jpg" alt="Lemon的博客小站" class="logo"> <span class="site-name">Lemon的博客小站</span></a> <div class="links"><div class="color-picker" style="display:none;"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/my-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      文章
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-blog/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/dart/" class="nav-link"><i class="undefined"></i>
+  dart
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/flutter/" class="nav-link"><i class="undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/question/" class="nav-link"><i class="undefined"></i>
+  question
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/reactNative/" class="nav-link"><i class="undefined"></i>
+  reactNative
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/mock数据/" class="nav-link"><i class="undefined"></i>
+  mock数据
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/theFramework/" class="nav-link"><i class="undefined"></i>
+  theFramework
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/typescript/" class="nav-link"><i class="undefined"></i>
+  typescript
+</a></li></ul></div></div><div class="nav-item"><a href="/my-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  文章发表历程
+</a></div><div class="nav-item"><a href="/my-blog/Units/" class="nav-link"><i class="iconfont reco-date"></i>
+  在线编辑
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-272a5bff></div> <aside class="sidebar" data-v-272a5bff><div class="personal-info-wrapper" data-v-25b2bb28 data-v-272a5bff><img src="/my-blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-25b2bb28> <h3 class="name" data-v-25b2bb28>
+    Lemon
+  </h3> <div class="num" data-v-25b2bb28><div data-v-25b2bb28><h3 data-v-25b2bb28>27</h3> <h6 data-v-25b2bb28>文章</h6></div> <div data-v-25b2bb28><h3 data-v-25b2bb28>22</h3> <h6 data-v-25b2bb28>标签</h6></div></div> <ul class="social-links" data-v-25b2bb28></ul> <hr data-v-25b2bb28></div> <nav class="nav-links"><div class="nav-item"><a href="/my-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      文章
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/my-blog/categories/css/" class="nav-link"><i class="undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/dart/" class="nav-link"><i class="undefined"></i>
+  dart
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/flutter/" class="nav-link"><i class="undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/git/" class="nav-link"><i class="undefined"></i>
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/html/" class="nav-link"><i class="undefined"></i>
+  html
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/utils/" class="nav-link"><i class="undefined"></i>
+  utils
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/question/" class="nav-link"><i class="undefined"></i>
+  question
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/reactNative/" class="nav-link"><i class="undefined"></i>
+  reactNative
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/mock数据/" class="nav-link"><i class="undefined"></i>
+  mock数据
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/theFramework/" class="nav-link"><i class="undefined"></i>
+  theFramework
+</a></li><li class="dropdown-item"><!----> <a href="/my-blog/categories/typescript/" class="nav-link"><i class="undefined"></i>
+  typescript
+</a></li></ul></div></div><div class="nav-item"><a href="/my-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  文章发表历程
+</a></div><div class="nav-item"><a href="/my-blog/Units/" class="nav-link"><i class="iconfont reco-date"></i>
+  在线编辑
+</a></div> <!----></nav> <ul class="sidebar-links"><li><a href="/my-blog/blogs/javascript/utils.html" class="sidebar-link">js的一些基本工具类操作</a></li><li><a href="/my-blog/blogs/javascript/DataStructure.html" class="sidebar-link">JavaScript数据结构与算法</a></li><li><a href="/my-blog/blogs/javascript/knowledge.html" class="sidebar-link">javascript知识点</a></li><li><a href="/my-blog/blogs/javascript/es6.html" class="sidebar-link">ES6新特性</a></li><li><a href="/my-blog/blogs/javascript/package.json.html" class="sidebar-link">package文件说明</a></li><li><a href="/my-blog/blogs/javascript/VueRouter.html" class="sidebar-link">Vue-Router属性解析</a></li><li><a href="/my-blog/blogs/javascript/window.html" class="sidebar-link">window 对象</a></li><li><a href="/my-blog/blogs/javascript/arrayOption.html" class="sidebar-link">数组方法</a></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-7c2f76d1 data-v-272a5bff><h3 class="title" data-v-7c2f76d1 data-v-7c2f76d1>js常用api</h3> <!----> <label id="box" class="inputBox" data-v-7c2f76d1 data-v-7c2f76d1><input type="password" value="" data-v-7c2f76d1> <span data-v-7c2f76d1>Konck! Knock!</span> <button data-v-7c2f76d1>OK</button></label> <div class="footer" data-v-7c2f76d1 data-v-7c2f76d1><span data-v-7c2f76d1><i class="iconfont reco-theme" data-v-7c2f76d1></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-7c2f76d1>vuePress-theme-reco</a></span> <span data-v-7c2f76d1><i class="iconfont reco-copyright" data-v-7c2f76d1></i> <a data-v-7c2f76d1><span data-v-7c2f76d1>Lemon</span>
+            
+          <span data-v-7c2f76d1>2021 - </span>
+          2022
+        </a></span></div></div> <div data-v-272a5bff><main class="page"><section><div class="page-title"><h1 class="title">js常用api</h1> <div data-v-cf73456e><i class="iconfont reco-account" data-v-cf73456e><span data-v-cf73456e>Lemon</span></i> <i class="iconfont reco-date" data-v-cf73456e><span data-v-cf73456e>2022/4/7</span></i> <!----> <i class="tags iconfont reco-tag" data-v-cf73456e><span class="tag-item" data-v-cf73456e>javascript</span></i></div></div> <div class="theme-reco-content content__default"><h1 id="javascript常用api总结"><a href="#javascript常用api总结" class="header-anchor">#</a> JavaScript常用API总结</h1> <p>poetry [前端进阶之旅](javascript:void(0)😉 <em>2021-01-06 20:00</em></p> <h2 id="一、节点"><a href="#一、节点" class="header-anchor">#</a> 一、节点</h2> <p><strong>1.1 节点属性</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Node<span class="token punctuation">.</span>nodeName   <span class="token comment">//返回节点名称，只读</span>
+Node<span class="token punctuation">.</span>nodeType   <span class="token comment">//返回节点类型的常数值，只读</span>
+Node<span class="token punctuation">.</span>nodeValue  <span class="token comment">//返回Text或Comment节点的文本值，只读</span>
+Node<span class="token punctuation">.</span>textContent  <span class="token comment">//返回当前节点和它的所有后代节点的文本内容，可读写</span>
+Node<span class="token punctuation">.</span>baseURI    <span class="token comment">//返回当前网页的绝对路径</span>
+
+Node<span class="token punctuation">.</span>ownerDocument  <span class="token comment">//返回当前节点所在的顶层文档对象，即document</span>
+Node<span class="token punctuation">.</span>nextSibling  <span class="token comment">//返回紧跟在当前节点后面的第一个兄弟节点</span>
+Node<span class="token punctuation">.</span>previousSibling  <span class="token comment">//返回当前节点前面的、距离最近的一个兄弟节点</span>
+Node<span class="token punctuation">.</span>parentNode   <span class="token comment">//返回当前节点的父节点</span>
+Node<span class="token punctuation">.</span>parentElement  <span class="token comment">//返回当前节点的父Element节点</span>
+Node<span class="token punctuation">.</span>childNodes   <span class="token comment">//返回当前节点的所有子节点</span>
+Node<span class="token punctuation">.</span>firstChild  <span class="token comment">//返回当前节点的第一个子节点</span>
+Node<span class="token punctuation">.</span>lastChild   <span class="token comment">//返回当前节点的最后一个子节点</span>
+
+<span class="token comment">//parentNode接口</span>
+Node<span class="token punctuation">.</span>children  <span class="token comment">//返回指定节点的所有Element子节点</span>
+Node<span class="token punctuation">.</span>firstElementChild  <span class="token comment">//返回当前节点的第一个Element子节点</span>
+Node<span class="token punctuation">.</span>lastElementChild   <span class="token comment">//返回当前节点的最后一个Element子节点</span>
+Node<span class="token punctuation">.</span>childElementCount  <span class="token comment">//返回当前节点所有Element子节点的数目。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p><strong>1.2 操作</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Node<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>   <span class="token comment">//向节点添加最后一个子节点</span>
+Node<span class="token punctuation">.</span><span class="token function">hasChildNodes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//返回布尔值，表示当前节点是否有子节点</span>
+Node<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 默认为false(克隆节点), true(克隆节点及其属性，以及后代)</span>
+Node<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>newNode<span class="token punctuation">,</span>oldNode<span class="token punctuation">)</span>  <span class="token comment">// 在指定子节点之前插入新的子节点</span>
+Node<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>   <span class="token comment">//删除节点，在要删除节点的父节点上操作</span>
+Node<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span>newChild<span class="token punctuation">,</span>oldChild<span class="token punctuation">)</span>  <span class="token comment">//替换节点</span>
+Node<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>  <span class="token comment">//返回一个布尔值，表示参数节点是否为当前节点的后代节点。</span>
+Node<span class="token punctuation">.</span><span class="token function">compareDocumentPosition</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span>   <span class="token comment">//返回一个7个比特位的二进制值，表示参数节点和当前节点的关系</span>
+Node<span class="token punctuation">.</span><span class="token function">isEqualNode</span><span class="token punctuation">(</span>noe<span class="token punctuation">)</span>  <span class="token comment">//返回布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。</span>
+Node<span class="token punctuation">.</span><span class="token function">normalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//用于清理当前节点内部的所有Text节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。</span>
+
+<span class="token comment">//ChildNode接口</span>
+Node<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//用于删除当前节点</span>
+Node<span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//</span>
+Node<span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+Node<span class="token punctuation">.</span><span class="token function">replaceWith</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p><strong>1.3 Document节点</strong></p> <p><strong>1.3.1 Document节点的属性</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>document<span class="token punctuation">.</span>doctype   <span class="token comment">//</span>
+document<span class="token punctuation">.</span>documentElement  <span class="token comment">//返回当前文档的根节点</span>
+document<span class="token punctuation">.</span>defaultView   <span class="token comment">//返回document对象所在的window对象</span>
+document<span class="token punctuation">.</span>body   <span class="token comment">//返回当前文档的&lt;body&gt;节点</span>
+document<span class="token punctuation">.</span>head   <span class="token comment">//返回当前文档的&lt;head&gt;节点</span>
+document<span class="token punctuation">.</span>activeElement  <span class="token comment">//返回当前文档中获得焦点的那个元素。</span>
+
+<span class="token comment">//节点集合属性</span>
+document<span class="token punctuation">.</span>links  <span class="token comment">//返回当前文档的所有a元素</span>
+document<span class="token punctuation">.</span>forms  <span class="token comment">//返回页面中所有表单元素</span>
+document<span class="token punctuation">.</span>images  <span class="token comment">//返回页面中所有图片元素</span>
+document<span class="token punctuation">.</span>embeds  <span class="token comment">//返回网页中所有嵌入对象</span>
+document<span class="token punctuation">.</span>scripts  <span class="token comment">//返回当前文档的所有脚本</span>
+document<span class="token punctuation">.</span>styleSheets  <span class="token comment">//返回当前网页的所有样式表</span>
+
+<span class="token comment">//文档信息属性</span>
+document<span class="token punctuation">.</span>documentURI  <span class="token comment">//表示当前文档的网址</span>
+document<span class="token punctuation">.</span><span class="token constant">URL</span>  <span class="token comment">//返回当前文档的网址</span>
+document<span class="token punctuation">.</span>domain  <span class="token comment">//返回当前文档的域名</span>
+document<span class="token punctuation">.</span>lastModified  <span class="token comment">//返回当前文档最后修改的时间戳</span>
+document<span class="token punctuation">.</span>location  <span class="token comment">//返回location对象，提供当前文档的URL信息</span>
+document<span class="token punctuation">.</span>referrer  <span class="token comment">//返回当前文档的访问来源</span>
+document<span class="token punctuation">.</span>title    <span class="token comment">//返回当前文档的标题</span>
+document<span class="token punctuation">.</span>characterSet属性返回渲染当前文档的字符集，比如<span class="token constant">UTF</span><span class="token operator">-</span><span class="token number">8</span>、<span class="token constant">ISO</span><span class="token operator">-</span><span class="token number">8859</span><span class="token operator">-</span><span class="token number">1</span>。
+document<span class="token punctuation">.</span>readyState  <span class="token comment">//返回当前文档的状态</span>
+document<span class="token punctuation">.</span>designMode  <span class="token comment">//控制当前文档是否可编辑，可读写</span>
+document<span class="token punctuation">.</span>compatMode  <span class="token comment">//返回浏览器处理文档的模式</span>
+document<span class="token punctuation">.</span>cookie   <span class="token comment">//用来操作Cookie</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p><strong>1.3.2 Document节点的方法</strong></p> <p><strong>（1）读写方法</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>document<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//用于新建并打开一个文档</span>
+document<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//不安比open方法所新建的文档</span>
+document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//用于向当前文档写入内容</span>
+document<span class="token punctuation">.</span><span class="token function">writeIn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//用于向当前文档写入内容，尾部添加换行符。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>（2）查找节点</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>selectors<span class="token punctuation">)</span>   <span class="token comment">//接受一个CSS选择器作为参数，返回第一个匹配该选择器的元素节点。</span>
+document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span>selectors<span class="token punctuation">)</span>  <span class="token comment">//接受一个CSS选择器作为参数，返回所有匹配该选择器的元素节点。</span>
+document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span>tagName<span class="token punctuation">)</span>  <span class="token comment">//返回所有指定HTML标签的元素</span>
+document<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span>className<span class="token punctuation">)</span>   <span class="token comment">//返回包括了所有class名字符合指定条件的元素</span>
+document<span class="token punctuation">.</span><span class="token function">getElementsByName</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>   <span class="token comment">//用于选择拥有name属性的HTML元素（比如&lt;form&gt;、&lt;radio&gt;、&lt;img&gt;、&lt;frame&gt;、&lt;embed&gt;和&lt;object&gt;等）</span>
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>   <span class="token comment">//返回匹配指定id属性的元素节点。</span>
+document<span class="token punctuation">.</span><span class="token function">elementFromPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>  <span class="token comment">//返回位于页面指定位置最上层的Element子节点。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>（3）生成节点</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>tagName<span class="token punctuation">)</span>   <span class="token comment">//用来生成HTML元素节点。</span>
+document<span class="token punctuation">.</span><span class="token function">createTextNode</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>   <span class="token comment">//用来生成文本节点</span>
+document<span class="token punctuation">.</span><span class="token function">createAttribute</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>  <span class="token comment">//生成一个新的属性对象节点，并返回它。</span>
+document<span class="token punctuation">.</span><span class="token function">createDocumentFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//生成一个DocumentFragment对象</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>（4）事件方法</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>document<span class="token punctuation">.</span><span class="token function">createEvent</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span>   <span class="token comment">//生成一个事件对象，该对象能被element.dispatchEvent()方法使用</span>
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>listener<span class="token punctuation">,</span>capture<span class="token punctuation">)</span>  <span class="token comment">//注册事件</span>
+document<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span>listener<span class="token punctuation">,</span>capture<span class="token punctuation">)</span>  <span class="token comment">//注销事件</span>
+document<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span>  <span class="token comment">//触发事件</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>（5）其他</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>document<span class="token punctuation">.</span><span class="token function">hasFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//返回一个布尔值，表示当前文档之中是否有元素被激活或获得焦点。</span>
+document<span class="token punctuation">.</span><span class="token function">adoptNode</span><span class="token punctuation">(</span>externalNode<span class="token punctuation">)</span>  <span class="token comment">//将某个节点，从其原来所在的文档移除，插入当前文档，并返回插入后的新节点。</span>
+document<span class="token punctuation">.</span><span class="token function">importNode</span><span class="token punctuation">(</span>externalNode<span class="token punctuation">,</span> deep<span class="token punctuation">)</span>   <span class="token comment">//从外部文档拷贝指定节点，插入当前文档。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><strong>1.4 Element节点</strong></p> <p><strong>1.4.1 Element节点的属性</strong></p> <p><strong>（1）特性属性</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span>attributes  <span class="token comment">//返回当前元素节点的所有属性节点</span>
+Element<span class="token punctuation">.</span>id  <span class="token comment">//返回指定元素的id属性，可读写</span>
+Element<span class="token punctuation">.</span>tagName  <span class="token comment">//返回指定元素的大写标签名</span>
+Element<span class="token punctuation">.</span>innerHTML   <span class="token comment">//返回该元素包含的HTML代码，可读写</span>
+Element<span class="token punctuation">.</span>outerHTML  <span class="token comment">//返回指定元素节点的所有HTML代码，包括它自身和包含的的所有子元素，可读写</span>
+Element<span class="token punctuation">.</span>className  <span class="token comment">//返回当前元素的class属性，可读写</span>
+Element<span class="token punctuation">.</span>classList  <span class="token comment">//返回当前元素节点的所有class集合</span>
+Element<span class="token punctuation">.</span>dataset   <span class="token comment">//返回元素节点中所有的data-*属性。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><strong>（2）尺寸属性</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span>clientHeight   <span class="token comment">//返回元素节点可见部分的高度</span>
+Element<span class="token punctuation">.</span>clientWidth   <span class="token comment">//返回元素节点可见部分的宽度</span>
+Element<span class="token punctuation">.</span>clientLeft   <span class="token comment">//返回元素节点左边框的宽度</span>
+Element<span class="token punctuation">.</span>clientTop   <span class="token comment">//返回元素节点顶部边框的宽度</span>
+Element<span class="token punctuation">.</span>scrollHeight  <span class="token comment">//返回元素节点的总高度</span>
+Element<span class="token punctuation">.</span>scrollWidth  <span class="token comment">//返回元素节点的总宽度</span>
+Element<span class="token punctuation">.</span>scrollLeft   <span class="token comment">//返回元素节点的水平滚动条向右滚动的像素数值,通过设置这个属性可以改变元素的滚动位置</span>
+Element<span class="token punctuation">.</span>scrollTop   <span class="token comment">//返回元素节点的垂直滚动向下滚动的像素数值</span>
+Element<span class="token punctuation">.</span>offsetHeight   <span class="token comment">//返回元素的垂直高度(包含border,padding)</span>
+Element<span class="token punctuation">.</span>offsetWidth    <span class="token comment">//返回元素的水平宽度(包含border,padding)</span>
+Element<span class="token punctuation">.</span>offsetLeft    <span class="token comment">//返回当前元素左上角相对于Element.offsetParent节点的垂直偏移</span>
+Element<span class="token punctuation">.</span>offsetTop   <span class="token comment">//返回水平位移</span>
+Element<span class="token punctuation">.</span>style  <span class="token comment">//返回元素节点的行内样式</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>（3）节点相关属性</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span>children   <span class="token comment">//包括当前元素节点的所有子元素</span>
+Element<span class="token punctuation">.</span>childElementCount   <span class="token comment">//返回当前元素节点包含的子HTML元素节点的个数</span>
+Element<span class="token punctuation">.</span>firstElementChild  <span class="token comment">//返回当前节点的第一个Element子节点  </span>
+Element<span class="token punctuation">.</span>lastElementChild   <span class="token comment">//返回当前节点的最后一个Element子节点  </span>
+Element<span class="token punctuation">.</span>nextElementSibling  <span class="token comment">//返回当前元素节点的下一个兄弟HTML元素节点</span>
+Element<span class="token punctuation">.</span>previousElementSibling  <span class="token comment">//返回当前元素节点的前一个兄弟HTML节点</span>
+Element<span class="token punctuation">.</span>offsetParent   <span class="token comment">//返回当前元素节点的最靠近的、并且CSS的position属性不等于static的父元素。</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>1.4.2 Element节点的方法</strong></p> <p><strong>（1）位置方法</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token comment">// getBoundingClientRect返回一个对象，包含top,left,right,bottom,width,height // width、height 元素自身宽高</span>
+<span class="token comment">// top 元素上外边界距窗口最上面的距离</span>
+<span class="token comment">// right 元素右外边界距窗口最上面的距离</span>
+<span class="token comment">// bottom 元素下外边界距窗口最上面的距离</span>
+<span class="token comment">// left 元素左外边界距窗口最上面的距离</span>
+<span class="token comment">// width 元素自身宽(包含border,padding) </span>
+<span class="token comment">// height 元素自身高(包含border,padding) </span>
+
+<span class="token function">getClientRects</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//返回当前元素在页面上形参的所有矩形。</span>
+
+<span class="token comment">// 元素在页面上的偏移量  </span>
+<span class="token keyword">var</span> rect <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+<span class="token keyword">return</span> <span class="token punctuation">{</span>   
+  top<span class="token operator">:</span> rect<span class="token punctuation">.</span>top <span class="token operator">+</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>scrollTop<span class="token punctuation">,</span>   
+  left<span class="token operator">:</span> rect<span class="token punctuation">.</span>left <span class="token operator">+</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>scrollLeft  
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><strong>（2）属性方法</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：读取指定属性  
+Element<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：设置指定属性  
+Element<span class="token punctuation">.</span><span class="token function">hasAttribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：返回一个布尔值，表示当前元素节点是否有指定的属性  
+Element<span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：移除指定属性
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>（3）查找方法</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+Element<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+Element<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+Element<span class="token punctuation">.</span><span class="token function">getElementsByClassName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>（4）事件方法</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：添加事件的回调函数  
+Element<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：移除事件监听函数  
+Element<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：触发事件
+
+<span class="token comment">//ie8</span>
+Element<span class="token punctuation">.</span><span class="token function">attachEvent</span><span class="token punctuation">(</span>oneventName<span class="token punctuation">,</span>listener<span class="token punctuation">)</span>
+Element<span class="token punctuation">.</span><span class="token function">detachEvent</span><span class="token punctuation">(</span>oneventName<span class="token punctuation">,</span>listener<span class="token punctuation">)</span>
+
+<span class="token comment">// event对象  </span>
+<span class="token keyword">var</span> event <span class="token operator">=</span> window<span class="token punctuation">.</span>event<span class="token operator">||</span>event<span class="token punctuation">;</span>    
+
+<span class="token comment">// 事件的目标节点  </span>
+<span class="token keyword">var</span> target <span class="token operator">=</span> event<span class="token punctuation">.</span>target <span class="token operator">||</span> event<span class="token punctuation">.</span>srcElement<span class="token punctuation">;</span>
+
+<span class="token comment">// 事件代理  </span>
+ul<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>tagName<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'li'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span>   
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p><strong>（5）其他</strong></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>Element<span class="token punctuation">.</span><span class="token function">scrollIntoView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//滚动当前元素，进入浏览器的可见区域</span>
+
+<span class="token comment">//解析HTML字符串，然后将生成的节点插入DOM树的指定位置。</span>
+Element<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span>where<span class="token punctuation">,</span> htmlString<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+Element<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeBegin'</span><span class="token punctuation">,</span> htmlString<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在该元素前插入  </span>
+Element<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'afterBegin'</span><span class="token punctuation">,</span> htmlString<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在该元素第一个子元素前插入 </span>
+Element<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeEnd'</span><span class="token punctuation">,</span> htmlString<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在该元素最后一个子元素后面插入 </span>
+Element<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'afterEnd'</span><span class="token punctuation">,</span> htmlString<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在该元素后插入</span>
+
+Element<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//用于将当前元素节点从DOM中移除</span>
+Element<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">//用于将当前页面的焦点，转移到指定元素上</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="二、css操作"><a href="#二、css操作" class="header-anchor">#</a> 二、CSS操作</h2> <p><strong>（1）类名操作</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>//ie8以下
+Element.className  //获取元素节点的类名
+Element.className += ' ' + newClassName  //新增一个类名
+
+//判断是否有某个类名
+function hasClass(element,className){
+  return new RegExp(className,'gi').test(element.className);
+}
+
+//移除class
+function removeClass(element,className){
+  element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'),'');
+}
+
+//ie10 
+element.classList.add(className)  //新增
+element.classList.remove(className)  //删除
+element.classList.contains(className)  //是否包含
+element.classList.toggle(className)  //toggle class
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p><strong>（2）style操作</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>element.setAttribute('style','')
+
+element.style.backgroundColor = 'red'
+
+element.style.cssText //用来读写或删除整个style属性
+
+element.style.setProperty(propertyName,value)  //设置css属性
+element.style.getPropertyValue(property)  //获取css属性
+element.style.removeProperty(property)  //删除css属性
+操作非内联样式
+//ie8
+element.currentStyle[attrName]
+//ie9+
+window.getComputedStyle(el,null)[attrName] 
+window.getComputedStyle(el,null).getPropertyValue(attrName)
+//伪类
+window.getComputedStyle(el,':after')[attrName]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h2 id="三、对象"><a href="#三、对象" class="header-anchor">#</a> 三、对象</h2> <p><strong>3.1 Object对象</strong></p> <p><strong>（1）生成实例对象</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var o = new Object()
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（2）属性</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Object.prototype   //返回原型对象
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（3）方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Object.keys(o)   //遍历对象的可枚举属性
+Object.getOwnPropertyName(o)   //遍历对象不可枚举的属性
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>对象实例的方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>valueOf()：返回当前对象对应的值。  
+toString()：返回当前对象对应的字符串形式。  
+toLocaleString()：返回当前对象对应的本地字符串形式。  
+hasOwnProperty()：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。 
+isPrototypeOf()：判断当前对象是否为另一个对象的原型。
+propertyIsEnumerable()：判断某个属性是否可枚举。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>3.2 Array对象</strong></p> <p><strong>（1）生成实例对象</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var a = new Array()
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（2）属性</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>a.length  //长度
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（3）Array.isArray()</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Array.isArray(a)   //用来判断一个值是否为数组
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（4）Array实例的方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>a.valueof()   //返回数组本身
+a.toString()  //返回数组的字符串形式
+a.push(value,vlaue....)   //用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。
+pop()   //用于删除数组的最后一个元素，并返回该元素
+join()  //以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。
+concat()  //用于多个数组的合并。它将新数组的成员，添加到原数组的尾部，然后返回一个新数组，原数组不变。
+shift()  //用于删除数组的第一个元素，并返回该元素。
+unshift(value)  //用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。
+reverse()   //用于颠倒数组中元素的顺序，返回改变后的数组
+slice(start_index, upto_index);   //用于提取原数组的一部分，返回一个新数组，原数组不变。第一个参数为起始位置（从0开始），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。负数表示倒数第几个。
+splice(index, count_to_remove, addElement1, addElement2, ...);   //用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。第一个参数是删除的起始位置，第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。
+sort()   //对数组成员进行排序，默认是按照字典顺序排序。排序后，原数组将被改变。如果想让sort方法按照自定义方式排序，可以传入一个函数作为参数，表示按照自定义方法进行排序。该函数本身又接受两个参数，表示进行比较的两个元素。如果返回值大于0，表示第一个元素排在第二个元素后面；其他情况下，都是第一个元素排在第二个元素前面。
+map()   //对数组的所有成员依次调用一个函数，根据函数结果返回一个新数组。
+map(elem,index,arr)   //map方法接受一个函数作为参数。该函数调用时，map方法会将其传入三个参数，分别是当前成员、当前位置和数组本身。
+forEach()   //遍历数组的所有成员，执行某种操作,参数是一个函数。它接受三个参数，分别是当前位置的值、当前位置的编号和整个数组。
+filter()   //参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。
+some()    //用来判断数组成员是否符合某种条件。接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值。该函数接受三个参数，依次是当前位置的成员、当前位置的序号和整个数组。只要有一个数组成员的返回值是true，则整个some方法的返回值就是true，否则false。
+every()   //用来判断数组成员是否符合某种条件。接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值。该函数接受三个参数，依次是当前位置的成员、当前位置的序号和整个数组。所有数组成员的返回值都是true，才返回true，否则false。
+reduce()   //依次处理数组的每个成员，最终累计为一个值。从左到右处理（从第一个成员到最后一个成员）
+reduceRight()  //依次处理数组的每个成员，最终累计为一个值。从右到左（从最后一个成员到第一个成员）
+indexOf(s)   //返回给定元素在数组中第一次出现的位置，如果没有出现则返回-1。可以接受第二个参数，表示搜索的开始位置
+lastIndexOf()  //返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p><strong>3.3 Number对象</strong></p> <p><strong>（1）生成对象</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var n = new Number()
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（2）Number对象的属性</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Number.POSITIVE_INFINITY：正的无限，指向Infinity。  
+Number.NEGATIVE_INFINITY：负的无限，指向-Infinity。  
+Number.NaN：表示非数值，指向NaN。  
+Number.MAX_VALUE：表示最大的正数，相应的，最小的负数为-Number.MAX_VALUE。  
+Number.MIN_VALUE：表示最小的正数（即最接近0的正数，在64位浮点数体系中为5e-324），相应的，最接近0的负数为-Number.MIN_VALUE。  
+Number.MAX_SAFE_INTEGER：表示能够精确表示的最大整数，即9007199254740991。  
+Number.MIN_SAFE_INTEGER：表示能够精确表示的最小整数，即-9007199254740991。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><strong>（4）Number对象实例的方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>toString()   //用来将一个数值转为字符串形式.可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。
+toFixed()   //用于将一个数转为指定位数的小数，返回这个小数对应的字符串。
+toExponential()  //用于将一个数转为科学计数法形式。可传入一个参数，参数表示小数点后有效数字的位数，范围为0到20，超出这个范围，会抛出一个RangeError。
+toPrecision()  //用于将一个数转为指定位数的有效数字。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p><strong>3.4 String 对象</strong></p> <p><strong>（1）生成实例对象</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>var s = new String()
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（2）String对象的属性</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>s.length   //返回字符串的长度
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>（3）方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>s.chatAt(index)   //返回指定位置的字符
+s.fromCharCode()    //该方法的参数是一系列Unicode码点，返回对应的字符串。
+s.charCodeAt(index)    //返回给定位置字符的Unicode码点（十进制表示）
+s.concat(s2)  //用于连接两个字符串
+s.slice(start,end)   //用于从原字符串取出子字符串并返回，不改变原字符串。第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。如果参数是负值，表示从结尾开始倒数计算的位置，即该负值加上字符串长度。
+s.substring(start,end)  //用于从原字符串取出子字符串并返回，不改变原字符串.第一个参数表示子字符串的开始位置，第二个位置表示结束位置。
+s.substr(start,length)   //用于从原字符串取出子字符串并返回，不改变原字符串。第一个参数是子字符串的开始位置，第二个参数是子字符串的长度。如果第一个参数是负数，表示倒数计算的字符位置。如果第二个参数是负数，将被自动转为0，因此会返回空字符串。
+s.indexOf(s)   //返回给定元素在字符串中第一次出现的位置，如果没有出现则返回-1。可以接受第二个参数，表示搜索的开始位置 
+s.lastIndexOf()  //返回给定元素在字符串中最后一次出现的位置，如果没有出现则返回-1。
+s.trim()  //用于去除字符串两端的空格，返回一个新字符串
+s.toLowerCase()  //用于将一个字符串全部转为小写,返回一个新字符串，不改变原字符串。
+s.toUpperCase()  //全部转为大写
+s.localeCompare(s2)  //用于比较两个字符串。它返回一个整数，如果小于0，表示第一个字符串小于第二个字符串；如果等于0，表示两者相等；如果大于0，表示第一个字符串大于第二个字符串。
+s.match(regexp)   //用于确定原字符串是否匹配某个子字符串，返回一个数组，成员为匹配的第一个字符串。如果没有找到匹配，则返回null。
+s.search()  //返回值为匹配的第一个位置。如果没有找到匹配，则返回-1。
+s.replace(oldValue,newValue)  //用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）。
+s.split()  //按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组。还可传入第二个参数，决定了返回数组的成员数。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><strong>3.5 Math对象</strong></p> <p><strong>（1）属性</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Math.E：常数e。  
+Math.LN2：2的自然对数。  
+Math.LN10：10的自然对数。  
+Math.LOG2E：以2为底的e的对数。  
+Math.LOG10E：以10为底的e的对数。  
+Math.PI：常数Pi。  
+Math.SQRT1_2：0.5的平方根。  
+Math.SQRT2：2的平方根。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p><strong>（2）数学方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Math.abs()：返回参数的绝对值  
+Math.ceil()：向上取整，接受一个参数，返回大于该参数的最小整数。 
+Math.floor()：向下取整  
+Math.max(n,n1,...)：可接受多个参数，返回最大值  
+Math.min(n,n1,..)：可接受多个参数，返回最小值  
+Math.pow(n,e)：指数运算, 返回以第一个参数为底数、第二个参数为幂的指数值。 
+Math.sqrt()：返回参数值的平方根。如果参数是一个负值，则返回NaN。  
+Math.log()：返回以e为底的自然对数值。
+Math.exp()：返回e的指数，也就是常数e的参数次方。
+Math.round()：四舍五入  
+Math.random()：返回0到1之间的一个伪随机数，可能等于0，但是一定小于1。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><strong>（3）三角函数方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Math.sin()：返回参数的正弦  
+Math.cos()：返回参数的余弦  
+Math.tan()：返回参数的正切  
+Math.asin()：返回参数的反正弦（弧度值）  
+Math.acos()：返回参数的反余弦（弧度值）  
+Math.atan()：返回参数的反正切（弧度值）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>3.6 JSON对象</strong></p> <p><strong>（1）方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>JSON.stringify()   
+//用于将一个值转为字符串。该字符串应该符合JSON格式，并且可以被JSON.parse方法还原。
+//（JSON.stringify(obj, selectedProperties)）还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性。
+//还可以接受第三个参数，用于增加返回的JSON字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。
+
+JSON.parse()   //用于将JSON字符串转化成对象。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><strong>3.7 console对象</strong></p> <p><strong>（1）方法</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>console.log(text,text2,...)   //用于在console窗口输出信息。它可以接受多个参数，将它们的结果连接起来输出。如果第一个参数是格式字符串（使用了格式占位符），console.log方法将依次用后面的参数替换占位符，然后再进行输出。
+console.info()   //在console窗口输出信息，同时，会在输出信息的前面，加上一个蓝色图标。
+console.debug()  //在console窗口输出信息，同时，会在输出信息的前面，加上一个蓝色图标。
+console.warn()  //输出信息时，在最前面加一个黄色三角，表示警告；
+console.error()  //输出信息时，在最前面加一个红色的叉，表示出错，同时会显示错误发生的堆栈
+console.table()  //可以将复合类型的数据转为表格显示。
+console.count()  //用于计数，输出它被调用了多少次。
+console.dir()    //用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。
+console.dirxml()  //用于以目录树的形式，显示DOM节点。
+console.assert()  //接受两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。
+
+//这两个方法用于计时，可以算出一个操作所花费的准确时间。
+console.time()
+console.timeEnd()
+//time方法表示计时开始，timeEnd方法表示计时结束。它们的参数是计时器的名称。调用timeEnd方法之后，console窗口会显示“计时器名称: 所耗费的时间”。
+
+console.profile()  //用来新建一个性能测试器（profile），它的参数是性能测试器的名字。
+console.profileEnd()  //用来结束正在运行的性能测试器。
+
+console.group()
+console.groupend()
+//上面这两个方法用于将显示的信息分组。它只在输出大量信息时有用，分在一组的信息，可以用鼠标折叠/展开。
+console.groupCollapsed()  //用于将显示的信息分组，该组的内容，在第一次显示时是收起的（collapsed），而不是展开的。
+
+console.trace()  //显示当前执行的代码在堆栈中的调用路径。
+console.clear()  //用于清除当前控制台的所有输出，将光标回置到第一行。
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-106c08ae><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/commonlyUsedApi.html#一、节点" class="sidebar-link reco-side-一、节点" data-v-106c08ae>一、节点</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/commonlyUsedApi.html#二、css操作" class="sidebar-link reco-side-二、css操作" data-v-106c08ae>二、CSS操作</a></li><li class="level-2" data-v-106c08ae><a href="/my-blog/blogs/javascript/commonlyUsedApi.html#三、对象" class="sidebar-link reco-side-三、对象" data-v-106c08ae>三、对象</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div><div class="kanbanniang" data-v-5775ee02><div class="banniang-container" style="display:;" data-v-5775ee02><div class="messageBox" style="right:68px;bottom:190px;display:none;" data-v-5775ee02>
+      随便看看吧
+    </div> <div class="operation" style="right:90px;bottom:40px;display:;" data-v-5775ee02><i class="kbnfont kbn-ban-home ban-home" data-v-5775ee02></i> <i class="kbnfont kbn-ban-message message" data-v-5775ee02></i> <i class="kbnfont kbn-ban-close close" data-v-5775ee02></i> <a target="_blank" href="https://vuepress-theme-reco.recoluan.com/views/plugins/kanbanniang.html" data-v-5775ee02><i class="kbnfont kbn-ban-info info" data-v-5775ee02></i></a> <i class="kbnfont kbn-ban-theme skin" style="display:none;" data-v-5775ee02></i></div> <canvas id="banniang" width="150" height="220" class="live2d" style="right:90px;bottom:-20px;opacity:0.9;" data-v-5775ee02></canvas></div> <div class="showBanNiang" style="display:none;" data-v-5775ee02>
+    看板娘
+  </div></div><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="/my-blog/audio/Door.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="/my-blog/audio/door.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:20px;bottom:30px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(/my-blog/audio/door.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>Door</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>高桥李依</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><div class="Sakura" data-v-017cf06a><canvas id="canvas_sakura" style="z-index:99;" data-v-017cf06a></canvas></div><div></div></div></div>
+    <script src="/my-blog/assets/js/app.88887a0f.js" defer></script><script src="/my-blog/assets/js/5.654bc4c0.js" defer></script><script src="/my-blog/assets/js/1.cdfdbdee.js" defer></script><script src="/my-blog/assets/js/24.1162a347.js" defer></script>
+  </body>
+</html>
