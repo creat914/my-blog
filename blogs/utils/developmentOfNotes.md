@@ -163,19 +163,19 @@ git push -u origin master
 
 ### 安装插件
 
-```
+```js
 npm install -g commitizen cz-customizable
 ```
 
 #### 创建.czrc文件
 
-```
+```js
 {"path":"cz-customizable"}
 ```
 
 #### .cz-config.js 自定义说明 可加可不加
 
-```
+```js
 'use strict';
 
 module.exports = {
@@ -224,7 +224,7 @@ git push
 
 ## 基于项目创建多个分支工作环境 worktree使用
 
-```
+```js
 git worktree add [-f] [--detach] [--checkout] [--lock [--reason <string>]] [-b <new-branch>] <path> [<commit-ish>]
 git worktree list [-v | --porcelain]
 git worktree lock [--reason <string>] <worktree>
@@ -621,3 +621,398 @@ const arr3 = [...arr2];
 ```
 
 不过通过这个属性把标签变为可编辑状态后只有`input`事件，没有`change`事件。也不能像表单一样通过`maxlength`控制最大长度。
+
+### vue配置全局scss样式
+
+```js
+chainWebpack(config) {
+  const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+  types.forEach((type) => {
+    config.module
+      .rule('scss')
+      .oneOf(type)
+      .use('style-resource')
+      .loader('style-resources-loader')
+      .options({
+        patterns: [path.resolve(__dirname, 'src/assets/styles/workbench.scss')]
+      })
+  })
+}
+```
+## 58个JavaScript技巧汇总
+
+### **字符串技巧**
+
+#### **1、比较时间**
+
+```
+const time1 = "2022-03-02 09:00:00";const time2 = "2022-03-02 09:00:01";const overtime = time1 < time2;// overtime => true
+```
+
+**2、格式化money**
+
+```
+const ThousandNum = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");const money = ThousandNum(1000000);// money => '1,000,000'
+```
+
+#### **3、生成随机ID**
+
+```
+const RandomId = len => Math.random().toString(36).substr(3, len);const id = RandomId(10);// id => "xdeguewg1f"
+```
+
+#### **4、生成随机 HEX 颜色值**
+
+```
+const RandomColor = () => "#" + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0");const color = RandomColor();// color => "#2cbf89"
+```
+
+#### **5、Generate star ratings**
+
+```
+const StartScore = rate => "★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);const start = StartScore(3);// start => '★★★☆☆'
+```
+
+**6、网址查询参数**
+
+```
+const params = new URLSearchParams(location.search.replace(/\?/ig, "")); // location.search = "?name=test&sex=man"params.has("test"); // trueparams.get("sex"); // "man"
+```
+
+#### **数字技能**
+
+#### **7、Arrangement**
+
+用 Math.floor() 代替正数，用 Math.ceil() 代替负数
+
+```
+const num1 = ~~ 1.19;const num2 = 2.29 | 0;const num3 = 3.09 >> 0;// num1 num2 num3 => 1 2 3
+```
+
+#### **8、零填充**
+
+```
+const FillZero = (num, len) => num.toString().padStart(len, "0");const num = FillZero(1234, 5);// num => "01234"
+```
+
+#### **9、转数**
+
+仅对 null、“”、false、数字字符串有效
+
+```
+const num1 = +null;const num2 = +"";const num3 = +false;const num4 = +"169";// num1 num2 num3 num4 => 0 0 0 169
+```
+
+**10、时间戳**
+
+```
+const timestamp = +new Date("2022-03-22");// timestamp => 1647907200000
+```
+
+#### **11、精确小数**
+
+```
+const RoundNum = (num, decimal) => Math.round(num * 10 ** decimal) / 10 ** decimal;const num = RoundNum(1.2345, 2);// num => 1.23
+```
+
+#### **12、平价**
+
+```
+const OddEven = num => !!(num & 1) ? "odd" : "even";const num = OddEven(2);// num => "even"
+```
+
+#### **13、取最小值最大值**
+
+```
+const arr = [0, 1, 2, 3];const min = Math.min(...arr);const max = Math.max(...arr);// min max => 0 3
+```
+
+**14、生成范围随机数**
+
+```
+const RandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;const num = RandomNum(1, 10); // 5
+```
+
+### **布尔技能**
+
+#### **15、短路运算符**
+
+```
+const a = d && 1; // Fake operation, judge from left to right, return a false value when encountering a false value, and no longer execute it later, otherwise return the last true valueconst b = d || 1; // Take the true operation, judge from left to right, return the true value when encountering the true value, and do not execute it later, otherwise return the last false valueconst c = !d; // Returns false if a single expression converts to true, otherwise returns true
+```
+
+#### **16、确定数据类型**
+
+可确定的类型：undefined、null、string、number、boolean、array、object、symbol、date、regexp、function、asyncfunction、arguments、set、map、weakset、weakmap
+
+```
+function DataType(tgt, type) {    const dataType = Object.prototype.toString.call(tgt).replace(/\[object (\w+)\]/, "$1").toLowerCase();    return type ? dataType === type : dataType;}DataType("test"); // "string"DataType(20220314); // "number"DataType(true); // "boolean"DataType([], "array"); // trueDataType({}, "array"); // false
+```
+
+#### **17、检查数组是否为空**
+
+```
+const arr = [];const flag = Array.isArray(arr) && !arr.length;// flag => true
+```
+
+#### **18、满足条件时执行**
+
+```
+const flagA = true; // Condition Aconst flagB = false; // Condition B(flagA || flagB) && Func(); // Execute when A or B is satisfied(flagA || !flagB) && Func(); // Execute when A is satisfied or B is not satisfiedflagA && flagB && Func(); // Execute when both A and B are satisfiedflagA && !flagB && Func(); // Execute when A is satisfied and B is not satisfied
+```
+
+**19、如果非假则执行**
+
+```
+const flag = false; // undefined、null、""、0、false、NaN!flag && Func();
+```
+
+#### **20、数组不为空时执行**
+
+```
+const arr = [0, 1, 2];arr.length && Func();
+```
+
+#### **21、对象不为空时执行**
+
+```
+const obj = { a: 0, b: 1, c: 2 };Object.keys(obj).length && Func();
+```
+
+**阵列技能**
+
+#### **22、克隆数组**
+
+```
+const _arr = [0, 1, 2];const arr = [..._arr];// arr => [0, 1, 2]
+```
+
+#### **23、合并数组**
+
+```
+const arr1 = [0, 1, 2];const arr2 = [3, 4, 5];const arr = [...arr1, ...arr2];// arr => [0, 1, 2, 3, 4, 5];
+```
+
+#### **24、去重数组**
+
+```
+const arr = [...new Set([0, 1, 1, null, null])];// arr => [0, 1, null]
+```
+
+#### **25、混淆数组**
+
+```
+const arr = [0, 1, 2, 3, 4, 5].slice().sort(() => Math.random() - .5);// arr => [3, 4, 0, 5, 1, 2]
+```
+
+#### **26、清空数组**
+
+```
+const arr = [0, 1, 2];arr.length = 0;// arr => []
+```
+
+**27、截断数组**
+
+```
+const arr = [0, 1, 2];arr.length = 2;// arr => [0, 1]
+```
+
+#### **28、交换数值**
+
+```
+let a = 0;let b = 1;[a, b] = [b, a];// a b => 1 0
+```
+
+#### **29、过滤空值**
+
+空值：undefined,null,””,0,false,NaN
+
+```
+const arr = [undefined, null, "", 0, false, NaN, 1, 2].filter(Boolean);// arr => [1, 2]
+```
+
+**30、在数组开头插入成员**
+
+```
+let arr = [1, 2];arr.unshift(0);arr = [0].concat(arr);arr = [0, ...arr];// arr => [0, 1, 2]
+```
+
+**31、在数组末尾插入元素**
+
+```
+let arr = [0, 1]; arr.push(2);arr.concat(2);arr[arr.length] = 2;arr = [...arr, 2];// arr => [0, 1, 2]
+```
+
+#### **32、计算数组成员的数量**
+
+```
+const arr = [0, 1, 1, 2, 2, 2];const count = arr.reduce((t, v) => { t[v] = t[v] ? ++t[v] : 1; return t;}, {});// count => { 0: 1, 1: 2, 2: 3 }
+```
+
+#### **33、解构嵌套数组成员**
+
+```
+const arr = [0, 1, [2, 3, [4, 5]]];const [a, b, [c, d, [e, f]]] = arr;// a b c d e f => 0 1 2 3 4 5
+```
+
+#### **34、解构数组成员别名**
+
+```
+const arr = [0, 1, 2];const { 0: a, 1: b, 2: c } = arr;// a b c => 0 1 2
+```
+
+**35、解构数组成员默认值**
+
+```
+const arr = [0, 1, 2];const [a, b, c = 3, d = 4] = arr;// a b c d => 0 1 2 4
+```
+
+#### **36、获取随机数组成员**
+
+```
+const arr = [0, 1, 2, 3, 4, 5];const randomItem = arr[Math.floor(Math.random() * arr.length)];// randomItem => 1
+```
+
+#### **37、创建指定长度的数组**
+
+```
+const arr = [...new Array(3).keys()];// arr => [0, 1, 2]
+```
+
+#### **38、创建一个指定长度和相等值的数组**
+
+```
+const arr = new Array(3).fill(0);// arr => [0, 0, 0]
+```
+
+#### **对象技能**
+
+**39、克隆对象**
+
+```
+const _obj = { a: 0, b: 1, c: 2 };const obj = { ..._obj };const obj = JSON.parse(JSON.stringify(_obj));// obj => { a: 0, b: 1, c: 2 }
+```
+
+#### **40、合并对象**
+
+```
+const obj1 = { a: 0, b: 1, c: 2 };const obj2 = { c: 3, d: 4, e: 5 };const obj = { ...obj1, ...obj2 };// obj => { a: 0, b: 1, c: 3, d: 4, e: 5 }
+```
+
+#### **41、对象变量属性**
+
+```
+const flag = false;const obj = {    a: 0,    b: 1,    [flag ? "c" : "d"]: 2};// obj => { a: 0, b: 1, d: 2 }
+```
+
+#### **42、创建一个纯空对象**
+
+```
+const obj = Object.create(null);Object.prototype.a = 0;// obj => {}
+```
+
+#### **43、删除对象无用属性**
+
+```
+const obj = { a: 0, b: 1, c: 2 }; const { a, ...rest } = obj;// rest => { b: 1, c: 2 }
+```
+
+**44、解构对象属性嵌套**
+
+```
+const obj = { a: 0, b: 1, c: { d: 2, e: 3 } };const { c: { d, e } } = obj;// d e => 2 3
+```
+
+#### **45、解构对象属性别名**
+
+```
+const obj = { a: 0, b: 1, c: 2 };const { a, b: d, c: e } = obj;// a d e => 0 1 2
+```
+
+#### **46、解构对象属性默认值**
+
+```
+const obj = { a: 0, b: 1, c: 2 };const { a, b = 2, d = 3 } = obj;// a b d => 0 1 3
+```
+
+### **函数技能**
+
+#### **47、函数自执行**
+
+```
+const Func = function() {}(); // Commonly used(function() {})(); // Commonly used(function() {}()); // Commonly used[function() {}()];+ function() {}();- function() {}();~ function() {}();! function() {}();new function() {};new function() {}();void function() {}();typeof function() {}();delete function() {}();1, function() {}();1 ^ function() {}();1 > function() {}();
+```
+
+**48、一次性函数**
+
+适合运行一些只需要执行一次的初始化代码。
+
+```
+function Func() {    console.log("x");    Func = function() {        console.log("y");    }}
+```
+
+#### **49、延迟加载函数**
+
+当函数中的复杂判断分支越来越多时，可以大大节省资源开销。
+
+```
+function Func() {    if (a === b) {        console.log("x");    } else {        console.log("y");    }}// replace withfunction Func() {    if (a === b) {        Func = function() {            console.log("x");        }    } else {        Func = function() {            console.log("y");        }    }    return Func();}
+```
+
+#### **50、检测非空参数**
+
+```
+function IsRequired() {    throw new Error("param is required");}function Func(name = IsRequired()) {    console.log("I Love " + name);}Func(); // "param is required"Func("You"); // "I Love You"
+```
+
+#### **51、字符串创建函数**
+
+```
+const Func = new Function("name", "console.log(\"I Love \" + name)");
+```
+
+**52、优雅地处理错误信息**
+
+```
+try {    Func();} catch (e) {    location.href = "https://stackoverflow.com/search?q=[js]+" + e.message;}
+```
+
+#### **53、优雅地处理 Async/Await 参数**
+
+```
+function AsyncTo(promise) {    return promise.then(data => [null, data]).catch(err => [err]);}const [err, res] = await AsyncTo(Func());
+```
+
+#### **54、优雅地处理多个函数返回值**
+
+```
+function Func() {    return Promise.all([        fetch("/user"),        fetch("/comment")    ]);}const [user, comment] = await Func();
+```
+
+### **DOM 技能**
+
+#### **55、显示所有 DOM 边框**
+
+```
+[].forEach.call($$("*"), dom => {    dom.style.outline = "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);});
+```
+
+#### **56、响应式页面**
+
+页面基于设计图但需要适配多个模型，元素大小使用rem设置。
+
+```
+function AutoResponse(width = 750) {    const target = document.documentElement;    target.clientWidth >= 600        ? (target.style.fontSize = "80px")        : (target.style.fontSize = target.clientWidth / width * 100 + "px");}
+```
+
+#### **57、过滤 XSS**
+
+```
+function FilterXss(content) {    let elem = document.createElement("div");    elem.innerText = content;    const result = elem.innerHTML;    elem = null;    return result;}
+```
+
+**58、访问本地存储**
+
+```
+const love = JSON.parse(localStorage.getItem("love"));localStorage.setItem("love", JSON.stringify("I Love You"));
+```
