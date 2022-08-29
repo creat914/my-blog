@@ -86,6 +86,7 @@ module.exports = {
         ],
         "sidebar": {
             "/blogs/javascript/": [
+                "advancedJSNotes",
                 "utils",
                 "DataStructure",
                 "knowledge",
