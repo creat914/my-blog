@@ -104,7 +104,7 @@ module.exports = {
             "/blogs/utils/":[
                 "npmPage",
                 "developmentOfNotes"
-            ]
+            ],
         },
         "type": "blog",
         "blogConfig": {
