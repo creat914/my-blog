@@ -202,76 +202,392 @@ await
 
 ### 变量
 
-1. var关键字
+#### var关键字
 
-   要定义变量，可以使用var操作符（注意var是一个关键字），后跟变量名（即标识符，如前所述）：
+要定义变量，可以使用var操作符（注意var是一个关键字），后跟变量名（即标识符，如前所述）：
 
-   ```js
-   var message = "hi";
-   ```
+```js
+var message = "hi";
+```
 
-   这里，message被定义为一个保存字符串值hi的变量。像这样初始化变量不会将它标识为字符串类型，只是一个简单的赋值而已。随后，不仅可以改变保存的值，也可以改变值的类型：
+这里，message被定义为一个保存字符串值hi的变量。像这样初始化变量不会将它标识为字符串类型，只是一个简单的赋值而已。随后，不仅可以改变保存的值，也可以改变值的类型：
 
-   ```js
-   var message = "hi";
-   message = 100; // 合法，但不推荐
-   ```
+```js
+var message = "hi";
+message = 100; // 合法，但不推荐
+```
 
-   1.1 var声明作用域
+1.1 var声明作用域
 
-   关键的问题在于，使用var操作符定义的变量会成为包含它的函数的局部变量。比如，使用var在一个函数内部定义一个变量，就意味着该变量将在函数退出时被销毁：
+关键的问题在于，使用var操作符定义的变量会成为包含它的函数的局部变量。比如，使用var在一个函数内部定义一个变量，就意味着该变量将在函数退出时被销毁：
 
-   ```js
-   function test() {
-   var message = "hi"; // 局部变量
-   }
-   test();
-   console.log(message); // 出错！
-   ```
+```js
+function test() {
+var message = "hi"; // 局部变量
+}
+test();
+console.log(message); // 出错！
+```
 
-   在函数内定义变量时省略var操作符，可以创建一个全局变量：
+在函数内定义变量时省略var操作符，可以创建一个全局变量：
 
-   ```js
-   function test() {
-   message = "hi"; // 全局变量
-   }
-   test();
-   console.log(message); // "hi"
-   ```
+```js
+function test() {
+message = "hi"; // 全局变量
+}
+test();
+console.log(message); // "hi"
+```
 
-   去掉之前的var操作符之后，message就变成了全局变量。只要调用一次函数test()，就会定义这个变量，并且可以在函数外部访问到。注意 虽然可以通过省略var操作符定义全局变量，但不推荐这么做。在局部作用域中定义的全局变量很难维护，也会造成困惑。这是因为不能一下子断定省略var是不是有意而为之。
-   在严格模式下，如果像这样给未声明的变量赋值，则会导致抛出ReferenceError，不能定义名为eval和arguments的变量，否则会导致语法错误。
+去掉之前的var操作符之后，message就变成了全局变量。只要调用一次函数test()，就会定义这个变量，并且可以在函数外部访问到。注意 虽然可以通过省略var操作符定义全局变量，但不推荐这么做。在局部作用域中定义的全局变量很难维护，也会造成困惑。这是因为不能一下子断定省略var是不是有意而为之。
+在严格模式下，如果像这样给未声明的变量赋值，则会导致抛出ReferenceError，不能定义名为eval和arguments的变量，否则会导致语法错误。
 
-2. var声明提升
+1.2var声明提升
 
-   使用var时，下面的代码不会报错。这是因为使用这个关键字声明的变量会自动提升到函数作用域顶部：
+使用var时，下面的代码不会报错。这是因为使用这个关键字声明的变量会自动提升到函数作用域顶部：
 
-   ```js
-   function foo() {
-   console.log(age);
-   var age = 26;
-   }
-   foo(); // undefined
+```js
+function foo() {
+console.log(age);
+var age = 26;
+}
+foo(); // undefined
 
-   等价于
-   function foo() {
-   var age;
-   console.log(age);
-   age = 26;
-   }
-   foo(); // undefined
-   ```
+等价于
+function foo() {
+var age;
+console.log(age);
+age = 26;
+}
+foo(); // undefined
+```
 
-   这就是所谓的“提升”（hoist），也就是把所有变量声明都拉到函数作用域的顶部。此外，反复多次使用var声明同一个变量也没有问题：
+这就是所谓的“提升”（hoist），也就是把所有变量声明都拉到函数作用域的顶部。此外，反复多次使用var声明同一个变量也没有问题：
 
-   ```js
-   function foo() {
-   var age = 16;
-   var age = 26;
-   var age = 36;
-   console.log(age);
-   }
-   foo(); // 36
-   ```
+```js
+function foo() {
+var age = 16;
+var age = 26;
+var age = 36;
+console.log(age);
+}
+foo(); // 36
+```
+#### let声明
 
-   ​
+let声明的范围是块作用域，而var声明的范围是函数作用域
+
+```js
+if (true) {
+var name = 'Matt';
+console.log(name); // Matt
+}
+console.log(name); // Matt
+if (true) {
+let age = 26;
+console.log(age); // 26
+}
+console.log(age); // ReferenceError: age没有定义
+```
+
+let也不允许同一个块作用域中出现冗余声明。这样会导致报错：
+
+```js
+var name;
+var name;
+let age;
+let age; // SyntaxError；标识符age已经声明过了
+```
+
+2.1 暂时性死区
+
+let与var的另一个重要的区别，就是let声明的变量不会在作用域中被提升。
+
+```js
+// name会被提升
+console.log(name); // undefined
+var name = 'Matt';
+// age不会被提升
+console.log(age); // ReferenceError：age没有定义
+let age = 26;
+```
+
+在解析代码时，JavaScript引擎也会注意出现在块后面的let声明，只不过在此之前不能以任何方式来引用未声明的变量。在let声明之前的执行瞬间被称为“暂时性死区”（temporal dead zone），在此阶段引用任何后面才声明的变量都会抛出ReferenceError。
+
+2.2 全局声明
+
+与var关键字不同，使用let在全局作用域中声明的变量不会成为window对象的属性（var声明的变量则会）。
+
+```js
+var name = 'Matt';
+console.log(window.name); // 'Matt'
+let age = 26;
+console.log(window.age); // undefined
+```
+
+不过，let声明仍然是在全局作用域中发生的，相应变量会在页面的生命周期内存续。因此，为了避免SyntaxError，必须确保页面不会重复声明同一个变量。
+
+2.3 条件声明
+
+在使用var声明变量时，由于声明会被提升，JavaScript引擎会自动将多余的声明在作用域顶部合并为一个声明。因为let的作用域是块，所以不可能检查前面是否已经使用let声明过同名变量，同时也就不可能在没有声明的情况下声明它
+
+```js
+<script>
+var name = 'Nicholas';
+let age = 26;
+</script>
+<script>
+// 假设脚本不确定页面中是否已经声明了同名变量
+// 那它可以假设还没有声明过
+var name = 'Matt';
+// 这里没问题，因为可以被作为一个提升声明来处理
+// 不需要检查之前是否声明过同名变量
+let age = 36;
+// 如果age之前声明过，这里会报错
+</script>
+```
+
+2.4 for循环中的let声明
+
+在let出现之前，for循环定义的迭代变量会渗透到循环体外部：
+
+```js
+for (var i = 0; i < 5; ++i) {
+// 循环逻辑
+}
+console.log(i); // 5
+```
+
+改成使用let之后，这个问题就消失了，因为迭代变量的作用域仅限于for循环块内部：
+
+```js
+for (let i = 0; i < 5; ++i) {
+// 循环逻辑
+}
+console.log(i); // ReferenceError: i没有定义
+```
+
+在使用var的时候，最常见的问题就是对迭代变量的奇特声明和修改：
+
+```js
+for (var i = 0; i < 5; ++i) {
+setTimeout(() => console.log(i), 0)
+}
+// 你可能以为会输出0、1、2、3、4
+// 实际上会输出5、5、5、5、5
+```
+
+之所以会这样，是因为在退出循环时，迭代变量保存的是导致循环退出的值：5。在之后执行超时逻辑时，所有的i都是同一个变量，因而输出的都是同一个最终值。而在使用let声明迭代变量时，JavaScript引擎在后台会为每个迭代循环声明一个新的迭代变量。每个setTimeout引用的都是不同的变量实例，所以console.log输出的是我们期望的值，也就是循环执行过程中每个迭代变量的值。
+
+```js
+for (let i = 0; i < 5; ++i) {
+setTimeout(() => console.log(i), 0)
+}
+// 会输出0、1、2、3、4
+```
+
+这种每次迭代声明一个独立变量实例的行为适用于所有风格的for循环，包括for-in和for-of循环。
+
+#### const声明
+
+const的行为与let基本相同，唯一一个重要的区别是用它声明变量时必须同时初始化变量，且尝试修改const声明的变量会导致运行时错误。
+
+```js
+const age = 26;
+age = 36; // TypeError: 给常量赋值
+// const也不允许重复声明
+const name = 'Matt';
+const name = 'Nicholas'; // SyntaxError
+// const声明的作用域也是块
+const name = 'Matt';
+if (true) {
+const name = 'Nicholas';
+}
+console.log(name); // Matt
+```
+
+const声明的限制只适用于它指向的变量的引用。换句话说，如果const变量引用的是一个对象，那么修改这个对象内部的属性并不违反const的限制。
+
+```js
+const person = {};
+person.name = 'Matt'; // ok
+```
+
+#### 数据类型
+
+ECMAScript有6种简单数据类型（也称为原始类型）：Undefined、Null、Boolean、Number、String和Symbol。Symbol（符号）是ECMAScript 6新增的。还有一种复杂数据类型叫Object（对象）。Object是一种无序名值对的集合。因为在ECMAScript中不能定义自己的数据类型，所有值都可以用上述7种数据类型之一来表示。只有7种数据类型似乎不足以表示全部数据。但ECMAScript的数据类型很灵活，一种数据类型可以当作多种数据类型来使用。
+
+##### typeof操作符
+
+对一个值使用typeof操作符会返回下列字符串之一：
+
+- "undefined"表示值未定义；
+- "boolean"表示值为布尔值；
+- "string"表示值为字符串；
+- "number"表示值为数值；
+- "object"表示值为对象（而不是函数）或null；
+- "function"表示值为函数；
+- "symbol"表示值为符号。
+
+注意typeof在某些情况下返回的结果可能会让人费解，但技术上讲还是正确的。比如，调用typeof null返回的是"object"。这是因为特殊值null被认为是一个对空对象的引用。注意 严格来讲，函数在ECMAScript中被认为是对象，并不代表一种数据类型。可是，函数也有自己特殊的属性。为此，就有必要通过typeof操作符来区分函数和其他对象。
+
+##### Undefined类型
+
+Undefined类型只有一个值，就是特殊值undefined。当使用var或let声明了变量但没有初始化时，就相当于给变量赋予了undefined值：
+
+```js
+let message;
+console.log(message == undefined); // true
+```
+
+在这个例子中，变量message在声明的时候并未初始化。而在比较它和undefined的字面值时，两者是相等的。这个例子等同于如下示例：
+
+```js
+let message = undefined;
+console.log(message == undefined); // true
+```
+
+这里，变量message显式地以undefined来初始化。但这是不必要的，因为默认情况下，任何未经初始化的变量都会取得undefined值。
+
+包含undefined值的变量跟未定义变量是有区别的。请看下面的例子：
+
+```js
+let message; // 这个变量被声明了，只是值为undefined
+// 确保没有声明过这个变量
+// let age
+console.log(message); // "undefined"
+console.log(age); // 报错
+```
+
+对未声明的变量，只能执行一个有用的操作，就是对它调用typeof。无论是声明还是未声明，typeof返回的都是字符串"undefined"。逻辑上讲这是对的，因为虽然严格来讲这两个变量存在根本性差异，但它们都无法执行实际操作。
+
+注意 即使未初始化的变量会被自动赋予undefined值，但我们仍然建议在声明变量的同时进行初始化。这样，当typeof返回"undefined"时，你就会知道那是因为给定的变量尚未声明，而不是声明了但未初始化。
+
+##### Null类型
+
+Null类型同样只有一个值，即特殊值null。逻辑上讲，null值表示一个空对象指针，这也是给typeof传一个null会返回"object"的原因：
+
+```js
+let car = null;
+console.log(typeof car); // "object"
+```
+
+在定义将来要保存对象值的变量时，建议使用null来初始化，不要使用其他值。这样，只要检查这个变量的值是不是null就可以知道这个变量是否在后来被重新赋予了一个对象的引用，比如：
+
+```js
+if (car != null) {
+// car是一个对象的引用
+}
+```
+
+undefined值是由null值派生而来的，因此ECMA-262将它们定义为表面上相等，如下面的例子所示：
+
+```js
+console.log(null == undefined); // true
+```
+
+用等于操作符（==）比较null和undefined始终返回true。
+
+即使null和undefined有关系，它们的用途也是完全不一样的。如前所述，永远不必显式地将变量值设置为undefined。但null不是这样的。任何时候，只要变量要保存对象，而当时又没有那个对象可保存，就要用null来填充该变量。这样就可以保持null是空对象指针的语义，并进一步将其与undefined区分开来。
+
+##### Boolean类型
+
+Boolean（布尔值）类型是ECMAScript中使用最频繁的类型之一，有两个字面值：true和false。这两个布尔值不同于数值，因此true不等于1，false不等于0。下面是给变量赋布尔值的例子：
+
+```js
+let found = true;
+let lost = false;
+```
+
+注意，布尔值字面量true和false是区分大小写的，因此True和False（及其他大小混写形式）是有效的标识符，但不是布尔值。
+
+虽然布尔值只有两个，但所有其他ECMAScript类型的值都有相应布尔值的等价形式。要将一个其他类型的值转换为布尔值，可以调用特定的Boolean()转型函数：
+
+```js
+let message = "Hello world!";
+let messageAsBoolean = Boolean(message)
+```
+
+| 数据类型      | 转换为true的值   | 转换为false的值 |
+| --------- | ----------- | ---------- |
+| Boolean   | true        | false      |
+| String    | 非空字符串       | ""（空字符串）   |
+| Number    | 非零数值（包括无穷值） | 0、NaN      |
+| Object    | 任意对象        | null       |
+| Undefined | N/A（不存在）    | undefined  |
+
+理解以上转换非常重要，因为像if等流控制语句会自动执行其他类型值到布尔值的转换
+
+##### Number类型
+
+最基本的数值字面量格式是十进制整数，直接写出来即可：
+
+```js
+let intNum = 55; // 整数
+```
+
+整数也可以用八进制（以8为基数）或十六进制（以16为基数）字面量表示。对于八进制字面量，第一个数字必须是零（0），然后是相应的八进制数字（数值0~7）。如果字面量中包含的数字超出了应有的范围，就会忽略前缀的零，后面的数字序列会被当成十进制数，如下所示：
+
+```js
+let octalNum1 = 070; // 八进制的56
+let octalNum2 = 079; // 无效的八进制值，当成79处理
+let octalNum3 = 08; // 无效的八进制值，当成8处理
+```
+
+八进制字面量在严格模式下是无效的，会导致JavaScript引擎抛出语法错
+误。
+ECMAScript 2015或ES6中的八进制值通过前缀0o来表示；严格模式下，前缀0会被视为语法错误，如果要表示八进制值，应该使用前缀0o。——译者注
+
+要创建十六进制字面量，必须让真正的数值前缀0x（区分大小写），然后是十六进制数字（0~9以及A~F）。十六进制数字中的字母大小写均可。下面是几个例子：
+
+```js
+let hexNum1 = 0xA; // 十六进制10
+let hexNum2 = 0x1f; // 十六进制31
+```
+
+使用八进制和十六进制格式创建的数值在所有数学操作中都被视为十进制数值。
+
+注意 由于JavaScript保存数值的方式，实际中可能存在正零（+0）和负零（-0）。正零和负零在所有情况下都被认为是等同的，这里特地说明一下。
+
+浮点值
+
+要定义浮点值，数值中必须包含小数点，而且小数点后面必须至少有一个数字。虽然小数点前面不是必须有整数，但推荐加上。下面是几个例子：
+
+```js
+let floatNum1 = 1.1;
+let floatNum2 = 0.1;
+let floatNum3 = .1; // 有效，但不推荐
+```
+
+因为存储浮点值使用的内存空间是存储整数值的两倍，所以ECMAScript总是想方设法把值转换为整数。在小数点后面没有数字的情况下，数值就会变成整数。类似地，如果数值本身就是整数，只是小数点后面跟着0（如1.0），那它也会被转换为整数，如下例所示：
+
+```js
+let floatNum1 = 1.; // 小数点后面没有数字，当成整数1处理
+let floatNum2 = 10.0; // 小数点后面是零，当成整数10处理
+```
+
+浮点值的精确度最高可达17位小数，但在算术计算中远不如整数精确。例如，0.1加0.2得到的不是0.3，而是0.300 000 000 000 00004。由于这种微小的舍入错误，导致很难测试特定的浮点值。比如下面的例子：
+
+```js
+if (a + b == 0.3) { // 别这么干！
+console.log("You got 0.3.");
+}
+```
+
+这里检测两个数值之和是否等于0.3。如果两个数值分别是0.05和0.25，或者0.15和0.15，那没问题。但如果是0.1和0.2，如前所述，测试将失败。因此永远不要测试某个特定的浮点值。注意 之所以存在这种舍入错误，是因为使用了IEEE 754数值，这种错误并非ECMAScript所独有。其他使用相同格式的语言也有这个问题。
+
+值的范围
+
+由于内存的限制，ECMAScript并不支持表示这个世界上的所有数值。ECMAScript可以表示的最小数值保存在Number.MIN_VALUE中，这个值在多数浏览器中是5e-324；可以表示的最大数值保存在Number.MAX_VALUE中，这个值在多数浏览器中是1.797 693 134862 315 7e+308。
+
+如果某个计算得到的数值结果超出了JavaScript可以表示的范围，那么这个数值会被自动转换为一个特殊的Infinity（无穷）值。任何无法表示的负数以-Infinity（负无穷大）表示，任何无法表示的正数以Infinity（正无穷大）表示。
+
+如果计算返回正Infinity或负Infinity，则该值将不能再进一步用于任何计算。这是因为Infinity没有可用于计算的数值表示形式。要确定一个值是不是有限大（即介于JavaScript能表示的最小值和最大值之间），可以使用isFinite()函数，如下所示：
+
+```js
+let result = Number.MAX_VALUE + Number.MAX_VALUE;
+console.log(isFinite(result)); // false
+```
+
+注意 使用Number.NEGATIVE_INFINITY和Number.POSITIVE_INFINITY也可以获取正、负Infinity。没错，这两个属性包含的值分别就是-Infinity和Infinity。
+
