@@ -1016,3 +1016,40 @@ function FilterXss(content) {    let elem = document.createElement("div");    el
 ```
 const love = JSON.parse(localStorage.getItem("love"));localStorage.setItem("love", JSON.stringify("I Love You"));
 ```
+**59、查找webpack项目中无效引用文件**
+
+1. 安装`npm i useless-files-webpack-plugin -D`
+
+2. 在webpack.prod.conf.js中，添加如下代码：
+
+3. ```
+   const UselessFile = require('useless-files-webpack-plugin');
+   ```
+
+4. plugins中添加插件配置
+
+5. ```
+   new UselessFile({
+       root: './src', // 项目目录
+       out: './fileList.json', // 输出文件列表
+       clean: false // 删除文件,
+       exclude: /node_modules/ // 排除文件列表, 格式为文件路径数组
+   })
+   ```
+
+6. 打包时会在项目的根目录下生成`unused-files.json`文件, 保存着无用文件的列表。
+
+7. 根据列表中的提供路径，核对相应文件是否需要保留。无需保留，手动删除即可。
+
+**60、删除json文件列表路径文件**
+
+```js
+const fs = require('fs')
+fs.readFile('./', {}, function(data) {
+  const list = JSON.parse(data)
+  list.forEach(item => {
+    fs.unlinkSync(item)
+  })
+})
+```
+
