@@ -1011,12 +1011,12 @@ function AutoResponse(width = 750) {    const target = document.documentElement;
 function FilterXss(content) {    let elem = document.createElement("div");    elem.innerText = content;    const result = elem.innerHTML;    elem = null;    return result;}
 ```
 
-**58、访问本地存储**
+#### **58、访问本地存储**
 
 ```
 const love = JSON.parse(localStorage.getItem("love"));localStorage.setItem("love", JSON.stringify("I Love You"));
 ```
-**59、查找webpack项目中无效引用文件**
+#### **59、查找webpack项目中无效引用文件**
 
 1. 安装`npm i useless-files-webpack-plugin -D`
 
@@ -1041,7 +1041,7 @@ const love = JSON.parse(localStorage.getItem("love"));localStorage.setItem("love
 
 7. 根据列表中的提供路径，核对相应文件是否需要保留。无需保留，手动删除即可。
 
-**60、删除json文件列表路径文件**
+#### **60、删除json文件列表路径文件**
 
 ```js
 const fs = require('fs')
@@ -1054,7 +1054,7 @@ fs.readFile('./unused-files.json', 'utf8', function (err, data) {
 })
 
 ```
-**61、vuescroll的使用**
+#### **61、vuescroll的使用**
 
 安装
 ```js
@@ -1091,7 +1091,7 @@ data(){
               }
         },}}
 ```
-属性
+配置文件
 ```js
 export default {
   // vuescroll  vuescroll: {
