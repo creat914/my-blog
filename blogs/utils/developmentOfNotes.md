@@ -3,24 +3,23 @@ title: 开发笔记
 date: 2022-3-30
 sidebar: 'auto'
 tags:
- - 开发小记
-categories: 
- - utils
+    - 开发小记
+categories:
+    - utils
 ---
 
-
-## 快速删除node_modules包
+## 快速删除 node_modules 包
 
 ```javascript
 npm install rimraf -g
 rimraf node_modules
 ```
 
-## vscode禁止运行脚本命令
+## vscode 禁止运行脚本命令
 
-用管理员模式运行vscode 再执行set-ExecutionPolicy RemoteSigned 解除限制
+用管理员模式运行 vscode 再执行 set-ExecutionPolicy RemoteSigned 解除限制
 
-## oss文件打开直接下载
+## oss 文件打开直接下载
 
 ```javascript
 	?response-content-type=application/octet-stream
@@ -35,18 +34,16 @@ dom.scrollHeight > dom.offsetHeight
 ## 让元素出现在窗口
 
 ```js
-scrollIntoView() 
+scrollIntoView()
 让元素出现在窗口
     alignToTop 是一个布尔值。true ：窗口滚动后元素的顶部与视口顶部对齐。false ：窗口滚动后元素的底部与视口底部对齐。
     scrollIntoViewOptions 是一个选项对象。behavior ：定义过渡动画，可取的值为 "smooth" 和 "auto" ，默认为 "auto" 。
     block ：定义垂直方向的对齐，可取的值为 "start" 、 "center" 、 "end" 和 "nearest" ，默认为  "start" 。
     inline ：定义水平方向的对齐，可取的值为 "start" 、 "center" 、 "end" 和 "nearest" ，默认为  "nearest" 。
-不传参数等同于 alignToTop 为 true 
+不传参数等同于 alignToTop 为 true
 ```
 
-## 
-
-## 判断ie浏览器
+## 判断 ie 浏览器
 
 ```
 function IEVersion() {
@@ -83,10 +80,10 @@ function IEVersion() {
 
 ```js
 淘宝源 npm config set registry https://registry.npm.taobao.org
-默认镜像 https://registry.npmjs.org
+默认镜像 https://registry.npmjs.org / https://registry.npmmirror.com
 ```
 
-### 修改.npmrc文件
+### 修改.npmrc 文件
 
 ```
 npm config edit
@@ -126,21 +123,25 @@ npm-run-all 提供了多种运行多个命令的方式，常用的有以下几�
 
 ```js
 //兼容版本
-if (typeof window.queueMicrotask !== "function") {
-  window.queueMicrotask = function (callback) {
-    Promise.resolve()
-      .then(callback)
-      .catch(e => setTimeout(() => { throw e; }));
-  };
+if (typeof window.queueMicrotask !== 'function') {
+    window.queueMicrotask = function(callback) {
+        Promise.resolve()
+            .then(callback)
+            .catch((e) =>
+                setTimeout(() => {
+                    throw e
+                })
+            )
+    }
 }
 
 //基础使用
 queueMicrotask(() => {
-    console.log('queueMicrotask');
+    console.log('queueMicrotask')
 })
 ```
 
-## git关联远程仓库分支
+## git 关联远程仓库分支
 
 ```git
 // 存在远程分支且创建了默认文件
@@ -167,7 +168,7 @@ git push -u origin master
 npm install -g commitizen cz-customizable
 ```
 
-#### 创建.czrc文件
+#### 创建.czrc 文件
 
 ```js
 {"path":"cz-customizable"}
@@ -176,53 +177,54 @@ npm install -g commitizen cz-customizable
 #### .cz-config.js 自定义说明 可加可不加
 
 ```js
-'use strict';
+'use strict'
 
 module.exports = {
-  types: [
-    {value: 'feat',     name: 'feat:     新功能'},
-    {value: 'fix',      name: 'fix:      修复'},
-    {value: 'docs',     name: 'docs:     文档变更'},
-    {value: 'style',    name: 'style:    代码格式(不影响代码运行的变动)'},
-    {value: 'refactor', name: 'refactor: 重构(既不是增加feature，也不是修复bug)'},
-    {value: 'perf',     name: 'perf:     性能优化'},
-    {value: 'test',     name: 'test:     增加测试'},
-    {value: 'chore',    name: 'chore:    构建过程或辅助工具的变动'},
-    {value: 'revert',   name: 'revert:   回退'},
-    {value: 'build',    name: 'build:    打包'}
-  ],
-  // override the messages, defaults are as follows
-  messages: {
-    type: '请选择提交类型:',
-    // scope: '请输入文件修改范围(可选):',
-    // used if allowCustomScopes is true
-    customScope: '请输入修改范围(可选):',
-    subject: '请简要描述提交(必填):',
-    body: '请输入详细描述(可选，待优化去除，跳过即可):',
-    // breaking: 'List any BREAKING CHANGES (optional):\n',
-    footer: '请输入要关闭的issue(待优化去除，跳过即可):',
-    confirmCommit: '确认使用以上信息提交？(y/n/e/h)'
-  },
-  allowCustomScopes: true,
-  // allowBreakingChanges: ['feat', 'fix'],
-  skipQuestions: ['body', 'footer'],
-  // limit subject length, commitlint默认是72
-  subjectLimit: 72
-};
+    types: [
+        { value: 'feat', name: 'feat:     新功能' },
+        { value: 'fix', name: 'fix:      修复' },
+        { value: 'docs', name: 'docs:     文档变更' },
+        { value: 'style', name: 'style:    代码格式(不影响代码运行的变动)' },
+        {
+            value: 'refactor',
+            name: 'refactor: 重构(既不是增加feature，也不是修复bug)',
+        },
+        { value: 'perf', name: 'perf:     性能优化' },
+        { value: 'test', name: 'test:     增加测试' },
+        { value: 'chore', name: 'chore:    构建过程或辅助工具的变动' },
+        { value: 'revert', name: 'revert:   回退' },
+        { value: 'build', name: 'build:    打包' },
+    ],
+    // override the messages, defaults are as follows
+    messages: {
+        type: '请选择提交类型:',
+        // scope: '请输入文件修改范围(可选):',
+        // used if allowCustomScopes is true
+        customScope: '请输入修改范围(可选):',
+        subject: '请简要描述提交(必填):',
+        body: '请输入详细描述(可选，待优化去除，跳过即可):',
+        // breaking: 'List any BREAKING CHANGES (optional):\n',
+        footer: '请输入要关闭的issue(待优化去除，跳过即可):',
+        confirmCommit: '确认使用以上信息提交？(y/n/e/h)',
+    },
+    allowCustomScopes: true,
+    // allowBreakingChanges: ['feat', 'fix'],
+    skipQuestions: ['body', 'footer'],
+    // limit subject length, commitlint默认是72
+    subjectLimit: 72,
+}
 ```
 
 #### 使用
 
 ```git
 git add .
-git cz 
+git cz
 git pull
 git push
 ```
 
-
-
-## 基于项目创建多个分支工作环境 worktree使用
+## 基于项目创建多个分支工作环境 worktree 使用
 
 ```js
 git worktree add [-f] [--detach] [--checkout] [--lock [--reason <string>]] [-b <new-branch>] <path> [<commit-ish>]
@@ -235,24 +237,23 @@ git worktree repair [<path>…]
 git worktree unlock <worktree>
 ```
 
-- 最简单的写法：
-  `git worktree add <新路径>`
-  将基于当前分支，新建一个 worktree 目录，新的分支名就是新建目录的名称。
-- 新建一个指定分支
-  `git worktree add <新路径> -b <新分支名>`
-  将基于当前分支，新建一个 worktree 目录，新的分支名是指定的名称。
-- 基于指定分支新建一个指定分支
-  `git worktree add <新路径> -b <新分支名> <指定分支名>`
-  将基于指定分支，新建一个 worktree 目录，新的分支名是指定的名称。
-
+-   最简单的写法：
+    `git worktree add <新路径>`
+    将基于当前分支，新建一个 worktree 目录，新的分支名就是新建目录的名称。
+-   新建一个指定分支
+    `git worktree add <新路径> -b <新分支名>`
+    将基于当前分支，新建一个 worktree 目录，新的分支名是指定的名称。
+-   基于指定分支新建一个指定分支
+    `git worktree add <新路径> -b <新分支名> <指定分支名>`
+    将基于指定分支，新建一个 worktree 目录，新的分支名是指定的名称。
 
 ## 监听对象属性变化的方法
 
 ### Object.defineProperty
 
 ```js
-var obj = {};
-Object.defineProperty(obj, "name", {
+var obj = {}
+Object.defineProperty(obj, 'name', {
     // 是否可删除/重新定义
     configurable: true,
     // 是否可被枚举
@@ -261,17 +262,17 @@ Object.defineProperty(obj, "name", {
     // 是否可赋值
     writable: true,
     // 赋值
-    value: "",
-    get: function () {},
-    set: function (value) {}
+    value: '',
+    get: function() {},
+    set: function(value) {},
 })
 // 同时操作多个属性
-Object.defineProperties(obj,{},{})
+Object.defineProperties(obj, {}, {})
 
 // 获取单个属性描述符
-Object.getOwnPropertyDescriptor(obj,key);
+Object.getOwnPropertyDescriptor(obj, key)
 // 获取全部描述符
-Object.getOwnPropertyDescriptors(obj);
+Object.getOwnPropertyDescriptors(obj)
 
 // 冻结对象属性的方法
 Object.freeze
@@ -345,15 +346,15 @@ list.push(4);
 ```css
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none !important;
-  margin: 0;
+    -webkit-appearance: none !important;
+    margin: 0;
 }
-input[type="number"] {
-  -moz-appearance: textfield;
+input[type='number'] {
+    -moz-appearance: textfield;
 }
 ```
 
-## Nginx配置反向代理
+## Nginx 配置反向代理
 
 ```js
 location /pdfSource {
@@ -365,18 +366,17 @@ location /pdfSource/ {
 }
 ```
 
-## Vue打包部署后，刷新页面404
+## Vue 打包部署后，刷新页面 404
 
 ```
 try_files $uri $uri/ /index.html;
 ```
 
-## nginx上传文件大小限制
+## nginx 上传文件大小限制
 
 ```
 client_max_body_size 10m;
 ```
-
 
 ## JSON.stringify
 
@@ -388,7 +388,7 @@ JSON.stringify(value[, replacer [, space]])
 
 ## getBoundingClientRect
 
-`Element.getBoundingClientRect() ` 方法返回元素的大小及其相对于视口的位置。返回的是一个对象，对象里有这8个属性：`left，right，top，bottom，width，height，x，y`
+`Element.getBoundingClientRect()` 方法返回元素的大小及其相对于视口的位置。返回的是一个对象，对象里有这 8 个属性：`left，right，top，bottom，width，height，x，y`
 
 ## IntersectionObserver 观察对象与父视图的交叉状态
 
@@ -424,7 +424,7 @@ io.disconnect();
 
 `intersectionRatio`：目标元素的可见比例，即`intersectionRect`占`boundingClientRect`的比例，完全可见时为`1`，完全不可见时小于等于`0`
 
-###  option
+### option
 
 `threshold`属性决定了什么时候触发回调函数。它是一个数组，每个成员都是一个门槛值，默认为`[0]`，即交叉比例（`intersectionRatio`）达到`0`时触发回调函数。
 
@@ -434,96 +434,121 @@ io.disconnect();
 
 ```js
 const body = document.getElementsByTagName('body')[0]
-    const it = document.createNodeIterator(body)
-    let root = it.nextNode()
-    while(root) {
-        console.log(root)
-        root = it.nextNode()
-    }
+const it = document.createNodeIterator(body)
+let root = it.nextNode()
+while (root) {
+    console.log(root)
+    root = it.nextNode()
+}
 ```
 
 ## MutationObserver 内建对象，它观察 DOM 元素，并在检测到更改时触发回调
 
 ```js
 // 选择需要观察变动的节点
-const targetNode = document.getElementById('some-id');
+const targetNode = document.getElementById('some-id')
 // 观察器的配置（需要观察什么变动）
-const config = { attributes: true, childList: true, subtree: true };
+const config = { attributes: true, childList: true, subtree: true }
 // 当观察到变动时执行的回调函数
 const callback = function(mutationsList, observer) {
     // Use traditional 'for loops' for IE 11
-    for(let mutation of mutationsList) {
+    for (let mutation of mutationsList) {
         if (mutation.type === 'childList') {
-            console.log('A child node has been added or removed.');
-        }
-        else if (mutation.type === 'attributes') {
-            console.log('The ' + mutation.attributeName + ' attribute was modified.');
+            console.log('A child node has been added or removed.')
+        } else if (mutation.type === 'attributes') {
+            console.log(
+                'The ' + mutation.attributeName + ' attribute was modified.'
+            )
         }
     }
-};
+}
 // 创建一个观察器实例并传入回调函数
-const observer = new MutationObserver(callback);
+const observer = new MutationObserver(callback)
 // 以上述配置开始观察目标节点
-observer.observe(targetNode, config);
+observer.observe(targetNode, config)
 // 之后，可停止观察
-observer.disconnect();
+observer.disconnect()
 ```
 
 `config` 是一个具有布尔选项的对象，该布尔选项表示“将对哪些更改做出反应”：
 
-- `childList` —— `node` 的直接子节点的更改，
-- `subtree` —— `node` 的所有后代的更改，
-- `attributes` —— `node` 的特性（attribute），
-- `attributeFilter` —— 特性名称数组，只观察选定的特性。
-- `characterData` —— 是否观察 `node.data`（文本内容）
+-   `childList` —— `node` 的直接子节点的更改，
+-   `subtree` —— `node` 的所有后代的更改，
+-   `attributes` —— `node` 的特性（attribute），
+-   `attributeFilter` —— 特性名称数组，只观察选定的特性。
+-   `characterData` —— 是否观察 `node.data`（文本内容）
 
 其他几个选项：
 
-- `attributeOldValue` —— 如果为 `true`，则将特性的旧值和新值都传递给回调（参见下文），否则只传新值（需要 `attributes` 选项），
-- `characterDataOldValue` —— 如果为 `true`，则将 `node.data` 的旧值和新值都传递给回调（参见下文），否则只传新值（需要 `characterData` 选项）。
+-   `attributeOldValue` —— 如果为 `true`，则将特性的旧值和新值都传递给回调（参见下文），否则只传新值（需要 `attributes` 选项），
+-   `characterDataOldValue` —— 如果为 `true`，则将 `node.data` 的旧值和新值都传递给回调（参见下文），否则只传新值（需要 `characterData` 选项）。
 
-## html热区
+## html 热区
 
 ```html
- <img src="/client/components/img/1.png" usemap="#animalmap" class="compnay-img"/>               
+<img
+    src="/client/components/img/1.png"
+    usemap="#animalmap"
+    class="compnay-img"
+/>
 <map name="animalmap">
-                    <area shape="rect" coords="1457,187,1658,225" href="#" class="cls-identities" data-index="1">
-                    <area shape="rect" coords="1457,237,1658,275" href="#" class="cls-identities" data-index="2">
-                    <area shape="rect" coords="1457,292,1658,327" href="#" class="cls-identities" data-index="3">
-                </map>
+    <area
+        shape="rect"
+        coords="1457,187,1658,225"
+        href="#"
+        class="cls-identities"
+        data-index="1"
+    />
+    <area
+        shape="rect"
+        coords="1457,237,1658,275"
+        href="#"
+        class="cls-identities"
+        data-index="2"
+    />
+    <area
+        shape="rect"
+        coords="1457,292,1658,327"
+        href="#"
+        class="cls-identities"
+        data-index="3"
+    />
+</map>
 ```
 
 ```js
- /**
-     *  对于热区的自适应修改坐标
-     */
-function init() {//初始化
-    initwidth = 1920;
-    initarea = new Array(area.length - 1);
+/**
+ *  对于热区的自适应修改坐标
+ */
+function init() {
+    //初始化
+    initwidth = 1920
+    initarea = new Array(area.length - 1)
     for (var i = 0; i < area.length; i++) {
-        initarea[i] = area[i].getAttribute("coords");
+        initarea[i] = area[i].getAttribute('coords')
     }
 }
 
 function setCoords() {
     //根据分辨率自适应热区坐标
     var width = document.body.offsetWidth,
-        percent = width / initwidth;
+        percent = width / initwidth
     for (var i = 0; i < area.length; i++) {
         var coords = initarea[i],
-            arr = coords.split(",");
+            arr = coords.split(',')
         for (var j = 0; j < arr.length; j++) {
-            arr[j] *= percent;
+            arr[j] *= percent
         }
-        area[i].setAttribute("coords", arr.join(","));
+        area[i].setAttribute('coords', arr.join(','))
     }
 }
 
 //使用
-init();
-setCoords();
-window.addEventListener("resize", setCoords);
+init()
+setCoords()
+window.addEventListener('resize', setCoords)
 ```
+
 ```
 var fs= require("fs");
 fs.readFile(path,{flag:'r+',encoding:'utf-8'},function(err,data){
@@ -552,17 +577,17 @@ fs.readFile(path,{flag:'r+',encoding:'utf-8'},function(err,data){
 });
 ```
 
-## 解析get参数
+## 解析 get 参数
 
 通过`replace`方法获取`url`中的参数键值对，可以快速解析`get`参数。
 
 ```
 const q = {};
 location.search.replace(/([^?&=]+)=([^&]+)/g,(_,k,v)=>q[k]=v);
-console.log(q); 
+console.log(q);
 ```
 
-## 解析连接url
+## 解析连接 url
 
 可以通过创建`a`标签，给`a`标签赋值`href`属性的方式，获取`到协议`，`pathname`，`origin`等`location`对象上的属性。
 
@@ -580,7 +605,7 @@ aEle.search;
 ...
 ```
 
-## localStorage本地存储
+## localStorage 本地存储
 
 ```
 // 存储
@@ -607,9 +632,9 @@ for (let i = 0; i < localStorage.length; i++) {
 ## 数组快速去重
 
 ```js
-const arr = [1, 2, 3, 4, 5, 6];
-const arr2 = new Set(arr);
-const arr3 = [...arr2];
+const arr = [1, 2, 3, 4, 5, 6]
+const arr2 = new Set(arr)
+const arr3 = [...arr2]
 ```
 
 ## 让元素具备输入功能
@@ -622,7 +647,7 @@ const arr3 = [...arr2];
 
 不过通过这个属性把标签变为可编辑状态后只有`input`事件，没有`change`事件。也不能像表单一样通过`maxlength`控制最大长度。
 
-### vue配置全局scss样式
+### vue 配置全局 scss 样式
 
 ```js
 chainWebpack(config) {
@@ -639,7 +664,8 @@ chainWebpack(config) {
   })
 }
 ```
-## 58个JavaScript技巧汇总
+
+## 58 个 JavaScript 技巧汇总
 
 ### **字符串技巧**
 
@@ -649,13 +675,13 @@ chainWebpack(config) {
 const time1 = "2022-03-02 09:00:00";const time2 = "2022-03-02 09:00:01";const overtime = time1 < time2;// overtime => true
 ```
 
-**2、格式化money**
+**2、格式化 money**
 
 ```
 const ThousandNum = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");const money = ThousandNum(1000000);// money => '1,000,000'
 ```
 
-#### **3、生成随机ID**
+#### **3、生成随机 ID**
 
 ```
 const RandomId = len => Math.random().toString(36).substr(3, len);const id = RandomId(10);// id => "xdeguewg1f"
@@ -937,13 +963,7 @@ const obj = { a: 0, b: 1, c: 2 };const { a, b = 2, d = 3 } = obj;// a b d => 0 1
 
 ### **函数技能**
 
-#### **47、函数自执行**
-
-```
-const Func = function() {}(); // Commonly used(function() {})(); // Commonly used(function() {}()); // Commonly used[function() {}()];+ function() {}();- function() {}();~ function() {}();! function() {}();new function() {};new function() {}();void function() {}();typeof function() {}();delete function() {}();1, function() {}();1 ^ function() {}();1 > function() {}();
-```
-
-**48、一次性函数**
+**47、一次性函数**
 
 适合运行一些只需要执行一次的初始化代码。
 
@@ -951,82 +971,136 @@ const Func = function() {}(); // Commonly used(function() {})(); // Commonly use
 function Func() {    console.log("x");    Func = function() {        console.log("y");    }}
 ```
 
-#### **49、延迟加载函数**
+#### **48、延迟加载函数**
 
 当函数中的复杂判断分支越来越多时，可以大大节省资源开销。
 
 ```
-function Func() {    if (a === b) {        console.log("x");    } else {        console.log("y");    }}// replace withfunction Func() {    if (a === b) {        Func = function() {            console.log("x");        }    } else {        Func = function() {            console.log("y");        }    }    return Func();}
+function Func() {
+  if (a === b) {
+    console.log('x')
+  } else {
+    console.log('y')
+  }
+}
+// replace with
+function Func() {
+  if (a === b) {
+    Func = function () {
+      console.log('x')
+    }
+  } else {
+    Func = function () {
+      console.log('y')
+    }
+  }
+  return Func()
+}
 ```
 
-#### **50、检测非空参数**
+#### **49、检测非空参数**
 
 ```
-function IsRequired() {    throw new Error("param is required");}function Func(name = IsRequired()) {    console.log("I Love " + name);}Func(); // "param is required"Func("You"); // "I Love You"
+function IsRequired() {
+  throw new Error('param is required')
+}
+function Func(name = IsRequired()) {
+  console.log('I Love ' + name)
+}
+Func() // "param is required"Func("You"); // "I Love You"
+
 ```
 
-#### **51、字符串创建函数**
+#### **50、字符串创建函数**
 
 ```
 const Func = new Function("name", "console.log(\"I Love \" + name)");
 ```
 
-**52、优雅地处理错误信息**
+**51、优雅地处理错误信息**
 
 ```
-try {    Func();} catch (e) {    location.href = "https://stackoverflow.com/search?q=[js]+" + e.message;}
+try {
+  Func()
+} catch (e) {
+  location.href = 'https://stackoverflow.com/search?q=[js]+' + e.message
+}
 ```
 
-#### **53、优雅地处理 Async/Await 参数**
+#### **52、优雅地处理 Async/Await 参数**
 
 ```
-function AsyncTo(promise) {    return promise.then(data => [null, data]).catch(err => [err]);}const [err, res] = await AsyncTo(Func());
+function AsyncTo(promise) {
+  return promise.then((data) => [null, data]).catch((err) => [err])
+}
+const [err, res] = await AsyncTo(Func())
+
 ```
 
-#### **54、优雅地处理多个函数返回值**
+#### **53、优雅地处理多个函数返回值**
 
 ```
-function Func() {    return Promise.all([        fetch("/user"),        fetch("/comment")    ]);}const [user, comment] = await Func();
+function Func() {
+  return Promise.all([fetch('/user'), fetch('/comment')])
+}
+const [user, comment] = await Func()
+
 ```
 
 ### **DOM 技能**
 
-#### **55、显示所有 DOM 边框**
+#### **54、显示所有 DOM 边框**
 
 ```
-[].forEach.call($$("*"), dom => {    dom.style.outline = "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);});
-```
-
-#### **56、响应式页面**
-
-页面基于设计图但需要适配多个模型，元素大小使用rem设置。
+;[].forEach.call($$('*'), (dom) => {
+  dom.style.outline = '1px solid #' + (~~(Math.random() * (1 << 24))).toString(16)
+})
 
 ```
-function AutoResponse(width = 750) {    const target = document.documentElement;    target.clientWidth >= 600        ? (target.style.fontSize = "80px")        : (target.style.fontSize = target.clientWidth / width * 100 + "px");}
-```
 
-#### **57、过滤 XSS**
+### 响应式页面
 
-```
-function FilterXss(content) {    let elem = document.createElement("div");    elem.innerText = content;    const result = elem.innerHTML;    elem = null;    return result;}
-```
-
-#### **58、访问本地存储**
+页面基于设计图但需要适配多个模型，元素大小使用 rem 设置。
 
 ```
-const love = JSON.parse(localStorage.getItem("love"));localStorage.setItem("love", JSON.stringify("I Love You"));
+function AutoResponse(width = 750) {
+  const target = document.documentElement
+  target.clientWidth >= 600
+    ? (target.style.fontSize = '80px')
+    : (target.style.fontSize = (target.clientWidth / width) * 100 + 'px')
+}
 ```
-#### **59、查找webpack项目中无效引用文件**
+
+### **过滤 XSS**
+
+```
+function FilterXss(content) {
+  let elem = document.createElement('div')
+  elem.innerText = content
+  const result = elem.innerHTML
+  elem = null
+  return result
+}
+```
+
+### 访问本地存储
+
+```
+const love = JSON.parse(localStorage.getItem('love'))
+localStorage.setItem('love', JSON.stringify('I Love You'))
+```
+
+### **查找 webpack 项目中无效引用文件**
 
 1. 安装`npm i useless-files-webpack-plugin -D`
 
-2. 在webpack.prod.conf.js中，添加如下代码：
+2. 在 webpack.prod.conf.js 中，添加如下代码：
 
 3. ```
    const UselessFile = require('useless-files-webpack-plugin');
    ```
 
-4. plugins中添加插件配置
+4. plugins 中添加插件配置
 
 5. ```
    new UselessFile({
@@ -1041,36 +1115,37 @@ const love = JSON.parse(localStorage.getItem("love"));localStorage.setItem("love
 
 7. 根据列表中的提供路径，核对相应文件是否需要保留。无需保留，手动删除即可。
 
-#### **60、删除json文件列表路径文件**
+### **删除 json 文件列表路径文件**
 
 ```js
 const fs = require('fs')
-fs.readFile('./unused-files.json', 'utf8', function (err, data) {
-  const list = JSON.parse(data)
-  console.log(list)
-  list.forEach((item) => {
-    fs.unlinkSync(item)
-  })
+fs.readFile('./unused-files.json', 'utf8', function(err, data) {
+    const list = JSON.parse(data)
+    console.log(list)
+    list.forEach((item) => {
+        fs.unlinkSync(item)
+    })
 })
-
 ```
-#### **61、vuescroll的使用**
+
+### **vuescroll 的使用**
 
 安装
+
 ```js
 npm install vuescroll -S
 ```
 
-配置
+#### 配置
 
 ```js
-import Vue from 'vue' 
-import vuescroll from 'vuescroll' 
-Vue.use(vuescroll) 
+import Vue from 'vue'
+import vuescroll from 'vuescroll'
+Vue.use(vuescroll)
 const vm = new Vue({ el: "#app", data: { ops: { vuescroll: { }, scrollPanel: { } // ... } } })
 ```
 
-配置项说明
+#### 配置项说明
 
 ```js
 data(){
@@ -1091,12 +1166,14 @@ data(){
               }
         },}}
 ```
-配置文件
+
+#### 配置文件
+
 ```js
 export default {
   // vuescroll  vuescroll: {
     mode: 'native',
-    // 设置 vuescroll的大小类型， 可选的有percent, number. 
+    // 设置 vuescroll的大小类型， 可选的有percent, number.
     // 设置为percent会把 vuescroll 的 height 和 width 设置成100%,
     // 设置成number的话 vuescroll 会自动计算父元素的大小，并将height和width设置成对应的数值。
     // 提示:如果父元素的尺寸为百分比大小时建议设置成number,如果父元素大小为一个固定的px的值,那么设置为百分比比较合适一些。
@@ -1215,3 +1292,171 @@ export default {
   }
 };
 ```
+
+###修改npm 依赖源码
+
+```
+下载：patch-package 
+在package.json scripts中添加: "postinstall": "patch-package"
+修改源码
+执行命令：npx patch-package package-name 
+package-name 包的名字
+然后会生成文件夹  patches
+验证是否生效：删除node_modules，执行npm install 然后查看对应的包是否存在自己修改过的代码
+
+/** Jenkins首次部署修改配置执行命令：
+npm install --unsafe-perm 
+npm run postinstall
+ **/
+```
+
+###  antd vue 表头和内容不对齐 设置 X轴滚动使用 px单位，其他形式在ie内核浏览器不生效
+
+### axios 中断请求
+需求： 当一个接口在持续请求的时候先中断上一次的请求，可以避免后请求的先回来，最后数据设置到了前一个请求的数据， 切换路由也中断请求
+
+注意： 判断同一接口的依据最好是唯一凭据，不排除 同一个接口确实是需要请求多次，而且是同一时间请求
+
+具体方案：
+使用axios的CancelToken来清除
+
+```
+在main中定义一个pending数据
+Vue.prototype.pending = [] // 用于缓存每个ajax请求的取消函数和ajax标识 
+
+封装axios 问题requirest
+
+import axios from 'axios'
+const service = axios.create({
+baseURL: '/api',
+timeout: 200000
+})
+
+const cancelToken = axios.CancelToken  // CancelToken实例函数
+const removePending = (ever) => {  // 执行中断并删除缓存函数
+const pending = Vue.prototype.pending
+for(const p in pending) {
+if（pending[p].u === ever.url + ever.unique + '&' + ever.method）{
+pending[p].f() // 请求中断
+Vue.prototype.pending.splice(p, 1) // 删除缓存记录
+}
+
+}
+}
+
+
+ //  在请求拦截器中添加pending数据
+service.interceptors.request.use((config) => {
+removePending(config) // 首先删除一下缓存然后再添加
+config.cancelToken = new cancelToken((c) =>{
+Vue.prototype.pending.push({ u: config.url + config.unique + '&' + config.method, f: c })
+})
+
+})
+
+// 在响应拦截器中删除缓存
+service.interceptors.response.use((response) => {
+removePending(response.config)
+})
+
+// 在前置路由中：permission
+const pending = Vue.prototype.pending
+if (pending && pending.length >0){
+for(const p in pending) {
+pending[p].f()  // 中断请求
+}
+// 清空所有的缓存 
+      Vue.prototype.pending = []
+}
+
+
+```
+### 主动销毁keep-alive缓存组件 
+****
+组件的name必须要和路由的name一致，找到Vue框架缓存的cache，删除指定的name
+****
+// 数据缓存清除方式
+RouterView：加一个deleteCach 作为MultiTap的变化， tags为multiTap的数组
+
+```
+computed: {
+    ...mapState({
+      deleteCach: (state) => state.app.deleteCach,
+      tags: (state) => state.app.tags
+    })
+  },
+  watch: {
+    deleteCach() {
+      const cachList = []
+      this.$nextTick(() => {
+        const cache = this.$children[0].$options.parent.cache
+        const keys = this.$children[0].$options.parent.keys
+        // 获取缓存的组件
+        for (const pro in cache) {
+          const tagName = cache[pro].tag.replace('vue-component-', '')
+          const name_list = tagName.split('-')
+          const [key, ...name] = name_list
+          cachList.push({
+            key: key,
+            name: name.join('-')
+          })
+        }
+        for (const item of cachList) {
+          // 获取所有multiTap的组件名字
+          const tagName = this.tags.map((e) => e.name)
+          // 把字符切分，转换首字母大写
+          const uploadList = item.name.split('')
+          const [index, ...oth] = uploadList
+          const uploadName = index.toUpperCase() + oth.join('')
+          // 判断缓存组件是否存在multiTap中，并且要排除PageView
+          if (!tagName.includes(item.name || uploadName) && item.name != 'PageView') {
+            delete this.$children[0].$options.parent.cache[item.key]
+            const ind = keys.findIndex((e) => e == item.key)
+            this.$children[0].$options.parent.keys.splice(ind, 1)
+          }
+        }
+      })
+    }
+  }
+```
+
+在store/modules/app 中定义一个vuex数据 deleteCach 初始值为0
+在更新tags和删除tags的时候出发更新deleteCah数据，出发上述监听
+
+销毁组件：封装一个destoryMixin  在路由组件中添加mixin混入
+
+```
+ computed: {
+    visitedViews() {
+      return this.$store.state.app.tags.map((e) => e.name)
+    }
+  },
+  watch: {
+    visitedViews(value) {
+      // 如果当前组件不存在与tags 就要考虑删除该组件
+      if (!value.includes(this.$option.name)) {
+        // 如果当前父级是PageViews 需要判断是否存在多个子级，存在多个自己就删除该组件，如果是只有当前组件和头部两个children就删除PageViews组件，使用vuex更新触发删除
+        const name = this.$parent.$vnode.tag.split('-').splice(-1)
+        if (name && name[0] == 'PageView') {
+          // 判断子级长度
+          if (this.$parent.$children.length > 2) {
+            this.$destory(this.$option.name)
+          } else {
+            this.$store.commit('CHANGE_FLAG')
+          }
+        } else {
+          this.$destory(this.$option.name)
+        }
+      }
+    }
+  }
+}
+```
+
+在store/modules/app.js
+state添加 delPageViewFlag: false
+mutations添加方法 CHANGE_FLAG
+CHANGE_FLAG（state）{
+state.delPageViewFlag = !state.delPageViewFlag
+}
+在layouts/PageView.vue中添加state.app.delPageViewFlag变化监听，发生变化后直接表换
